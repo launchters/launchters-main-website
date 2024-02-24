@@ -4,6 +4,9 @@
   "version": "0.0.1",
   "type": "module",
   "homepage": "https://launchters.com",
+  "repository": {
+    "url": "https://github.com/launchters/launchters.github.io.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
