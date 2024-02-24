@@ -1,4 +1,4 @@
-> Page available at: [http://launchters.github.io/launchters.github.io](http://launchters.github.io/launchters.github.io).
+> Page available at: [http://launchters.github.io](http://launchters.github.io).
 
 # React + TypeScript + Vite
 
