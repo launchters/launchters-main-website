@@ -7,7 +7,7 @@ import ImageWithOverlay from "../components/ImageWithOverlay";
 import Typography from "../components/Typography";
 
 const onHoverOverlayOpacity = 0.33;
-const launchtersChartPath = "/progreso-programas-gp.png";
+const launchtersChartPath = "/progreso-programas-gp.jpg";
 
 const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -208,20 +208,21 @@ export default function ProductCategories() {
               </ImageIconButton>
             </Grid>
           ))}
+          <Grid item xs={12}>
+            <Typography variant="overline" sx={{ color: "#777" }}>
+              Pasa el ratón por encima de las imágenes para saber más detalles.
+            </Typography>
+          </Grid>
         </Grid>
 
         <Grid container rowSpacing={2} sx={{ mt: 0, mb: 0, pb: 0 }}>
           <Grid item xs={12}>
             <img
-              style={{ margin: 2 }}
+              style={{ margin: 2, maxWidth: "100%" }}
+              width={1200}
               src={launchtersChartPath}
               alt="Profit Scale Chart with Launchters' programs."
             />
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="overline">
-              Pasa el ratón por encima de las imágenes para saber más detalles.
-            </Typography>
           </Grid>
         </Grid>
       </Box>
