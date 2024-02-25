@@ -209,16 +209,21 @@ export default function ProductCategories() {
             </Grid>
           ))}
         </Grid>
-        <Stack flexDirection="column" sx={{ mt: 0, mb: 0, pb: 0 }}>
-          <Typography variant="overline">
-            Pasa el ratón por encima de las imágenes para saber más detalles.
-          </Typography>
-          <img
-            style={{ margin: 2 }}
-            src={launchtersChartPath}
-            alt="Profit Scale Chart with Launchters' programs."
-          />
-        </Stack>
+
+        <Grid container rowSpacing={2} sx={{ mt: 0, mb: 0, pb: 0 }}>
+          <Grid item xs={12}>
+            <img
+              style={{ margin: 2 }}
+              src={launchtersChartPath}
+              alt="Profit Scale Chart with Launchters' programs."
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="overline">
+              Pasa el ratón por encima de las imágenes para saber más detalles.
+            </Typography>
+          </Grid>
+        </Grid>
       </Box>
     </Stack>
   );
