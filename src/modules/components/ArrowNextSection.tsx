@@ -1,20 +1,22 @@
 import { ArrowDownward } from "@mui/icons-material";
-import { Link, styled } from "@mui/material";
+import { Link as LinkScroll } from "react-scroll";
 
 type Props = {
   toId: string;
+  offset: number | undefined;
 };
 
-const CustomLink = styled(Link)(() => ({
-  "&, &:hover": {
-    color: "inherit",
-  },
-}));
-
-export default function ArrowNextSection({ toId }: Props) {
+export default function ArrowNextSection({ toId, offset }: Props) {
   return (
-    <CustomLink href={`#${toId}`}>
+    <LinkScroll
+      to={`${toId}`}
+      style={{ color: "inherit", cursor: "pointer" }}
+      spy={false}
+      smooth={true}
+      offset={offset}
+      duration={500}
+    >
       <ArrowDownward sx={{ mt: 4 }} />
-    </CustomLink>
+    </LinkScroll>
   );
 }

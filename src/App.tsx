@@ -1,10 +1,10 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import HomeIndex from "./HomeIndex";
-import LegalGeneralTerms from "./LegalTermSheetsGeneral";
 import LegalPrivacyPolicyAndUseOfCookies from "./LegalPrivacyPolicyAndUseOfCookies";
+import LegalGeneralTerms from "./LegalTermSheetsGeneral";
 import LegalTermsOfService from "./LegalTermsOfService";
 import theme from "./modules/theme";
 

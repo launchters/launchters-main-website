@@ -65,7 +65,7 @@ export default function ProductHeroLayout({
             BAJA PARA SABER MÁS.
           </Typography> */}
 
-          <ArrowNextSection toId={appConfig.sectionIds.highlights} />
+          <ArrowNextSection toId={appConfig.sectionIds.highlights}  offset={0} />
         </Stack>
 
         {/* background and overlay */}

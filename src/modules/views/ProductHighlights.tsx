@@ -79,7 +79,7 @@ const titleTypographyProps = {
 
 export default function ProductHighlights({ version }: Props) {
   const id = "product-highlights";
-  const arrowNext = <ArrowNextSection toId={appConfig.sectionIds.limits} />;
+  const arrowNext = <ArrowNextSection toId={appConfig.sectionIds.limits}  offset={-40} />;
 
   switch (version) {
     case "highlights":

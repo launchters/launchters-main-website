@@ -52,7 +52,7 @@ function ProductLimits() {
           </Typography>
         </Container>
       </Box>
-      {/* <ArrowNextSection toId={appConfig.sectionIds.categories} /> */}
+      {/* <ArrowNextSection toId={appConfig.sectionIds.categories}  offset={-40} /> */}
     </Stack>
   );
 }

@@ -104,8 +104,8 @@ const imageCells = [
 
 export default function ProductCategories() {
   return (
-    <Stack flexDirection="column" sx={{ my: 4 }}>
-      <ArrowNextSection toId="product-categories" />
+    <Stack flexDirection="column" sx={{ mb: 4 }}>
+      <ArrowNextSection toId="product-categories" offset={-40} />
       <Box component="section" id="product-categories" sx={{ mt: 4 }}>
         {/* ----- SECTION TITLE -----  */}
         <Typography variant="h4" marked="center" align="center" component="h2">
