@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function LegalPrivacyPolicyAndUseOfCookies() {
+function GeneralTermSheet() {
   return (
     <React.Fragment>
       <h1>Próximamente...</h1>
@@ -8,4 +8,4 @@ function LegalPrivacyPolicyAndUseOfCookies() {
   );
 }
 
-export default LegalPrivacyPolicyAndUseOfCookies;
+export default GeneralTermSheet;

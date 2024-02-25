@@ -25,7 +25,11 @@ export default function CtaButton() {
         target="_blank"
       >
         <Stack flexDirection="row" spacing={2}>
-          <Typography variant="h6" component="span" sx={{ fontSize: "2em" }}>
+          <Typography
+            variant="h6"
+            component="span"
+            sx={{ fontSize: { xs: "1.2rem", md: "2em" } }}
+          >
             Calcular cuánto puedo ganar
           </Typography>
         </Stack>

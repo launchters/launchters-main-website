@@ -17,7 +17,7 @@ type Props = {
   isDisabled: boolean;
 };
 
-export default function ImageWithOverlay({ imgUrl, isDisabled }: Props) {
+export default function ImageBoxWithOverlay({ imgUrl, isDisabled }: Props) {
   return (
     <>
       <Box

@@ -1,6 +1,6 @@
 import { ArrowDownward } from "@mui/icons-material";
 import Container from "@mui/material/Container";
-import CtaButton from "../components/CtaButton";
+import CtaButton from "../../components/CtaButton";
 
 function ProductCTATalk() {
   return (
@@ -11,6 +11,7 @@ function ProductCTATalk() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        mb: 6,
       }}
     >
       {/* 

@@ -1,13 +1,13 @@
-import { Grid, Stack } from "@mui/material";
+import { Container, Grid, Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
-import ArrowNextSection from "../components/ArrowNextSection";
-import ImageWithOverlay from "../components/ImageWithOverlay";
-import Typography from "../components/Typography";
+import launchtersChart from "../../../assets/progreso-programas-gp-chart.png";
+import ArrowNextSection from "../../components/ArrowNextSection";
+import ImageBoxWithOverlay from "../../components/ImageBoxWithOverlay";
+import Typography from "../../components/Typography";
 
 const onHoverOverlayOpacity = 0.33;
-const launchtersChartPath = "/progreso-programas-gp.jpg";
 
 const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -15,8 +15,7 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
   width: "100%",
   padding: 0,
   borderRadius: 0,
-  height: "40vh",
-  minHeight: "240px",
+  minHeight: "min(350px,61.8vh)",
   [theme.breakpoints.down("md")]: {
     width: "100%",
     height: 100,
@@ -104,7 +103,7 @@ const imageCells = [
 
 export default function ProductCategories() {
   return (
-    <Stack flexDirection="column" sx={{ mb: 4 }}>
+    <Box flexDirection="column" sx={{ xs: { mb: 60, md: 30 } }}>
       <ArrowNextSection toId="product-categories" offset={-40} />
       <Box component="section" id="product-categories" sx={{ mt: 4 }}>
         {/* ----- SECTION TITLE -----  */}
@@ -141,7 +140,8 @@ export default function ProductCategories() {
             sx={{
               color: "#ccc",
               opacity: 0.5,
-              mt: 0.2,
+              mb: 0.2,
+              px: 2,
               fontStyle: "italic",
               fontSize: "0.85rem",
               textAlign: "right",
@@ -155,11 +155,17 @@ export default function ProductCategories() {
         {/* 
       ----- IMAGE'S GRID -----
       */}
-        <Grid container className="imageCellBox">
+        <Grid container>
           {imageCells.map((cell) => (
-            <Grid item xs={12} md={cell.cols} key={cell.key}>
+            <Grid
+              item
+              xs={12}
+              md={cell.cols}
+              key={cell.key}
+              className="imageCellBox"
+            >
               <ImageIconButton key={cell.title}>
-                <ImageWithOverlay
+                <ImageBoxWithOverlay
                   imgUrl={cell.url}
                   isDisabled={!!cell.comingSoon}
                 />
@@ -210,22 +216,31 @@ export default function ProductCategories() {
           ))}
           <Grid item xs={12}>
             <Typography variant="overline" sx={{ color: "#777" }}>
-              Pasa el ratón por encima de las imágenes para saber más detalles.
+              Conoce los detalles al presionar las imágenes.
             </Typography>
           </Grid>
         </Grid>
 
-        <Grid container rowSpacing={2} sx={{ mt: 0, mb: 0, pb: 0 }}>
+        <Grid
+          container
+          rowSpacing={2}
+          sx={{
+            display: { xs: "none", md: "block" },
+            my: 0,
+          }}
+        >
           <Grid item xs={12}>
-            <img
-              style={{ margin: 2, maxWidth: "100%" }}
-              width={1200}
-              src={launchtersChartPath}
-              alt="Profit Scale Chart with Launchters' programs."
-            />
+            <Container>
+              <img
+                src={launchtersChart}
+                alt="Profit Scale Chart with Launchters' programs."
+                style={{ margin: 2, maxWidth: "100%" }}
+                width="auto"
+              />
+            </Container>
           </Grid>
         </Grid>
       </Box>
-    </Stack>
+    </Box>
   );
 }

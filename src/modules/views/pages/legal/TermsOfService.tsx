@@ -1,14 +1,13 @@
 import * as React from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Markdown from "./modules/components/Markdown";
-import Typography from "./modules/components/Typography";
-import AppAppBar from "./modules/views/AppAppBar";
-import AppFooter from "./modules/views/AppFooter";
+import Markdown from "../../../components/Markdown";
+import Typography from "../../../components/Typography";
+import AppAppBar from "../../sections/AppAppBar";
+import AppFooter from "../../sections/AppFooter";
+import termsOfServiceDetails from "./config/terms.md";
 
-import terms from "./modules/views/terms.md";
-
-function Terms() {
+function TermsOfService() {
   return (
     <React.Fragment>
       <AppAppBar />
@@ -17,7 +16,7 @@ function Terms() {
           <Typography variant="h3" gutterBottom marked="center" align="center">
             Terms
           </Typography>
-          <Markdown>{terms}</Markdown>
+          <Markdown>{termsOfServiceDetails}</Markdown>
         </Box>
       </Container>
       <AppFooter />
@@ -25,4 +24,4 @@ function Terms() {
   );
 }
 
-export default Terms;
+export default TermsOfService;

@@ -1,5 +1,5 @@
 import MuiAppBar, { AppBarProps } from "@mui/material/AppBar";
-import appConfig from "../../config";
+import appConfig from "../../config/app.config";
 
 function AppBar(props: AppBarProps) {
   return (

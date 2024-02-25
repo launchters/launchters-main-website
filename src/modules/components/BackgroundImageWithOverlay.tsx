@@ -4,7 +4,8 @@ import { Theme, styled } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
 
 type Props = {
-  backgroundImage: string;
+  src: string;
+  opacity?: number;
 };
 
 const Background = styled("div")({
@@ -18,9 +19,12 @@ const Background = styled("div")({
   zIndex: 0,
 });
 
-export default function BackgroundImageWithOverlay({ backgroundImage }: Props) {
+export default function BackgroundImageWithOverlay({
+  src,
+  opacity = 0.7,
+}: Props) {
   const sxBackground: SxProps<Theme> = {
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${src})`,
     backgroundColor: "#7fc7d9", // Average color of the background image.
     backgroundPosition: "50% 50%",
     zIndex: 0,
@@ -37,7 +41,7 @@ export default function BackgroundImageWithOverlay({ backgroundImage }: Props) {
           top: 0,
           bottom: 0,
           backgroundColor: "common.black",
-          opacity: 0.7,
+          opacity,
           zIndex: 1,
         }}
       />

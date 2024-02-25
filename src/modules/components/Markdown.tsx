@@ -3,7 +3,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import ReactMarkdown from "markdown-to-jsx";
 import { $TSFix } from "../models/ts-fix.d";
-
+ 
 const options = {
   overrides: {
     h1: {
@@ -44,6 +44,12 @@ const options = {
   },
 };
 
-export default function Markdown(props: $TSFix) {
+export type MarkdownProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  children: any;
+};
+export default function Markdown(props: MarkdownProps) {
   return <ReactMarkdown options={options} {...props} />;
 }
