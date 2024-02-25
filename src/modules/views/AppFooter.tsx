@@ -26,7 +26,7 @@ function Copyright() {
           &copy; {new Date().getFullYear()}.&nbsp;
           <Link
             color="inherit"
-            href="https://cookingstartups.com/?ref=launchters.com"
+            href="https://cookingstartups.com/?utm_source=https://launchters.com"
             rel="follow"
           >
             Cooking Startups Limited.
