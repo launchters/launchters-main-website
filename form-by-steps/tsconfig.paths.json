@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // ALIASES
+    "paths": {
+      // THIS LIST NEEDS TO BE SYNC WITH craco.config.js
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@assets/*": ["./src/app/assets/*"],
+      "@hooks/*": ["./src/app/hooks/*"],
+      "@mocks/*": ["./src/app/mocks/*"],
+      "@models/*": ["./src/app/models/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@providers/*": ["./src/app/providers/*"],
+      "@routes/*": ["./src/app/routes/*"],
+      "@sections/*": ["./src/app/sections/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@state/*": ["./src/app/state/*"],
+      "@styles/*": ["./src/app/styles/*"],
+      "@theme/*": ["./src/app/theme/*"],
+      "@utils/*": ["./src/app/utils/*"]
+    }
+  }
+}
