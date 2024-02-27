@@ -30,13 +30,13 @@ const Router = (): ReactElement<
         },
       ],
     },
-    // TODO: Esta ruta hay que agregarla al otro proyecto
+    // TODO: Esta ruta hay que agregarla al otro proyecto, adapptandola a nuestro caso de uso
     // {
-    //   path: "lead-magnets",
-    //   element: <DashboardLayout />,
+    //   path: "lm", // lm = lead magnet
+    //   element: <DashboardLayout />, // El diseño/layout que envuelve al formulario va aqui
     //   children: [
     //     {
-    //       path: "profit-calculator-gp-001",
+    //       path: "profit-calc-gp-001",
     //       element: (
     //         <FormPage title="Crear trabajador" form={<AddStaffForm />} />
     //       ),

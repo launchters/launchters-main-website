@@ -23,6 +23,7 @@ function App() {
             path="/legal/privacy"
             element={<LegalDoc doc={privacyDoc} />}
           /> */}
+          {/* // TODO AGREGAR RUTA AQUI */}
           <Route
             path="/legal/term-sheets/general"
             element={<GeneralTermSheet />}

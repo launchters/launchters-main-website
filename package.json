@@ -7,7 +7,7 @@
     "url": "https://github.com/launchters/launchters.github.io.git"
   },
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
