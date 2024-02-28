@@ -51,12 +51,12 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 #### Primeros pasos:
 
 - [x] Hacer `git clone` del proyecto y ejecutarlo en local (`start`) tras haber instalado las dependencias (`install`).
-- [ ] Asegurarme de haber instalado Node, SourceTree y Yarn en mi pc antes de empezar.
-- [ ] Posicionarme en la rama `feature/lead-magnets` (usando `git checkout` o SourceTree). Esta será tu rama de trabajo por ahora.
-- [ ] Agregar algún cambio. Por ejemplo: agregar mi propio script al `package.json` que diga `echo COMPLETADO`.
-- [ ] Hacer mi primer commit con `git commit` o con SourceTree.
-- [ ] Traerse los cambios que hubiese en el servidor, dentro de esta rama a mi local, utilizando `git fetch` (consulta) y `git pull` (Traerselo).
-- [ ] Crear mi propia rama de tipo `feature/*`.
+- [x] Asegurarme de haber instalado Node, SourceTree y Yarn en mi pc antes de empezar.
+- [x] Posicionarme en la rama `feature/lead-magnets` (usando `git checkout` o SourceTree). Esta será tu rama de trabajo por ahora.
+- [x] Agregar algún cambio. Por ejemplo: agregar mi propio script al `package.json` que diga `echo COMPLETADO`.
+- [x] Hacer mi primer commit con `git commit` o con SourceTree.
+- [x] Traerse los cambios que hubiese en el servidor, dentro de esta rama a mi local, utilizando `git fetch` (consulta) y `git pull` (Traerselo).
+- [x] Crear mi propia rama de tipo `feature/*`.
 - [ ] Abrir mi primer PULL REQUEST solicitando que la rama `feature/lead-magnets` se una a `develop`.
 
 #### Al lío:
