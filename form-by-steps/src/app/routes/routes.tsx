@@ -1,7 +1,7 @@
 import NoLogoLayout from "@/app/layouts/NoLogoLayout";
 import DashboardLayout from "@/app/layouts/dashboard/DashboardLayout";
 import AddStaffForm from "@components/staff/partials/forms/AddStaffForm";
-import FormPage from "@pages/FormPage";
+import FormLayout from "@pages/FormLayout";
 import LoadingPage from "@pages/LoadingPage";
 import { JSXElementConstructor, ReactElement } from "react";
 import { RouteObject, useNavigate, useRoutes } from "react-router-dom";
@@ -38,7 +38,7 @@ const Router = (): ReactElement<
     //     {
     //       path: "profit-calc-gp-001",
     //       element: (
-    //         <FormPage title="Crear trabajador" form={<AddStaffForm />} />
+    //         <FormLayout title="Crear trabajador" form={<AddStaffForm />} />
     //       ),
     //     },
     //   ],
@@ -51,7 +51,7 @@ const Router = (): ReactElement<
         {
           path: "create",
           element: (
-            <FormPage title="Crear trabajador" form={<AddStaffForm />} />
+            <FormLayout title="Crear trabajador" form={<AddStaffForm />} />
           ),
         },
       ],

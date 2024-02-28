@@ -8,7 +8,7 @@ interface Props {
   form: JSX.Element;
 }
 
-function FormPage({ title, form }: Props) {
+function FormLayout({ title, form }: Props) {
   return (
     <Page title={title}>
       <Container>
@@ -21,4 +21,4 @@ function FormPage({ title, form }: Props) {
   );
 }
 
-export default FormPage;
+export default FormLayout;
