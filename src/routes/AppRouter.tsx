@@ -37,7 +37,7 @@ export default function AppRouter() {
         />
 
         <Route path="/" element={<HomeIndex />} />
-        <Route path="/form" element={<h1>Todo va bien!</h1>} />
+        <Route path="/lm/profit-calc-gp-001" element={<h1>Todo va bien!</h1>} />
         {/* 
         // ! Sustituye la ruta /form por /lm/profit-calc-gp-001 
         */}
