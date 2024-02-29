@@ -61,6 +61,8 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 #### Al lío:
 
+- [x] Crear nueva ruta `lm/profit-calc-gp-001` en `routes.tsx` donde carguemos un componente 'dummy' como placeholder.
+- [x] `#feature/form-start`: Crear un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
 - [x] Crear nueva ruta `lm/profit-calc-gp-001` en `AppRouter.tsx` donde carguemos un componente 'dummy' como placeholder.
 - [ ] `#feature/form-start`: Crear un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
 ```
