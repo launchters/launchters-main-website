@@ -57,7 +57,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 - [x] Hacer mi primer commit con `git commit` o con SourceTree.
 - [x] Traerse los cambios que hubiese en el servidor, dentro de esta rama a mi local, utilizando `git fetch` (consulta) y `git pull` (Traerselo).
 - [x] Crear mi propia rama de tipo `feature/*`.
-- [ ] Abrir mi primer PULL REQUEST solicitando que la rama `feature/lead-magnets` se una a `develop`.
+- [x] Abrir mi primer PULL REQUEST solicitando que la rama `feature/lead-magnets` se una a `develop`.
 
 #### Al lío:
 
