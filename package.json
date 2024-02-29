@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "homepage": "https://launchters.github.io",
   "repository": {
     "url": "https://github.com/launchters/launchters.github.io.git"
   },
