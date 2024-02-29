@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 import Typography from "../../components/Typography";
 import SocialMediaButtons from "./SocialMediaButtons";
 
@@ -24,8 +24,8 @@ function Copyright() {
       <Typography variant="caption">
         &copy; {new Date().getFullYear()}.&nbsp;
         <Link
+          to="https://cookingstartups.com/?utm_source=https://launchters.com"
           color="inherit"
-          href="https://cookingstartups.com/?utm_source=https://launchters.com"
           rel="follow"
         >
           Cooking Startups Limited.
@@ -37,22 +37,22 @@ function Copyright() {
       {/* Attribution disclaimer */}
       <Typography variant="caption" sx={{ px: "0.4em" }}>
         {"Icons made by "}
-        <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
+        <a href="https://www.freepik.com" rel="sponsored" title="Freepik">
           Freepik
-        </Link>
+        </a>
         {" from "}
-        <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
+        <a href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
           Flaticon.com
-        </Link>
+        </a>
         {" is licensed by "}
-        <Link
+        <a
           href="https://creativecommons.org/licenses/by/3.0/"
           title="Creative Commons BY 3.0"
           target="_blank"
           rel="noopener noreferrer"
         >
           CC 3.0 BY
-        </Link>
+        </a>
       </Typography>
     </Stack>
   );
@@ -119,17 +119,17 @@ export default function AppFooter() {
             }}
           >
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link href="./legal/terms/" sx={footerLinkStyle}>
+              <Link to="/legal/terms/" style={footerLinkStyle}>
                 Términos del Servicio
               </Link>
             </Box>
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link href="./legal/privacy/" sx={footerLinkStyle}>
+              <Link to="/legal/privacy/" style={footerLinkStyle}>
                 Política de Privacidad y Uso de Cookies
               </Link>
             </Box>
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link href="./legal/term-sheets/general/" sx={footerLinkStyle}>
+              <Link to="/legal/term-sheets/general/" style={footerLinkStyle}>
                 Condiciones Generales de Contratación (CCGG)
               </Link>
             </Box>
