@@ -4,28 +4,26 @@ import HomeIndex from "../modules/views/pages/HomeIndex";
 import LegalDoc from "../modules/views/pages/legal/LegalDoc";
 // import privacyDoc from "../config/legal/privacy.md";
 // import termsOfServiceDoc from "../config/legal/termsOfService.md";
-// import LegalDoc from "../modules/views/pages/legal/LegalDoc";
 
-const dummyDoc = "# Heck Yes\n\nThis is great!";
+const dummyDoc = "# Próximamente\n\nEste documento no está disponible ahora mismo";
+
 export default function AppRouter() {
   return (
     <Router>
       <Routes>
-        {/* <Route
-        path="/legal/terms"
-        element={
-          <LegalDoc title="Términos del Servicio" doc={termsOfServiceDoc} />
-        }
-      />
-      <Route
-        path="/legal/privacy"
-        element={
-          <LegalDoc
-            title="Política de Privacidad y Uso de Cookies"
-            doc={privacyDoc}
-          />
-        }
-      /> */}
+        <Route
+          path="/legal/terms"
+          element={<LegalDoc title="Términos del Servicio" doc={dummyDoc} />}
+        />
+        <Route
+          path="/legal/privacy"
+          element={
+            <LegalDoc
+              title="Política de Privacidad y Uso de Cookies"
+              doc={dummyDoc}
+            />
+          }
+        />
         <Route
           path="/legal/term-sheets/general"
           element={
