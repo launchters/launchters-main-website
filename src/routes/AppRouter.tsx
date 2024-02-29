@@ -4,13 +4,15 @@ import "../App.css";
 // import termsOfServiceDoc from "../config/legal/termsOfService.md";
 import HomeIndex from "../modules/views/pages/HomeIndex";
 import LegalDoc from "../modules/views/pages/legal/LegalDoc";
+import { HashRouter as Router } from "react-router-dom";
 
 const dummyDoc = "# Heck Yes\n\nThis is great!";
 
 export default function AppRouter() {
   return (
-    <Routes>
-      {/* <Route
+    <Router>
+      <Routes>
+        {/* <Route
         path="/legal/terms"
         element={
           <LegalDoc title="Términos del Servicio" doc={termsOfServiceDoc} />
@@ -25,7 +27,7 @@ export default function AppRouter() {
           />
         }
       /> */}
-      {/* <Route
+        {/* <Route
         path="/legal/term-sheets/general"
         element={
           <LegalDoc
@@ -35,17 +37,18 @@ export default function AppRouter() {
         }
       /> */}
 
-      <Route
-        path="/legal/privacy"
-        element={
-          <LegalDoc
-            title="Política de Privacidad y Uso de Cookies"
-            doc={dummyDoc}
-          />
-        }
-      />
+        <Route
+          path="/legal/privacy"
+          element={
+            <LegalDoc
+              title="Política de Privacidad y Uso de Cookies"
+              doc={dummyDoc}
+            />
+          }
+        />
 
-      <Route path="/" element={<HomeIndex />} />
-    </Routes>
+        <Route path="/" element={<HomeIndex />} />
+      </Routes>
+    </Router>
   );
 }
