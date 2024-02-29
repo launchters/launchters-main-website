@@ -2,6 +2,8 @@ import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import "../App.css";
 import HomeIndex from "../modules/views/pages/HomeIndex";
 import LegalDoc from "../modules/views/pages/legal/LegalDoc";
+import ProfitCalcGPLeadMagnetForm from "../modules/components/ProfitCalcGPLeadMagnetForm";
+
 // import privacyDoc from "../config/legal/privacy.md";
 // import termsOfServiceDoc from "../config/legal/termsOfService.md";
 
@@ -37,9 +39,8 @@ export default function AppRouter() {
         />
 
         <Route path="/" element={<HomeIndex />} />
-        <Route path="/lm/profit-calc-gp-001" element={<h1>Todo va bien!</h1>} />
+        <Route path="/lm/profit-calc-gp-001" element={<ProfitCalcGPLeadMagnetForm />} />
         {/* 
-        // ! Sustituye la ruta /form por /lm/profit-calc-gp-001 
         */}
       </Routes>
     </Router>
