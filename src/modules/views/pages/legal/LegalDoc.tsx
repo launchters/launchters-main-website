@@ -1,22 +1,25 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import * as React from "react";
-import Markdown, { MarkdownProps } from "../../../components/Markdown";
+import Markdown from "../../../components/Markdown";
 import Typography from "../../../components/Typography";
+import { $TSFix } from "../../../models/ts-fix.d";
 import AppAppBar from "../../sections/AppAppBar";
 import AppFooter from "../../sections/AppFooter";
 
 type Props = {
-  doc: MarkdownProps;
+  // doc: MarkdownProps;
+  doc: $TSFix;
+  title: string;
 };
-function Privacy({ doc }: Props) {
+function LegalDoc({ doc, title }: Props) {
   return (
     <React.Fragment>
       <AppAppBar />
       <Container>
         <Box sx={{ mt: 7, mb: 12 }}>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Privacy
+            {title}
           </Typography>
           <Markdown>{doc}</Markdown>
         </Box>
@@ -26,4 +29,4 @@ function Privacy({ doc }: Props) {
   );
 }
 
-export default Privacy;
+export default LegalDoc;
