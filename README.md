@@ -58,13 +58,8 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 - [x] Traerse los cambios que hubiese en el servidor, dentro de esta rama a mi local, utilizando `git fetch` (consulta) y `git pull` (Traerselo).
 - [x] Crear mi propia rama de tipo `feature/*`.
 - [x] Abrir mi primer PULL REQUEST solicitando que la rama `feature/lead-magnets` se una a `develop`.
-
-#### Al lío:
-
-- [x] Crear nueva ruta `lm/profit-calc-gp-001` en `routes.tsx` donde carguemos un componente 'dummy' como placeholder.
-- [x] `#feature/form-start`: Crear un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
 - [x] Crear nueva ruta `lm/profit-calc-gp-001` en `AppRouter.tsx` donde carguemos un componente 'dummy' como placeholder.
-- [ ] `#feature/form-start`: Crear un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
+- [x] `#feature/form-start`: Cargar un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
 ```
   <><Typography>AQUÍ IRÁ MI FORMULARIO PARA ESTE CASO DE USO (USE CASE)</Typography><>
 ```
