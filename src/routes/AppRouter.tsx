@@ -36,6 +36,7 @@ export default function AppRouter() {
         />
 
         <Route path="/" element={<HomeIndex />} />
+        <Route path="/form" element={<h1>Todo va bien!</h1>} />
       </Routes>
     </Router>
   );
