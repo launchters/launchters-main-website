@@ -3,8 +3,8 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
-import Button from "../../components/Button";
-import Typography from "../../components/Typography";
+import Button from "../../../components/Button";
+import Typography from "../../../components/Typography";
 
 const item: SxProps<Theme> = {
   display: "flex",

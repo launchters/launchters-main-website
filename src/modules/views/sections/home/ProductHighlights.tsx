@@ -2,9 +2,9 @@ import { Grid, Stack, SxProps } from "@mui/material";
 import Box from "@mui/material/Box";
 // import { Theme } from "@mui/material/styles";
 import { ReactNode } from "react";
-import appConfig from "../../../config/app.config";
-import ArrowNextSection from "../../components/ArrowNextSection";
-import Typography from "../../components/Typography";
+import appConfig from "../../../../config/app.config";
+import ArrowNextSection from "../../../components/ArrowNextSection";
+import Typography from "../../../components/Typography";
 
 // const item: SxProps<Theme> = {
 //   display: "flex",

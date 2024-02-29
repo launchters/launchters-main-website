@@ -2,11 +2,11 @@ import { Stack } from "@mui/material";
 import * as React from "react";
 import AppAppBar from "../sections/AppAppBar";
 import AppFooter from "../sections/AppFooter";
-import ProductCTATalk from "../sections/ProductCTATalk";
-import ProductCategories from "../sections/ProductCategories";
-import ProductHero from "../sections/ProductHero";
-import ProductHighlights from "../sections/ProductHighlights";
-import ProductLimits from "../sections/ProductLimits";
+import ProductCTASection from "../sections/home/ProductCTASection";
+import ProductCategories from "../sections/home/ProductCategories";
+import ProductHighlights from "../sections/home/ProductHighlights";
+import ProductLimits from "../sections/home/ProductLimits";
+import ProductHero from "../sections/home/hero/ProductHero";
 
 function HomeIndex() {
   return (
@@ -19,7 +19,7 @@ function HomeIndex() {
         <ProductCategories />
         {/* <ProductHowItWorks /> */}
         {/* <ProductCTA /> */}
-        <ProductCTATalk />
+        <ProductCTASection />
       </Stack>
       <AppFooter />
     </React.Fragment>

@@ -1,8 +1,8 @@
 import { Grid, TypographyOwnProps } from "@mui/material";
-import heroImage from "../../../assets/hero_image5.svg";
-import appConfig from "../../../config/app.config";
-import ProductHeroSubtitle from "../../components/ProductHeroSubtitle";
-import Typography from "../../components/Typography";
+import heroImage from "../../../../../assets/hero_image5.svg";
+import appConfig from "../../../../../config/app.config";
+import ProductHeroSubtitle from "../../../../components/ProductHeroSubtitle";
+import Typography from "../../../../components/Typography";
 import ProductHeroLayout from "./ProductHeroLayout";
 
 const backgroundImage: string =
