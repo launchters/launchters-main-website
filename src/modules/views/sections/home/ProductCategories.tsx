@@ -2,10 +2,10 @@ import { Container, Grid, Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
-import launchtersChart from "../../../assets/progreso-programas-gp-chart.png";
-import ArrowNextSection from "../../components/ArrowNextSection";
-import ImageBoxWithOverlay from "../../components/ImageBoxWithOverlay";
-import Typography from "../../components/Typography";
+ import launchtersChart from "../../../../assets/progreso-programas-gp-chart.png";
+import ArrowNextSection from "../../../components/ArrowNextSection";
+import ImageBoxWithOverlay from "../../../components/ImageBoxWithOverlay";
+import Typography from "../../../components/Typography";
 
 const onHoverOverlayOpacity = 0.33;
 

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import Typography from "../../components/Typography";
-import SocialMediaButtons from "./SocialMediaButtons";
+import SocialMediaButtons from "../../components/SocialMediaButtons";
 
 const footerLinkStyle = {
   fontSize: "0.8rem",

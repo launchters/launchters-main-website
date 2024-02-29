@@ -2,9 +2,9 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
-import appConfig from "../../../config/app.config";
-import ArrowNextSection from "../../components/ArrowNextSection";
-import BackgroundImageWithOverlay from "../../components/BackgroundImageWithOverlay";
+import appConfig from "../../../../../config/app.config";
+import ArrowNextSection from "../../../../components/ArrowNextSection";
+import BackgroundImageWithOverlay from "../../../../components/BackgroundImageWithOverlay";
 
 const ProductHeroLayoutRoot = styled("section")(({ theme }) => ({
   color: theme.palette.common.white,

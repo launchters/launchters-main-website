@@ -1,8 +1,8 @@
 import { ArrowDownward } from "@mui/icons-material";
 import Container from "@mui/material/Container";
-import CtaButton from "../../components/CtaButton";
+import CtaButton from "../../../components/CtaButton";
 
-function ProductCTATalk() {
+function ProductCTASection() {
   return (
     <Container
       id="product-cta-talk"
@@ -28,4 +28,4 @@ function ProductCTATalk() {
   );
 }
 
-export default ProductCTATalk;
+export default ProductCTASection;

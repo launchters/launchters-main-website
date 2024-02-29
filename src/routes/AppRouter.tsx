@@ -5,7 +5,8 @@ import LegalDoc from "../modules/views/pages/legal/LegalDoc";
 // import privacyDoc from "../config/legal/privacy.md";
 // import termsOfServiceDoc from "../config/legal/termsOfService.md";
 
-const dummyDoc = "# Próximamente\n\nEste documento no está disponible ahora mismo";
+const dummyDoc =
+  "# Próximamente\n\nEste documento no está disponible ahora mismo";
 
 export default function AppRouter() {
   return (
@@ -36,6 +37,10 @@ export default function AppRouter() {
         />
 
         <Route path="/" element={<HomeIndex />} />
+        <Route path="/lm/profit-calc-gp-001" element={<h1>Todo va bien!</h1>} />
+        {/* 
+        // ! Sustituye la ruta /form por /lm/profit-calc-gp-001 
+        */}
       </Routes>
     </Router>
   );

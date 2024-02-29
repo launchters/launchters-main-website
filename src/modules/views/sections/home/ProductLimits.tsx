@@ -1,8 +1,8 @@
 import KeyIcon from "@mui/icons-material/Key";
 import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
-import BackgroundImageWithOverlay from "../../components/BackgroundImageWithOverlay";
-import Typography from "../../components/Typography";
+import BackgroundImageWithOverlay from "../../../components/BackgroundImageWithOverlay";
+import Typography from "../../../components/Typography";
 
 function ProductLimits() {
   return (
