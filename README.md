@@ -59,17 +59,16 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 - [x] Crear mi propia rama de tipo `feature/*`.
 - [x] Abrir mi primer PULL REQUEST solicitando que la rama `feature/lead-magnets` se una a `develop`.
 - [x] Crear nueva ruta `lm/profit-calc-gp-001` en `AppRouter.tsx` donde carguemos un componente 'dummy' como placeholder.
-- [x] `#feature/form-start`: Cargar un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con este código:
-```
-  <><Typography>AQUÍ IRÁ MI FORMULARIO PARA ESTE CASO DE USO (USE CASE)</Typography><>
-```
-- [ ] `#feature/form-steps`: He creado un componente `ProfitCalcGPLeadMagnetForm`, que contiene formulario básico de ejemplo que incluye 3 campos y navegación por etapas y he usado un `LeadMagnetFormLayout`.
+- [x] `#feature/form-start`: Cargar un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con cualquier texto de ejemplo y comprobar que se muestre al cargar la ruta `/#/lm/profit-calc-gp-001` (nótese el hashtag).
+- [ ] `#feature/form-steps`: He creado un componente `ProfitCalcGPLeadMagnetForm`, que contiene un formulario básico de ejemplo que incluye 3 campos y basándome en el otro proyecto de referencia (`form-by-steps`) he conseguido hacer que tenga navegación por etapas. Para ello:
   - Ver projecto `form-by-steps` como referencia, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
   - He abstraido las partes comunes a otros formularios a `LeadMagnetFormLayout` (inyectando `ProfitCalcGPLeadMagnetForm` dentro de `FormLayout` como parametro).
-- [ ] `#feature/next-step-handler`: Agregar a la configuración de los pasos (steps) una función "onStepChanged" que contendrá un mensaje diferente de `console.log` para cada step (de ejemplo). Más adelante le agregaremos funcionalidad real. <!-- : Http Request a Notion como Database -->
+- [ ] `#feature/next-step-handler`: Queremos que al pasar al siguiente paso, se llame a una función `onStepChanged`. Esta función puede estar definida de manera independiente para cada paso del formulario (dentro de la configuración de los pasos), o bien, de manera única con una estructura de tipo switch dentro que detecte en qué paso está el usuario cuando la función es llamada.
+Cuando se ejecute, deberemos mostrar un `console.log` con algún texto que sea diferente segun cada paso en el que estemos. Más adelante le agregaremos funcionalidad real.
 
 ### Más detalles e instrucciones serán provistas al terminar estas tareas.
 
+ <!-- : Http Request a Notion como Database -->
 <!--
 NOTAS PARA FUTURAS INSTRUCCIONES:
 - [ ] `#feature/dynamic-jump`: Haremos que bajo ciertas condiciones en ciertas etapas el formulario "salte" al uno de los múltiples finales (más instrucciones serán provistas)
