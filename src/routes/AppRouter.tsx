@@ -40,8 +40,6 @@ export default function AppRouter() {
 
         <Route path="/" element={<HomeIndex />} />
         <Route path="/lm/profit-calc-gp-001" element={<ProfitCalcGPLeadMagnetForm />} />
-        {/* 
-        */}
       </Routes>
     </Router>
   );

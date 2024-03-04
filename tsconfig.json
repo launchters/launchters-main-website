@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "assetsInclude": ["**/*.md"],
+  "assetsInclude": ["**/*.md","react-hook-consent/dist/styles/style.css"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
