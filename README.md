@@ -72,21 +72,36 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   - Cargar `ProfitCalcGPLeadMagnetForm` como hijo de `FormLayout` o `FormPage` en las rutas.
   - Inspirarse en el projecto `form-by-steps` como referencia, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
 
-- [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado.
+- [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
+    1. Instagram del usuario
+    1. Email de usuario
+    1. ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (de días diferentes)?
+    1. ¿Cuánto ingresa mensualmente tu negocio (promedio)?
+    1. ¿Cuánto gasta tu negocio mensualmente (promedio)?
+    1. En este momento, ¿cuál es el principal obstáculo, problema o reto que enfrentáis tu negocio y tú, personalmente?
+    1. ¿Qué servicios ofreces, a qué precio y cuántos clientes tienes actualmente en cada uno de ellos?
+    1. ¿Qué tipo de marketing estás haciendo y cuánto tiempo le dedicas?
+    1. ¿A qué audiencia objetivo estás apuntando esos esfuerzos?
+    1. ¿Tienes a alguna agencia o freelancer contratados? Si es así, ¿cuánto pagas y qué incluye?
+    1. ¿Qué esperas de mí para considerar nuestra colaboración todo un éxito? (sé específico/a)
+    1. Núm. de WhatsApp para notificarte
 
 ## NO CONTINUAR LEYENDO POR AHORA A PARTIR DE AQUI.
 
 > ¿Qué te he dicho? jajajja tira para arriba! ⬆️
 
 - [ ] `#feature/next-step-handler`: Queremos que al pasar al siguiente paso, se llame a una función `onStepChanged`. Esta función puede estar definida de manera independiente para cada paso del formulario (dentro de la configuración de los pasos), o bien, de manera única con una estructura de tipo switch dentro que detecte en qué paso está el usuario cuando la función es llamada.
+
   - Cuando se ejecute, deberemos mostrar un `console.log` con algún texto que sea diferente segun cada paso en el que estemos. Más adelante le agregaremos funcionalidad real.
 
 - [ ] `#feature/thank-you-screen`: Hay que crear varias a las que dirigiremos al usuario segun si cualifica o no a lo largo del proceso:
+
   - **Sí cualifica**: Página de confirmación con icono de un reloj, diciendo que los resultados serán enviados en las próximas 24-72 horas ya que son generados manualmente.
   - **No cualifica**: Página de confirmación con icono de cara triste y mensaje diciéndole que su perfil actual no cumple con los requisitos necesarios para el programa de 'Growth Partner' todavía, pero que presionando el siguiente botón de confirmación, entrará en lista de espera para un evento online donde le enseñaré a llevar su negocio de coaching desde 0 a 3000€/mes.
-  - [ ] __SALTO DINÁMICO__: Haremos que al pasar al siguiente paso, se hagan las comprobaciones de si cualifica o no. Si no cualifica le haremos saltar directamente a la "thank-you page" de los que no cualifican. Si sí cualifica continuaremos el flow sin interrumpirlo.
+  - [ ] **SALTO DINÁMICO**: Haremos que al pasar al siguiente paso, se hagan las comprobaciones de si cualifica o no. Si no cualifica le haremos saltar directamente a la "thank-you page" de los que no cualifican. Si sí cualifica continuaremos el flow sin interrumpirlo.
 
 - Vuelve a la rama `#feature/next-step-handler` e implementa la lógica Interna de `onStepChanged`:
+
   - [ ] Desarrolaremos la lógica de negocio interna de `onStepChanged`. En cada paso, según corresponda, sustituiremos ese `console.log` por comprobaciones para saber si cualifica o no y llamadas http a una API que te proporcionaré, para que los datos sean guardados. Especialmente queremos guardar los datos de contacto tan pronto como sea posible (con un POST) y el resto de manera secundaria (con un UPDATE).
         En ciertas etapas haremos que haga una comprobación usando la API de Instagram sobre las visualizaciones promedio de los últimos 6 Reels del perfil introducido por el usuario.
   - [ ] `#feature/transactional-emails--unqualified`: En caso de NO cualificar en cualquier momento: Disparar email transaccional confirmando que ha sido agregado a la waitlist del curso/comunidad/reto "START".

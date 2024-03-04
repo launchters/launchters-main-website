@@ -28,6 +28,9 @@ const appConfig = {
     limits: "product-limits",
     categories: "product-categories",
   },
+  forms: {
+    variant: "standard" as "standard" | "filled" | "outlined" | undefined,
+  },
 };
 
 export default appConfig;

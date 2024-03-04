@@ -30,8 +30,8 @@ parte de nuestros usuarios, con tal de poder mejorar nuestros
 servicios. Puedes saber más sobre nuestro Uso de Cookies en nuestra `}
       <a href="/#/legal/privacy">Política de Privacidad</a>
       {`, la cual
-aceptas al continuar navegando por este Sitio Web, así como nuestros
-Términos de Uso. En caso de no estar de acuerdo, debes cerrar/abandonar inmediatamente este sitio web.`}
+aceptas al continuar navegando por este Sitio Web o cerrar este banner.
+En caso contrario abandona inmediatamente este sitio web.`}
     </>
   );
 }
