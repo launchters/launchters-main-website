@@ -1,156 +1,79 @@
-import EmailIcon from "@mui/icons-material/Email";
+import { Button, IconButton, TextField } from "@material-ui/core";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import appConfig from "../../../config/app.config";
-import { $TSFix } from "../../models/ts-fix.d";
-import FormStepLayout from "./FormStepLayout";
-
-const mergeAllSteps = false; // ! FOR DEV. PURPOSES ONLY.
-
-/* 
-
-
-
-
-TODO: Usar REACT HOOK FORMS o Formik Forms y no el useState hook.
-
-
-
-
-*/
+import Typography from "../Typography";
 
 export default function ProfitCalcGPLeadMagnetForm() {
-  const [currentStep, setCurrentStep] = useState(0); // TODO Modificado a 0, siempre usa 0 como el principio al iniciar una relacion de numeros consecutivos, te evitara problemas!
+  const [currentStep, setCurrentStep] = useState(1); // TODO: En secuencias numericas lineales usa por defecto 0 como el primer indice, por respetar que el indice 0 de una array apunta al primer elemento de la array, etc...
   const [formData, setFormData] = useState({
-    email: "",
+    // TODO: Pasemos a usar RHF (react hook forms) o "Formik Forms" en lugar del State.
     instagram: "",
     // *... más campos del formulario
+    // TODO: En el formulario... pidamos el email primero, luego el instagram.
   });
 
-  const handlePrevStep = () => {
-    // TODO ¿Y si echamos atrás más alla de lo posible? Para evitarlo incluir un IF statement (ver linea comentada):
-    // if (currentStep > 0)
-    setCurrentStep(currentStep - 1);
-  };
   const handleNextStep = () => {
     setCurrentStep(currentStep + 1);
+    // TODO: Aqui agregaremos una estructura switch con un "case" por cada step del formulario.
   };
 
-  const handleFieldChange = (e: $TSFix) => {
+  // TODO: Estamos programando en TypeScript (por eso el archivo es .tsx Y NO .jsx), por lo que agregale un tipo a la "e" aunque sea e: any. Debemos evitar en general usar tipos "any", pues son demasiado genericos y entonces TypeScript no puede hacer su magia... pierde toda la utilidad. Para hacer más fácil el seguimiento de tipos "any", he creado un tipo equivalente que se llama $TSFix para asi acordarme de cambiarlos en el futuro pero facilitar la experiencia de desarrollo en esta etapa del proyecto.
+  const handleFieldChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: $TSFix) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // * Apartado para manejar el envío de los datos del formulario
   };
 
-  const sharedFormControlProps = {
-    // La variante cambia la apariencia del formulario, la tendremos centralizada para asi afectar a todos los campos de formulario que apliquemos.
-    variant: appConfig.forms.variant,
-  };
-
-  // TODO: Debemos intentar no repetir toda la estructura para cada campo, y pasar los campos de manera dinámica, por lo que utilizaremos una constante para configurar los campos, mientras que el template lo extraemos al componente "LeadMagnetFormField"
-
-  const formFieldSharedProps = {
-    handlePrevStep,
-    handleNextStep,
-    formData,
-  };
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="form lead-magnet-form--profit-calc"
-      style={{ width: "max(95vw, 300px)", margin: "auto" }}
-    >
-      <Typography variant="h6">
-        He hecho algunos cambios en el codigo, revisa los comentarios TODO y el
-        codigo que he agregado para aprender
-      </Typography>
-      <br />
-      <br />
-      <Box
-        justifyContent="space-evenly"
-        alignItems="space-evenly"
-        justifyItems="space-evenly"
-        alignContent="space-evenly"
-      >
-        {/*
-        // ! INSTAGRAM (tu version)
-        */}
+    // TODO: Agregar una clase css al form siguiendo nomenclatura BEM (😝 investiga lo que es jajjaa )
 
-        {(mergeAllSteps || currentStep === 0) && (
-          // TODO: Cambiar el codigo siguiente por la version más abajo (comentada) para instagram y ver las diferencias que tiene.
-          <div>
-            <Typography>Agregar tu Instagram:</Typography>
-            <IconButton>
-              <InstagramIcon />
-            </IconButton>
-            <TextField
-              name="instagram"
-              value={formData.instagram}
-              onChange={handleFieldChange}
-              placeholder="Tu Instagram"
-            />
-            <Button onClick={handleNextStep}>Next</Button>
-          </div>
-        )}
-        {/*
-        // ! INSTAGRAM (nuevo)
-        */}
-        {
-          // (mergeAllSteps || currentStep === 0) && (
-          //   <FormStepLayout
-          //     {...formFieldSharedProps}
-          //     name="instagram"
-          //     title="Tu usuario de Instagram:"
-          //     prevIcon={<InstagramIcon />}
-          //     fieldCtrl={
-          //       <TextField
-          //         {...sharedFormControlProps}
-          //         name="instagram"
-          //         value={formData.instagram}
-          //         onChange={handleFieldChange}
-          // // TODO: Descomentar codigo siguiente. Debes notar que el placeholder lo que pretende es emular un texto real de ejemplo, mientras que la etiqueta (label) es una indicación sobre qué debe escribirse en ese campo
-          //          placeholder="launchters"
-          //          label="Tu instagram"
-          // // TODO: Descomentar codigo a continuacion para ver como la @ se agrega al "input"
-          //        InputProps={{ startAdornment: <AlternateEmailIcon sx={{ mr: 1 }} /> }}
-          //       />
-          //     }
-          //   />
-          // )
-        }
-
-        {/*
-        // ! EMAIL
-        */}
-        {(mergeAllSteps || currentStep === 1) && (
-          <FormStepLayout
-            {...formFieldSharedProps}
-            name="email"
-            title="Tu email:"
-            subTitle="Para enviarte los resultados de la estimación"
-            fieldCtrl={
-              <TextField
-                {...sharedFormControlProps}
-                name="email"
-                value={formData.email}
-                onChange={handleFieldChange}
-                placeholder="tu@email.com"
-                label="E-mail"
-                InputProps={{ startAdornment: <EmailIcon sx={{ mr: 1 }} /> }}
-              />
-            }
+    <form onSubmit={handleSubmit}>
+      {currentStep === 1 && (
+        /* // TODO: No dejes por ahi divs sin nada... 
+        cada elemento que agregues debe tener un motivo. Si agregas un div agregale una clase al menos para que podamos a futuro
+        modificar su estilo desde CSS...
+        De todos modos en este caso creo que te encaja mejor usar simplemente un <React.Fragment> o simplemente: <>___aqui tu codigo__</>
+        */
+        <div>
+          {/* 
+          // TODO: abstraer LAYOUT a componente propio PARA "DON'T REPEAT YOURSELF" (DRY principle)
+          Podemos extrar la estructura/layout del template a un componente padre e inyectarle los detalles por parametros o como sus hijos.
+          De esa manera todas las paginas/pasos del formulario seguirán el mismo template y es más facil el mantenimiento del codigo ya que si en el
+          futuro queremos modificar el "padding" o algun elemento de uno de los pasos, tendriamos que ir manualmente modificando el resto (por haber
+          codigo repetido) o se nos podria olvidar (si entra un dev junior por ejemplo)..., para evitar eso es que debemos pensar en la experiencia de
+          otros desarrolladores a futuro en los proyectos y siempre que tenga sentido, EVITAR REPETIR EL CODIGO
+          */}
+          <Typography>Agregar tu Instagram:</Typography>
+          {/* 
+          // TODO: Agregar un subtitulo y darles algo de estilo 
+          */}
+          {/* 
+          // TODO: El IconButton creo que sería innecesario 
+          */}
+          <IconButton>
+            <InstagramIcon />
+          </IconButton>
+          {/* 
+          // TODO: No queremos el icono de insta, queremos la arroba DENTRO del TextField, para eso puedes usar la propiedad "InputProps" 
+          con "startAdornment" y meterle ahi el "EmailAlternativeIcon" o simplemente el texto "@".
+           */}
+          <TextField
+            name="instagram"
+            value={formData.instagram}
+            onChange={handleFieldChange}
+            placeholder="Tu Instagram"
           />
-        )}
-
-        {/* 
-          // ! CONTINUA TU 
-        */}
-      </Box>
+          {/* 
+          // TODO: Agregar boton para ir para atras. 
+          Asegurate de que no solo sea mostrado una vez que el usuario ha avanzado. 
+          Es decir, en la primera pagina no será mostrado. Asimismo, el boton "Siguiente" no será mostrado en la última página (thank you page),
+          esto puede ser configurado en el layout mas adelante */}
+          <Button onClick={handleNextStep}>Next</Button>
+        </div>
+      )}
     </form>
   );
 }
