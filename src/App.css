@@ -67,6 +67,23 @@
   font-size: 0.7em;
 }
 
+.rhc-banner {
+  padding: 0.5rem !important;
+
+  .rhc-banner__content {
+    padding: 0.5rem !important;
+    font-size: 0.75rem;
+
+    button {
+      font-size: 0.75rem !important;
+
+      &.rhc-banner__content__primary {
+        font-size: 1.4em !important;
+      }
+    }
+  }
+}
+
 @media print {
   .results-disclaimer {
     color: black !important;

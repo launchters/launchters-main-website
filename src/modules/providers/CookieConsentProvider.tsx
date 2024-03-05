@@ -1,24 +1,6 @@
 import { ConsentBanner, ConsentProvider } from "react-hook-consent";
 import "react-hook-consent/dist/styles/style.css";
-
-const services = [
-  {
-    id: "myid",
-    name: "MyName",
-    scripts: [
-      // TODO poner el codigo de google analytics aqui
-      { id: "external-script", src: "https://myscript.com/script.js" },
-      {
-        id: "inline-code",
-        code: `console.log("Cookies accepted on", ${new Date().toISOString()});`,
-      },
-    ],
-    cookies: [{ pattern: "cookie-name" }, { pattern: /regex/ }],
-    localStorage: ["local-storage-key"],
-    sessionStorage: ["session-storage-key"],
-    mandatory: true,
-  },
-];
+import appConfig from "../../config/app.config";
 
 function ConsentInnerContent() {
   return (
@@ -43,15 +25,15 @@ export default function CookieConsentProvider({ children }: Props) {
   return (
     <ConsentProvider
       options={{
-        services,
-        // customHash: 'my-custom-hash', // optional, e.g. when changing the options based on language
-        theme: "light",
+        theme: appConfig.cookies.theme,
+        customHash: appConfig.cookies.customHash,
+        services: appConfig.cookies.services,
       }}
     >
       {children}
       <ConsentBanner
         settings={{
-          hidden: false,
+          hidden: appConfig.cookies.hideSettings,
           label: "Configurar",
           modal: { title: "Modal title" },
         }}

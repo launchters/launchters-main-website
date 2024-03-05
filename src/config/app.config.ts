@@ -1,3 +1,5 @@
+import { Theme } from "react-hook-consent";
+
 const offerShort = {
   qty: "x2",
   keyword: "ingresos",
@@ -30,6 +32,29 @@ const appConfig = {
   },
   forms: {
     variant: "standard" as "standard" | "filled" | "outlined" | undefined,
+  },
+  cookies: {
+    theme: "dark" as Theme | undefined,
+    customHash: "my-custom-hash", // optional, e.g. when changing the options based on language
+    hideSettings: true,
+    services: [
+      {
+        id: "myid",
+        name: "MyName",
+        scripts: [
+          // TODO poner el codigo de google analytics aqui
+          { id: "external-script", src: "https://myscript.com/script.js" },
+          {
+            id: "inline-code",
+            code: `console.log("Cookies accepted on", ${new Date().toISOString()});`,
+          },
+        ],
+        cookies: [{ pattern: "cookie-name" }, { pattern: /regex/ }],
+        localStorage: ["local-storage-key"],
+        sessionStorage: ["session-storage-key"],
+        mandatory: true,
+      },
+    ],
   },
 };
 
