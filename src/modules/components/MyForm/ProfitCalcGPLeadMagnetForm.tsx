@@ -14,10 +14,11 @@ export default function ProfitCalcGPLeadMagnetForm() {
 
   const handleNextStep = () => {
     setCurrentStep(currentStep + 1);
+    // TODO: Aqui agregaremos una estructura switch con un "case" por cada step del formulario.
   };
 
   // TODO: Estamos programando en TypeScript (por eso el archivo es .tsx Y NO .jsx), por lo que agregale un tipo a la "e" aunque sea e: any. Debemos evitar en general usar tipos "any", pues son demasiado genericos y entonces TypeScript no puede hacer su magia... pierde toda la utilidad. Para hacer más fácil el seguimiento de tipos "any", he creado un tipo equivalente que se llama $TSFix para asi acordarme de cambiarlos en el futuro pero facilitar la experiencia de desarrollo en esta etapa del proyecto.
-  const handleChange = (e) => {
+  const handleFieldChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -62,7 +63,7 @@ export default function ProfitCalcGPLeadMagnetForm() {
           <TextField
             name="instagram"
             value={formData.instagram}
-            onChange={handleChange}
+            onChange={handleFieldChange}
             placeholder="Tu Instagram"
           />
           {/* 
