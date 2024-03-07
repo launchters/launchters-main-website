@@ -4,7 +4,7 @@ import theme from "./theme";
 
 const offerShort = {
   qty: "x2",
-  keyword: "ingresos",
+  keyword: "beneficios",
   time: "31 días",
 };
 const offerLong = {
