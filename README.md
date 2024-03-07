@@ -68,7 +68,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 - [x] `#feature/form-start`: Cargar un nuevo componente por separado llamado `ProfitCalcGPLeadMagnetForm` con cualquier texto de ejemplo y comprobar que se muestre al cargar la ruta `/#/lm/profit-calc-gp-001` (nótese el hashtag).
 
-- [ ] `#feature/form-steps`: Crear un componente `ProfitCalcGPLeadMagnetForm`, que contiene un formulario básico de ejemplo que incluye 3 campos y basárse en el otro proyecto de referencia (`form-by-steps`) consiguiendo hacer que tenga navegación por etapas/pasos. Para ello:
+- [x] `#feature/form-steps`: Crear un componente `ProfitCalcGPLeadMagnetForm`, que contiene un formulario básico de ejemplo que incluye 3 campos y basárse en el otro proyecto de referencia (`form-by-steps`) consiguiendo hacer que tenga navegación por etapas/pasos. Para ello:
 
   - Cargar `ProfitCalcGPLeadMagnetForm` como hijo de `FormLayout` o `FormPage` en las rutas.
   - Inspirarse en el projecto `form-by-steps` como referencia, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
