@@ -1,22 +1,29 @@
-import { green, grey, yellow, red } from "@mui/material/colors";
+import {
+  blueGrey,
+  green,
+  grey,
+  orange,
+  red,
+  yellow,
+} from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 const rawTheme = createTheme({
   palette: {
     primary: {
-      light: "#c3c3c3",
-      main: "#28282a",
-      dark: "#000",
+      main: blueGrey[700],
+      light: blueGrey[100],
+      dark: blueGrey[900],
     },
+    // ! accent
     secondary: {
-      // ! accent
+      main: yellow[700],
       light: yellow[50],
-      main: yellow[700], // "#ff3366",
-      dark: yellow[900], //"#e62958",
+      dark: yellow[900],
     },
     warning: {
-      main: "#ffc071",
-      dark: "#ffb25e",
+      main: yellow[100],
+      dark: orange[300],
     },
     error: {
       light: red[50],
@@ -28,15 +35,20 @@ const rawTheme = createTheme({
       main: green[500],
       dark: green[700],
     },
+    background: {
+      default: grey[300],
+    },
   },
   typography: {
-    fontFamily: "'Work Sans', sans-serif",
-    fontSize: 14,
-    fontWeightLight: 300, // Work Sans
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
+    fontFamily: "'Roboto', sans-serif",
+    fontSize: 11,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 700,
   },
 });
+
+export const colorPalette = rawTheme.palette;
 
 const fontHeader = {
   color: rawTheme.palette.text.primary,
@@ -51,8 +63,7 @@ const theme = {
     ...rawTheme.palette,
     background: {
       ...rawTheme.palette.background,
-      default: rawTheme.palette.common.white,
-      placeholder: grey[200],
+      placeholder: grey[100],
     },
   },
   typography: {
@@ -62,45 +73,49 @@ const theme = {
       ...rawTheme.typography.h1,
       ...fontHeader,
       letterSpacing: 0,
-      fontSize: 60,
+      fontSize: 30,
     },
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
-      fontSize: 48,
+      fontSize: 26,
     },
     h3: {
       ...rawTheme.typography.h3,
       ...fontHeader,
-      fontSize: 42,
+      fontSize: 23,
     },
     h4: {
       ...rawTheme.typography.h4,
       ...fontHeader,
-      fontSize: 36,
+      fontSize: 18,
     },
     h5: {
       ...rawTheme.typography.h5,
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: rawTheme.typography.fontWeightLight,
     },
     h6: {
       ...rawTheme.typography.h6,
       ...fontHeader,
-      fontSize: 18,
+      fontSize: 16,
     },
     subtitle1: {
       ...rawTheme.typography.subtitle1,
-      fontSize: 18,
+      fontSize: 16,
+    },
+    subtitle2: {
+      ...rawTheme.typography.subtitle2,
+      fontSize: 14,
     },
     body1: {
       ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16,
+      fontSize: 12,
     },
     body2: {
       ...rawTheme.typography.body1,
-      fontSize: 14,
+      fontSize: 10,
     },
   },
 };

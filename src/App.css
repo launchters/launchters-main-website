@@ -17,10 +17,10 @@
 .absolute {
   position: absolute;
 }
-.inline-block {
+.d-inline-block {
   display: "inline-block";
 }
-.block {
+.d-block {
   display: "block";
 }
 .text-shadow {

@@ -1,4 +1,6 @@
 import { Theme } from "react-hook-consent";
+import { $TSFix } from "../modules/models/ts-fix.d";
+import theme from "./theme";
 
 const offerShort = {
   qty: "x2",
@@ -7,7 +9,7 @@ const offerShort = {
 };
 const offerLong = {
   qty: "x5",
-  keyword: "ingresos",
+  keyword: "beneficios",
   time: "1 año",
 };
 const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerShort.time} y ${offerLong.qty} en solo ${offerLong.time}`;
@@ -17,6 +19,18 @@ const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerS
 const appConfig = {
   offerLong,
   offerShort,
+  header: { textAlign: "left" as $TSFix },
+  footer: {
+    headers: {
+      sxProps: { color: `${theme.palette.primary.light}` },
+    },
+    links: {
+      sxProps: {
+        color: `${theme.palette.primary.contrastText}`,
+        py: 0.5,
+      },
+    },
+  },
   fullOfferSummary,
   appBarPosition: "relative" as
     | "relative"

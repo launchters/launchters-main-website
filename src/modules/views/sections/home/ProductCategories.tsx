@@ -2,7 +2,7 @@ import { Container, Grid, Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
- import launchtersChart from "../../../../assets/progreso-programas-gp-chart.png";
+import launchtersChart from "../../../../assets/progreso-programas-gp-chart.png";
 import ArrowNextSection from "../../../components/ArrowNextSection";
 import ImageBoxWithOverlay from "../../../components/ImageBoxWithOverlay";
 import Typography from "../../../components/Typography";
@@ -93,7 +93,7 @@ const imageCells = [
     // url: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1240",
     url: "https://plus.unsplash.com/premium_photo-1682310178386-1d20be620733?auto=format&fit=crop&w=1240&q=80",
     title: "3. Scale",
-    subtitle: "desde 15K/mes al Valhalla.",
+    subtitle: "desde 15K/mes al cielo.",
     description:
       "Aumenta tu tráfico cualificado progresivamente, de manera eficiente y controlada. Llevándote a puntos que ni creías capaz de alcanzar.",
     cols: 3,
@@ -107,15 +107,15 @@ export default function ProductCategories() {
       <ArrowNextSection toId="product-categories" offset={-40} />
       <Box component="section" id="product-categories" sx={{ mt: 4 }}>
         {/* ----- SECTION TITLE -----  */}
-        <Typography variant="h4" marked="center" align="center" component="h2">
+        <Typography variant="h2" component="h2" marked="center" align="center">
           Mis programas únicos en España
         </Typography>
         {/* ----- SECTION SUBTITLE -----  */}
         <Typography
-          variant="body1"
+          variant="subtitle1"
           marked="center"
           align="center"
-          component="h2"
+          component="h4"
           sx={{ m: 2 }}
         >
           {"Impulso a "}
@@ -134,16 +134,15 @@ export default function ProductCategories() {
       */}
         <Box sx={{ mt: 0, mb: 0, pb: 0 }}>
           <Typography
-            variant="subtitle1"
+            variant="caption"
             component="p"
             className="results-disclaimer"
             sx={{
-              color: "#ccc",
-              opacity: 0.5,
+              color: "#333",
+              opacity: 1,
               mb: 0.2,
               px: 2,
-              fontStyle: "italic",
-              fontSize: "0.85rem",
+              fontStyle: "italic", 
               textAlign: "right",
             }}
           >

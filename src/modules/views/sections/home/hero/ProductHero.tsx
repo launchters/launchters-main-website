@@ -35,33 +35,39 @@ export default function ProductHero() {
           alignItems: "center",
         }}
       >
-        <Grid item xs={12} md={9} sx={{ order: { xs: 1, md: 1 } }}>
+        <Grid
+          item
+          xs={12}
+          md={9}
+          sx={{ order: { xs: 1, md: 1 }, pr: { xs: 0, sm: 6, md: 12 } }}
+        >
           <Grid container flexDirection="column">
             <Grid item sx={{ pt: { xs: 5 } }}>
-              <Typography {...titleProps}>
-                <mark>Escala {appConfig.offerLong.qty}</mark>
-                <span className="text-shadow">
-                  {` tus ${appConfig.offerLong.keyword} `}
-                </span>
-                <span className="text-shadow">{`en ${appConfig.offerLong.time} `}</span>
+              <Typography {...titleProps} component="h1">
+                <div
+                  className="d-block"
+                  style={{ textAlign: appConfig.header.textAlign }}
+                >
+                  <mark>Escala {appConfig.offerLong.qty}</mark>
+                  <span className="text-shadow">
+                    {` tus ${appConfig.offerLong.keyword} `}
+                  </span>
+                  {/* <span className="text-shadow">{`en ${appConfig.offerLong.time} `}</span> */}{" "}
+                </div>
+                <div
+                  className="d-block text-shadow page-subtitle"
+                  style={{
+                    textAlign: appConfig.header.textAlign,
+                    marginTop: 6,
+                  }}
+                >
+                  como COACH, en sólo 1 año.
+                </div>
               </Typography>
             </Grid>
             <Grid item>
-              <Typography
-                {...titleProps}
-                className="text-shadow block page-subtitle"
-              >
-                <span className="small">como Coach.</span>
-              </Typography>
+              <ProductHeroSubtitle />
             </Grid>
-
-            <ProductHeroSubtitle
-              sx={{
-                //  Only show in mobile
-                my: 0,
-                display: { xs: "none", md: "block" },
-              }}
-            />
 
             {/* <Grid item>
               <Typography {...subtitleProps} className="block">

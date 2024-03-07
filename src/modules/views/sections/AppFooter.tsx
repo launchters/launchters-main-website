@@ -2,12 +2,13 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
-import Typography from "../../components/Typography";
+import appConfig from "../../../config/app.config";
+import theme from "../../../config/theme";
 import SocialMediaButtons from "../../components/SocialMediaButtons";
+import Typography from "../../components/Typography";
 
-const footerLinkStyle = {
-  fontSize: "0.8rem",
-};
+const headerProps = appConfig.footer.headers.sxProps;
+const footerLinksSxProps = appConfig.footer.links.sxProps;
 
 function Copyright() {
   return (
@@ -87,7 +88,14 @@ export default function AppFooter() {
     <Stack
       flexDirection="column"
       component="footer"
-      sx={{ display: "flex", bgcolor: "primary.light", p: 2, pt: 8, mb: 0 }}
+      sx={{
+        ...footerLinksSxProps,
+        backgroundColor: theme.palette.primary.dark,
+        display: "flex",
+        p: 2,
+        pt: 8,
+        mb: 0,
+      }}
     >
       <Grid
         container
@@ -96,17 +104,29 @@ export default function AppFooter() {
         flexDirection="row"
       >
         <Grid item xs={6} sm={4} md={3}>
-          <Typography variant="h6" textAlign="left" marked="left" gutterBottom>
+          <Typography
+            variant="h6"
+            textAlign="left"
+            marked="left"
+            gutterBottom
+            {...headerProps}
+          >
             Conozcámonos mejor
           </Typography>
 
           <SocialMediaButtons />
         </Grid>
         {/* 
-          LEGAL LINKS
-          */}
+        LEGAL LINKS
+        */}
         <Grid item xs={6} sm={4} md={3}>
-          <Typography variant="h6" textAlign="left" marked="left" gutterBottom>
+          <Typography
+            variant="h6"
+            textAlign="left"
+            marked="left"
+            gutterBottom
+            {...headerProps}
+          >
             Legal
           </Typography>
           <Box
@@ -118,18 +138,21 @@ export default function AppFooter() {
               textAlign: "left",
             }}
           >
-            <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/terms" style={footerLinkStyle}>
+            <Box component="li">
+              <Link to="/legal/terms" style={footerLinksSxProps}>
                 Términos del Servicio
               </Link>
             </Box>
-            <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/privacy" style={footerLinkStyle}>
+            <Box component="li">
+              <Link to="/legal/privacy" style={footerLinksSxProps}>
                 Política de Privacidad y Uso de Cookies
               </Link>
             </Box>
-            <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/term-sheets/general-conditions" style={footerLinkStyle}>
+            <Box component="li">
+              <Link
+                to="/legal/term-sheets/general-conditions"
+                style={footerLinksSxProps}
+              >
                 Condiciones Generales de Contratación (CCGG)
               </Link>
             </Box>

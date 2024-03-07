@@ -28,7 +28,7 @@ export default function CtaButton() {
           <Typography
             variant="h6"
             component="span"
-            sx={{ fontSize: { xs: "1.2rem", md: "2em" } }}
+            // sx={{ fontSize: { xs: "1.2rem", md: "2em" } }}
           >
             Calcular cuánto puedo ganar
           </Typography>

@@ -1,5 +1,5 @@
 import { Grid, SxProps, Typography, TypographyOwnProps } from "@mui/material";
-import React from "react";
+import appConfig from "../../config/app.config";
 
 const subtitleProps: TypographyOwnProps = {
   color: "inherit",
@@ -17,21 +17,38 @@ const subtitleProps: TypographyOwnProps = {
   },
 };
 
-type ProductHeroSubtitleProps = { sx: SxProps };
+type ProductHeroSubtitleProps = { sx?: SxProps };
 
 export default function ProductHeroSubtitle({ sx }: ProductHeroSubtitleProps) {
   return (
-    <React.Fragment>
-      <Grid item {...{ sx, pt: { xs: 5, md: 0 } }}>
-        <Typography {...subtitleProps} className="block">
+    <Grid
+      container
+      sx={{
+        //  Only show in mobile
+        my: 0,
+        display: { xs: "none", md: "block" },
+        pt: { xs: 5, md: 0 },
+        ...sx,
+      }}
+    >
+      <Grid item>
+        <Typography
+          {...subtitleProps}
+          className="d-block"
+          style={{ textAlign: appConfig.header.textAlign }}
+        >
           Eligiendo al Socio de Crecimiento (Growth Partner) adecuado,
         </Typography>
       </Grid>
-      <Grid item sx={{ ...sx, mb: { xs: 4, md: 0 } }}>
-        <Typography {...subtitleProps} className="block">
+      <Grid item>
+        <Typography
+          {...subtitleProps}
+          className="d-block"
+          style={{ textAlign: appConfig.header.textAlign }}
+        >
           que aplique <strong>estrategias probadas.</strong>
         </Typography>
       </Grid>
-    </React.Fragment>
+    </Grid>
   );
 }
