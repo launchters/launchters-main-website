@@ -1,5 +1,4 @@
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
-import "../App.css";
 import ProfitCalcGPLeadMagnetForm from "../modules/components/MyForm/ProfitCalcGPLeadMagnetForm";
 import HomeIndex from "../modules/views/pages/HomeIndex";
 import LegalDoc from "../modules/views/pages/legal/LegalDoc";
