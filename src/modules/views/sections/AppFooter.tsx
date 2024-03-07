@@ -119,17 +119,17 @@ export default function AppFooter() {
             }}
           >
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/terms/" style={footerLinkStyle}>
+              <Link to="/legal/terms" style={footerLinkStyle}>
                 Términos del Servicio
               </Link>
             </Box>
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/privacy/" style={footerLinkStyle}>
+              <Link to="/legal/privacy" style={footerLinkStyle}>
                 Política de Privacidad y Uso de Cookies
               </Link>
             </Box>
             <Box component="li" sx={{ py: 0.5 }}>
-              <Link to="/legal/term-sheets/general/" style={footerLinkStyle}>
+              <Link to="/legal/term-sheets/general-conditions" style={footerLinkStyle}>
                 Condiciones Generales de Contratación (CCGG)
               </Link>
             </Box>
