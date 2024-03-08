@@ -93,6 +93,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   1. ¿Cuánto ingresa tu negocio al mes (promedio)?
   1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
   1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
+  1. ¿Qué nivel de inglés tienes? ¿Estarías dispuesto/a a tratar con clientes en Inglés?
   1. (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?:
      - Embudo de ventas efectivo con Lead Magnet
      - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
@@ -131,7 +132,6 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 #### Mejoras extra:
 
-- [x] `#feature/cookie-alert`: Agregar una notificación de cookies con alguna libreria de React, que además no instale el script de analytics si no han sido aceptadas.
 - [ ] `#feature/instagram-oauth`: Integrar Instagram oAuth, para que nos concedan los permisos necesarios para extraer tantos datos como podamos para calcular esos potenciales retornos (ingresos o ganancias).
 
 - [ ] `#feature/transactional-emails--unqualified`: En caso de NO cualificar en cualquier momento: Disparar email transaccional confirmando que ha sido agregado a la waitlist del curso/comunidad/reto "START".
