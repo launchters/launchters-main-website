@@ -9,7 +9,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
       <CookieConsentProvider>
         <AppRouter />
       </CookieConsentProvider>
