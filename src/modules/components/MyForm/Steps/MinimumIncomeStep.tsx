@@ -2,11 +2,12 @@ import { TextField, Typography, InputAdornment } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../FormInputTypes"; 
 
-interface MinimumIncomeStepProps {
-  onNext: () => Promise<void>;
-}
+// interface MinimumIncomeStepProps {
+//   onNext: () => Promise<void>;
+// }
 
-export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
+// export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
+export const MinimumIncomeStep = () => {
   const { register, formState: { errors } } = useFormContext<IFormInput>(); 
   
   const errorMessage = errors.minimumIncome && typeof errors.minimumIncome.message === 'string' ? errors.minimumIncome.message : '';

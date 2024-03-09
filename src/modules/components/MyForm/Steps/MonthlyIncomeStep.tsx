@@ -2,11 +2,12 @@ import { TextField, Typography, InputAdornment } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../FormInputTypes"; 
 
-interface MonthlyIncomeStepProps {
-  onNext: () => Promise<void>;
-}
+// interface MonthlyIncomeStepProps {
+//   onNext: () => Promise<void>;
+// }
 
-export const MonthlyIncomeStep: React.FC<MonthlyIncomeStepProps> = () => {
+// export const MonthlyIncomeStep: React.FC<MonthlyIncomeStepProps> = () => {
+export const MonthlyIncomeStep = () => {
   const { register, formState: { errors } } = useFormContext<IFormInput>(); 
   
   const errorMessage = errors.monthlyIncome && typeof errors.monthlyIncome.message === 'string' ? errors.monthlyIncome.message : '';
