@@ -15,7 +15,7 @@ export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
   return (
     <>
       <Typography variant="h4" className="title-margin" {...titleProps}>
-        ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar PODER VIVIR DE TU COACHING?
+        ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para PODER VIVIR DE TU COACHING?
       </Typography>
       <TextField
         {...register("minimumIncome", {
