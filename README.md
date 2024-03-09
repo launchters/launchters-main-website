@@ -70,6 +70,21 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 - [x] `#feature/form-steps`: Crear un componente `ProfitCalcGPLeadMagnetForm`, que contiene un formulario básico de ejemplo que incluye 3 campos y basárse en el otro proyecto de referencia (`form-by-steps`) consiguiendo hacer que tenga navegación por etapas/pasos. Para ello:
 
+- [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
+  1. Instagram del usuario (obligatorio) ✅
+  1. Email de usuario (obligatorio) ✅
+  1. ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (en días diferentes)? ✅
+  1. ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar PODER VIVIR DE TU COACHING? (deseo) ✅
+  1. ¿Cuánto ingresa tu negocio al mes (promedio)?
+  1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
+  1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
+  1. (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
+     - Embudo de ventas efectivo con Lead Magnet
+     - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
+     - Edición persuasiva de mi contenido en Redes Sociales
+     - Anuncios de pago eficientes con ROAS positivo
+     - Comunidad Online de pago premium recurrente
+     - Secuencias de nutrición por email
   - Cargar `ProfitCalcGPLeadMagnetForm` como hijo de `FormLayout` o `FormPage` en las rutas.
   - Inspirarse en el projecto `form-by-steps` como referencia, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
 

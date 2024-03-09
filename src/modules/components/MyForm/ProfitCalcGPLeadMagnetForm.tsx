@@ -1,31 +1,25 @@
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { EmailStep } from "./EmailStep";
-
-//* Definir el tipo de dato que se espera recibir en el formulario
-interface IFormInput {
-  email: string;
-}
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { IFormInput } from "./FormInputTypes";
+import { FormStepper } from "./Stepper";
+import { EmailStep } from "./Steps/EmailStep";
+import { InstagramStep } from "./Steps/InstagramStep";
+import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
+import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 
 export default function ProfitCalcGPLeadMagnetForm() {
-  //* Especificar el tipo de dato genérico para useForm
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger,
-  } = useForm<IFormInput>();
+  const methods = useForm<IFormInput>();
   const [currentStep, setCurrentStep] = useState<number>(0);
 
-  //* Especificar el tipo de dato genérico para onSubmit
-  const customSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
+  const handleCustomSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
     console.log(data);
   };
 
+  const steps = ["Email", "Instagram", "Instagram Views", "Minimum Income"];
+
   const handleNextStep = async (): Promise<void> => {
-    //* Comprueba si hay errores en el formulario antes de avanzar al siguiente paso
-    const result = await trigger();
+    const result = await methods.trigger(); // Checks validity of the form values before continueing...
     if (result) {
       setCurrentStep((prevStep) => prevStep + 1);
     } else {
@@ -39,95 +33,46 @@ export default function ProfitCalcGPLeadMagnetForm() {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  //* Definir la función renderStep con el tipo de retorno correcto
   const renderStep = (): JSX.Element | null => {
     switch (currentStep) {
       case 0:
-        return (
-          <EmailStep
-            register={register}
-            errors={errors}
-            onNext={handleNextStep}
-          />
-        );
-      // case 1:
-      //   return (
-      //     ... Paso de Email
-      //   );
-      // case 2:
-      //   return (
-      //     ... Paso de visualizaciones en Stories
-      //   );
-      // ... y así sucesivamente para cada paso
-      // case 7:
-      //   return (
-      //     ... Paso de aspectos implementados efectivamente
-      //   );
+        return <EmailStep onNext={handleNextStep} />;
+      case 1:
+        return <InstagramStep onNext={handleNextStep} />;
+      case 2:
+        return <InstagramViewsStep onNext={handleNextStep} />;
+      case 3:
+        return <MinimumIncomeStep onNext={handleNextStep} />;
       default:
         throw new Error("Invalid step in renderStep");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(customSubmit)}>
-      {renderStep()}
-      <div className="form__action-buttons">
-        {currentStep > 0 && (
-          <Button onClick={handlePreviousStep}>Anterior</Button>
-        )}
-        {currentStep < 7 && <Button onClick={handleNextStep}>Siguiente</Button>}
-        {currentStep === 7 && <Button type="submit">Enviar</Button>}
-      </div>
-    </form>
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(handleCustomSubmit)}>
+        <FormStepper currentStep={currentStep} steps={steps} />
+        {renderStep()}
+
+        {/* ACTION BUTTONS */}
+        <div className="form__action-buttons">
+          {currentStep > 0 && (
+            <Button sx={{ mt: 2 }} onClick={handlePreviousStep}>
+              Anterior
+            </Button>
+          )}
+          {currentStep < steps.length - 1 && (
+            <Button sx={{ mt: 2 }} onClick={handleNextStep}>
+              Siguiente
+            </Button>
+          )}
+          {currentStep === steps.length - 1 && (
+            <Button sx={{ mt: 2 }} type="submit">
+              Enviar
+            </Button>
+          )}
+        </div>
+      </form>
+    </FormProvider>
   );
 }
-
-//   return (
-//     TODO: Agregar una clase css al form siguiendo nomenclatura BEM (😝 investiga lo que es jajjaa )
-
-//     <form onSubmit={handleSubmit}>
-//       {currentStep === 1 && (
-//         /* // TODO: No dejes por ahi divs sin nada...
-//         cada elemento que agregues debe tener un motivo. Si agregas un div agregale una clase al menos para que podamos a futuro
-//         modificar su estilo desde CSS...
-//         De todos modos en este caso creo que te encaja mejor usar simplemente un <React.Fragment> o simplemente: <>___aqui tu codigo__</>
-//         */
-//         <div>
-//           {/*
-//           TODO: abstraer LAYOUT a componente propio PARA "DON'T REPEAT YOURSELF" (DRY principle)
-//           Podemos extrar la estructura/layout del template a un componente padre e inyectarle los detalles por parametros o como sus hijos.
-//           De esa manera todas las paginas/pasos del formulario seguirán el mismo template y es más facil el mantenimiento del codigo ya que si en el
-//           futuro queremos modificar el "padding" o algun elemento de uno de los pasos, tendriamos que ir manualmente modificando el resto (por haber
-//           codigo repetido) o se nos podria olvidar (si entra un dev junior por ejemplo)..., para evitar eso es que debemos pensar en la experiencia de
-//           otros desarrolladores a futuro en los proyectos y siempre que tenga sentido, EVITAR REPETIR EL CODIGO
-//           */}
-//           <Typography>Agregar tu Instagram:</Typography>
-//           {/*
-//           TODO: Agregar un subtitulo y darles algo de estilo
-//           */}
-//           {/*
-//           TODO: El IconButton creo que sería innecesario
-//           */}
-//           <IconButton>
-//             <InstagramIcon />
-//           </IconButton>
-//           {/*
-//           TODO: No queremos el icono de insta, queremos la arroba DENTRO del TextField, para eso puedes usar la propiedad "InputProps"
-//           con "startAdornment" y meterle ahi el "EmailAlternativeIcon" o simplemente el texto "@".
-//            */}
-//           <TextField
-//             name="instagram"
-//             value={formData.instagram}
-//             onChange={handleFieldChange}
-//             placeholder="Tu Instagram"
-//           />
-//           {/*
-//           TODO: Agregar boton para ir para atras.
-//           Asegurate de que no solo sea mostrado una vez que el usuario ha avanzado.
-//           Es decir, en la primera pagina no será mostrado. Asimismo, el boton "Siguiente" no será mostrado en la última página (thank you page),
-//           esto puede ser configurado en el layout mas adelante */}
-//           <Button onClick={handleNextStep}>Next</Button>
-//         </div>
-//       )}
-//     </form>
-//   );

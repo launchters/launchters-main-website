@@ -84,6 +84,14 @@
   }
 }
 
+.title-margin {
+  margin-bottom: 1.5rem !important;
+}
+
+.subtitle-margin {
+  margin-top: 1.5rem !important;
+}
+
 @media print {
   .results-disclaimer {
     color: black !important;
