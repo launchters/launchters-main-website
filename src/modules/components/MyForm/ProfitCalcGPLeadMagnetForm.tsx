@@ -1,78 +1,69 @@
-import { Button } from "@mui/material";
-import { useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { Box, Button } from "@mui/material";
+import { FormStepper } from "./FormStepper";
 import { IFormInput } from "./FormInputTypes";
-import { FormStepper } from "./Stepper";
 import { EmailStep } from "./Steps/EmailStep";
 import { InstagramStep } from "./Steps/InstagramStep";
 import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
 import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
+import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
+import { useStepsHandler } from './stepsHandler';
+
+interface Step<P extends Partial<IFormInput>> {
+  title: string;
+  component: React.FC<P>;
+}
+
+// ! Nota: No consigo solucionar el aviso de component. He creado un FormInputTypes.ts con la interfaz IFormInput y lo he importado en este archivo, pero no consigo solucionar el aviso.
+
+const steps: Array<Step<Partial<IFormInput>>> = [
+  { title: "Email", component: EmailStep },
+  { title: "Instagram", component: InstagramStep },
+  { title: "Instagram Views", component: InstagramViewsStep },
+  { title: "Minimum Income", component: MinimumIncomeStep },
+  { title: "Monthly Income", component: MonthlyIncomeStep },
+];
 
 export default function ProfitCalcGPLeadMagnetForm() {
   const methods = useForm<IFormInput>();
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  const { currentStep, handleNextStep, handlePreviousStep } = useStepsHandler(steps.length);
 
-  const handleCustomSubmit: SubmitHandler<IFormInput> = (data: IFormInput) => {
-    console.log(data);
-  };
-
-  const steps = ["Email", "Instagram", "Instagram Views", "Minimum Income"];
-
-  const handleNextStep = async (): Promise<void> => {
-    const result = await methods.trigger(); // Checks validity of the form values before continueing...
-    if (result) {
-      setCurrentStep((prevStep) => prevStep + 1);
-    } else {
-      console.log(
-        "Por favor, corrige los errores en el formulario antes de continuar"
-      );
-    }
-  };
-
-  const handlePreviousStep = () => {
-    setCurrentStep((prevStep) => prevStep - 1);
-  };
-
-  const renderStep = (): JSX.Element | null => {
-    switch (currentStep) {
-      case 0:
-        return <EmailStep onNext={handleNextStep} />;
-      case 1:
-        return <InstagramStep onNext={handleNextStep} />;
-      case 2:
-        return <InstagramViewsStep onNext={handleNextStep} />;
-      case 3:
-        return <MinimumIncomeStep onNext={handleNextStep} />;
-      default:
-        throw new Error("Invalid step in renderStep");
-    }
+  const renderStep = (): JSX.Element => {
+    const StepComponent = steps[currentStep].component;
+    const stepProps = {
+      ...methods.getValues(),
+      onNext: handleNextStep, 
+    };
+    return <StepComponent {...stepProps} />;
   };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(handleCustomSubmit)}>
-        <FormStepper currentStep={currentStep} steps={steps} />
+      <form onSubmit={methods.handleSubmit(data => console.log(data))}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <FormStepper currentStep={currentStep} totalSteps={steps.length} />
+        </Box>
         {renderStep()}
-
-        {/* ACTION BUTTONS */}
-        <div className="form__action-buttons">
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
           {currentStep > 0 && (
-            <Button sx={{ mt: 2 }} onClick={handlePreviousStep}>
+            <Button onClick={handlePreviousStep}>
               Anterior
             </Button>
           )}
           {currentStep < steps.length - 1 && (
-            <Button sx={{ mt: 2 }} onClick={handleNextStep}>
+            <Button onClick={handleNextStep}>
               Siguiente
             </Button>
           )}
           {currentStep === steps.length - 1 && (
-            <Button sx={{ mt: 2 }} type="submit">
+            <Button type="submit">
               Enviar
             </Button>
           )}
-        </div>
+        </Box>
       </form>
     </FormProvider>
   );
 }
+

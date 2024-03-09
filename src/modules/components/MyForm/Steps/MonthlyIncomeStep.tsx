@@ -2,23 +2,23 @@ import { TextField, Typography, InputAdornment } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../FormInputTypes"; 
 
-interface MinimumIncomeStepProps {
+interface MonthlyIncomeStepProps {
   onNext: () => Promise<void>;
 }
 
-export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
+export const MonthlyIncomeStep: React.FC<MonthlyIncomeStepProps> = () => {
   const { register, formState: { errors } } = useFormContext<IFormInput>(); 
   
-  const errorMessage = errors.minimumIncome && typeof errors.minimumIncome.message === 'string' ? errors.minimumIncome.message : '';
+  const errorMessage = errors.monthlyIncome && typeof errors.monthlyIncome.message === 'string' ? errors.monthlyIncome.message : '';
   const titleProps = {};
 
   return (
     <>
       <Typography variant="h4" className="title-margin" {...titleProps}>
-        ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar poder vivir de tu Coaching?
+        ¿Cuál es tu ingreso mensual actual?
       </Typography>
       <TextField
-        {...register("minimumIncome", {
+        {...register("monthlyIncome", {
           required: "Este campo es obligatorio",
           maxLength: {
             value: 7,
@@ -29,8 +29,8 @@ export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
             message: "Por favor ingresa un número válido"
           },
         })}
-        placeholder="Ingresos mínimos"
-        error={!!errors.minimumIncome}
+        placeholder="Ingreso mensual actual"
+        error={!!errors.monthlyIncome}
         helperText={errorMessage}
         type="number" 
         InputProps={{ 
