@@ -17,7 +17,7 @@ const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerS
 // ----
 
 const appConfig = {
-  enableDevCtaButton: false,
+  enableDevCtaButton: true,
   offerLong,
   offerShort,
   header: { textAlign: "left" as $TSFix },
