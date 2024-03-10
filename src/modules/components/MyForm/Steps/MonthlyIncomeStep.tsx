@@ -1,6 +1,6 @@
 import { TextField, Typography, InputAdornment } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { IFormInput } from "../FormInputTypes"; 
+import { IFormInput } from "../models/FormInputTypes"; 
 
 // interface MonthlyIncomeStepProps {
 //   onNext: () => Promise<void>;

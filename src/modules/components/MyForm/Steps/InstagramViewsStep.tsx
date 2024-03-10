@@ -1,6 +1,6 @@
 import { TextField, Typography } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { IFormInput } from "../FormInputTypes"; 
+import { IFormInput } from "../models/FormInputTypes"; 
 
 // interface InstagramViewsStepProps {
 //   onNext: () => Promise<void>;
