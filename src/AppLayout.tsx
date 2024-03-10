@@ -8,7 +8,7 @@ import CookieConsentProvider from "./modules/providers/CookieConsentProvider";
 type Props = { children: ReactNode | ReactNode[] };
 export default function AppLayout({ children }: Props) {
   return (
-    <ThemeProvider theme={theme}>
+     <ThemeProvider theme={theme}>
       <CssBaseline />
       <CookieConsentProvider>{children}</CookieConsentProvider>
     </ThemeProvider>
