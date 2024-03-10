@@ -44,6 +44,12 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const handleSubmitOnValid = async (data: $TSFix) => {
     // Siempre queremos el submit por separado para poder personalizarlo a futuro.
     console.log(data);
+
+    // ! NOTAS PARA ALEX para mas adelante cuando hagamos las "Thank You" pages.
+    // Podemos hacer el tracking desde los eventos de facebook?:
+    // TODO Track conversion to 'Mail Extracted' with Facebook Events --> fbq('track', 'Lead Magnet Calc. Form: Mail extracted.');
+    // TODO Track conversion to 'Thank You' Page with Facebook Events --> fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit'); -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
+    // Is it a qualified lead or a non-qualified?
   };
 
   return (
