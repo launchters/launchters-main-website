@@ -2,14 +2,14 @@ import { Box, Button } from "@mui/material";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
-import { IFormInput } from "./FormInputTypes";
-import { FormStepper } from "./FormStepper";
+import { IFormInput } from "./models/FormInputTypes";
+import { FormStepper } from "./partials/FormStepper";
 import { EmailStep } from "./Steps/EmailStep";
 import { InstagramStep } from "./Steps/InstagramStep";
 import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
 import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
-import { useStepsHandler } from "./stepsHandler";
+import { useStepsHandler } from "./hooks/stepsHandler";
 
 interface Step<P extends Partial<IFormInput>> {
   title: string;
