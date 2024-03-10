@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
@@ -5,6 +6,7 @@ import * as React from "react";
 import appConfig from "../../../../../config/app.config";
 import ArrowNextSection from "../../../../components/ArrowNextSection";
 import BackgroundImageWithOverlay from "../../../../components/BackgroundImageWithOverlay";
+import CtaForDevsOnly from "../../../../components/buttons/CtaForDevsOnly";
 
 const ProductHeroLayoutRoot = styled("section")(({ theme }) => ({
   color: theme.palette.common.white,
@@ -26,52 +28,63 @@ export default function ProductHeroLayout({
   backgroundImage,
   children,
 }: Props) {
+  const heroCtaLayout = (
+    <Stack
+      flexDirection="column"
+      sx={{
+        mt: 0,
+        pt: 0,
+        position: "absolute",
+        bottom: "1rem",
+        zIndex: 2,
+        textAlign: "center",
+        justifyItems: "center",
+        alignItems: "center",
+      }}
+    >
+      {appConfig.enableDevCtaButton ? (
+        <CtaForDevsOnly sx={{ mb: 4 }} />
+      ) : (
+        <ArrowNextSection toId={appConfig.sectionIds.highlights} offset={0} />
+      )}
+    </Stack>
+  );
+
   return (
     <ProductHeroLayoutRoot>
-      <Container
+      <Grid
+        container
+        direction="row"
         sx={{
-          display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          height: { xs: "92vh", md: "unset" },
-          overflow: "hidden",
         }}
       >
-        <Stack
-          flexDirection="row"
-          component="section"
+        <Container
           sx={{
-            zIndex: 2,
-            display: "flex-column",
-          }}
-        >
-          {children}
-        </Stack>
-
-        {/* Arrow */}
-        <Stack
-          flexDirection="column"
-          sx={{
-            mt: 0,
-            pt: 0,
-            position: "absolute",
-            bottom: "1rem",
-            zIndex: 2,
-            textAlign: "center",
-            justifyItems: "center",
+            display: "flex",
+            flexDirection: "column",
             alignItems: "center",
+            height: { xs: "92vh", md: "unset" },
+            overflow: "hidden",
           }}
         >
-          {/* <Typography sx={{ opacity: 0.6, m: 2 }}>
-            BAJA PARA SABER MÁS.
-          </Typography> */}
+          <Stack
+            flexDirection="row"
+            component="section"
+            sx={{
+              zIndex: 2,
+              display: "flex-column",
+            }}
+          >
+            {children}
+          </Stack>
 
-          <ArrowNextSection toId={appConfig.sectionIds.highlights} offset={0} />
-        </Stack>
+          {heroCtaLayout}
 
-        {/* background and overlay */}
-        <BackgroundImageWithOverlay {...{ src: backgroundImage }} />
-      </Container>
+          {/* background and overlay */}
+          <BackgroundImageWithOverlay {...{ src: backgroundImage }} />
+        </Container>
+      </Grid>
     </ProductHeroLayoutRoot>
   );
 }

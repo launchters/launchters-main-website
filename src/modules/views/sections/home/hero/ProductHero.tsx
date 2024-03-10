@@ -1,4 +1,4 @@
-import { Grid, TypographyOwnProps } from "@mui/material";
+import { Grid, Stack, TypographyOwnProps } from "@mui/material";
 import heroImage from "../../../../../assets/hero_image5.svg";
 import appConfig from "../../../../../config/app.config";
 import ProductHeroSubtitle from "../../../../components/ProductHeroSubtitle";
@@ -28,13 +28,7 @@ const titleProps: TypographyOwnProps = {
 export default function ProductHero() {
   return (
     <ProductHeroLayout {...{ backgroundImage }}>
-      <Grid
-        container
-        direction="row"
-        sx={{
-          alignItems: "center",
-        }}
-      >
+      <Stack direction="row">
         <Grid
           item
           xs={12}
@@ -103,7 +97,7 @@ export default function ProductHero() {
             order: 2,
           }}
         />
-      </Grid>
+      </Stack>
     </ProductHeroLayout>
   );
 }
