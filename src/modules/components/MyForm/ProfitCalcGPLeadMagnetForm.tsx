@@ -16,8 +16,6 @@ interface Step<P extends Partial<IFormInput>> {
   component: React.FC<P>;
 }
 
-// ! Nota: No consigo solucionar el aviso de component. He creado un FormInputTypes.ts con la interfaz IFormInput y lo he importado en este archivo, pero no consigo solucionar el aviso.
-
 const steps: Array<Step<Partial<IFormInput>>> = [
   { title: "Email", component: EmailStep },
   { title: "Instagram", component: InstagramStep },
