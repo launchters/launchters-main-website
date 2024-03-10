@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
-import { IFormInput } from "./FormInputTypes";
+import { IFormInput } from "./models/FormInputTypes";
 import { FormStepper } from "./FormStepper";
 import { EmailStep } from "./Steps/EmailStep";
 import { InstagramStep } from "./Steps/InstagramStep";
