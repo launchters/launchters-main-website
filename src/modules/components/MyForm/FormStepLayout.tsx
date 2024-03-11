@@ -16,7 +16,7 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
     children 
 }) => {
     const { formState: { errors} } = useFormContext();
-    const errorMessage = errors[nameId] && typeof errors[nameId]?.message === 'string' ? errors[nameId]?.message : '';
+    const errorMessage = errors[nameId]?.message; 
 
     return (
         <>
@@ -27,10 +27,10 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
         {React.Children.map(children, child => {
             if (React.isValidElement(child)) {
                 return React.cloneElement(child, {
-                    // ! No consigo corregir este problema con la validacion de los errores en el formulario.
                     error: !!errors[nameId],
                     helperText: errorMessage,
-                });
+                    key: nameId
+                } as { error: boolean });
             }
             return child;
         })}
