@@ -10,6 +10,7 @@ import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
 import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
+import { AverageHoursStep } from "./Steps/AverageHoursStep";
 
 interface Step<P extends Partial<IFormInput>> {
   title: string;
@@ -17,11 +18,12 @@ interface Step<P extends Partial<IFormInput>> {
 }
 
 const steps: Array<Step<Partial<IFormInput>>> = [
-  { title: "Email", component: EmailStep },
   { title: "Instagram", component: InstagramStep },
+  { title: "Email", component: EmailStep },
   { title: "Instagram Views", component: InstagramViewsStep },
   { title: "Minimum Income", component: MinimumIncomeStep },
   { title: "Monthly Income", component: MonthlyIncomeStep },
+  { title: "Average Hours", component: AverageHoursStep },
 ];
 
 export default function ProfitCalcGPLeadMagnetForm() {

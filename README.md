@@ -75,9 +75,9 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   1. Email de usuario (obligatorio) ✅
   1. ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (en días diferentes)? ✅
   1. ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar VIVIR DE TU COACHING? (deseo) ✅
-  1. ¿Cuánto ingresa tu negocio al mes (promedio)?
-  1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
-  1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
+  1. ¿Cuánto ingresa tu negocio al mes (promedio)? ✅
+  1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)? ✅
+  1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes). 
   1. (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
      - Embudo de ventas efectivo con Lead Magnet
      - Plan de contenidos estratégico y estrategias guionizadas con un objetivo

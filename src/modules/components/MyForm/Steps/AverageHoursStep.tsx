@@ -3,16 +3,17 @@ import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../models/FormInputTypes";
 import { FormStepLayout } from '../FormStepLayout';
 
-export const MonthlyIncomeStep = () => {
+export const AverageHoursStep = () => {
   const { register } = useFormContext<IFormInput>();
 
   return (
     <FormStepLayout
-      nameId="monthlyIncome"
-      title="¿Cuál es tu ingreso mensual actual?"
+      nameId="averageExpenses"
+      title="¿Cuánto gasta tu negocio al mes (gastos operativos promedio)?"
+      subtitle="Gastos que se verían aumentados si recibes nuevos clientes"
     >
       <TextField
-        {...register("monthlyIncome", {
+        {...register("averageExpenses", {
           required: "Este campo es obligatorio",
           maxLength: {
             value: 7,
@@ -23,7 +24,7 @@ export const MonthlyIncomeStep = () => {
             message: "Por favor ingresa un número válido"
           },
         })}
-        placeholder="Ingreso mensual actual"
+        placeholder="Gastos operativos promedio"
         type="number"
         InputProps={{
           inputProps: { min: 0, step: 1 },
@@ -33,4 +34,3 @@ export const MonthlyIncomeStep = () => {
     </FormStepLayout>
   );
 };
-

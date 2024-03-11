@@ -1,23 +1,16 @@
-import { InputAdornment, TextField, Typography } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../models/FormInputTypes";
+import { FormStepLayout } from '../FormStepLayout';
 
-// interface MinimumIncomeStepProps {
-//   onNext: () => Promise<void>;
-// }
-
-// export const MinimumIncomeStep: React.FC<MinimumIncomeStepProps> = () => {
 export const MinimumIncomeStep = () => {
-  const { register, formState: { errors } } = useFormContext<IFormInput>(); 
-  
-  const errorMessage = errors.minimumIncome && typeof errors.minimumIncome.message === 'string' ? errors.minimumIncome.message : '';
-  const titleProps = {};
+  const { register } = useFormContext<IFormInput>();
 
   return (
-    <>
-      <Typography variant="h4" className="title-margin" {...titleProps}>
-        ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para vivir de tu coaching?
-      </Typography>
+    <FormStepLayout
+      nameId="minimumIncome"
+      title="¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar VIVIR DE TU COACHING?"
+    >
       <TextField
         {...register("minimumIncome", {
           required: "Este campo es obligatorio",
@@ -31,14 +24,13 @@ export const MinimumIncomeStep = () => {
           },
         })}
         placeholder="Ingresos mínimos"
-        error={!!errors.minimumIncome}
-        helperText={errorMessage}
-        type="number" 
-        InputProps={{ 
+        type="number"
+        InputProps={{
           inputProps: { min: 0, step: 1 },
           startAdornment: <InputAdornment position="start">€</InputAdornment>,
-        }} 
+        }}
       />
-    </>
+    </FormStepLayout>
   );
 };
+
