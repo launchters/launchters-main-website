@@ -35,8 +35,8 @@ export const InstagramStep = () => {
       <Typography variant="h4" className="title-margin" {...titleProps}>
         Agregar tu usuario de Instagram
       </Typography>
-      // TODO: Extraer las titleProps al componente padre y pasarlas a este como parametros.
-      // TODO: Crear un subtitulo para todas las Steps. Hacer que sea opcional.
+      {/* // TODO: Extraer las titleProps al componente padre y pasarlas a este como parametros.
+      // TODO: Crear un subtitulo para todas las Steps. Hacer que sea opcional. */}
       <TextField
         {...register("instagram", {
           required: "Este Campo Es Obligatorio",
