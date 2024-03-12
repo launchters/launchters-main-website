@@ -26,7 +26,7 @@ export const EmailStep = () => {
           })}
           placeholder="ejemplo@correo.com"
           error={!!errors[name]}
-          helperText={!!errors[name]?.message?.toString()}
+          helperText={errors[name]?.message?.toString()}
         />
       }
     />

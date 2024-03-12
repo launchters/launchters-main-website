@@ -14,7 +14,7 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
 }) => {
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid direction={"column"}>
         <Grid item>
           <Typography variant="h3" className="title-margin">
             {title}
@@ -22,7 +22,7 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
           {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
         </Grid>
         <Grid item>{control}</Grid>
-      </Grid>{" "}
+      </Grid>
     </>
   );
 };

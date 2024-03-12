@@ -7,13 +7,13 @@ type UseStepsHandlerReturnType = {
 };
 
 export const useStepsHandler = (
-  totalSteps: number
+  steps: number
 ): UseStepsHandlerReturnType => {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const handleNextStep = (): void => {
     // TODO: disparar methods.trigger(name) --> con el name del step que el usuario acaba de rellenar, por lo que tendras que sustituir totalSteps por steps en useStepsHandler Hook.
-    if (currentStep < totalSteps - 1) {
+    if (currentStep < steps - 1) {
       setCurrentStep(currentStep + 1);
     }
   };

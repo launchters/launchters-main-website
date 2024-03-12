@@ -32,7 +32,7 @@ export const InstagramStep = () => {
           }}
           placeholder="nombredeusuario"
           error={!!errors[name]}
-          helperText={!!errors[name]?.message?.toString()}
+          helperText={errors[name]?.message?.toString()}
         />
       }
     />
