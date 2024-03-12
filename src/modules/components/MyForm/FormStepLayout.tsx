@@ -1,39 +1,28 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import { useFormContext } from "react-hook-form";
+import { Grid, Typography } from "@mui/material";
 
 interface StepComponentProps {
-    nameId: string;
-    title: string;
-    subTitle?: string;
-    children: React.ReactNode | React.ReactNode[];
+  title: string;
+  subTitle?: string;
+  control: React.ReactNode;
 }
 
-export const FormStepLayout: React.FC<StepComponentProps> = ({ 
-    nameId, 
-    title, 
-    subTitle, 
-    children 
+export const FormStepLayout: React.FC<StepComponentProps> = ({
+  title,
+  subTitle,
+  control,
 }) => {
-    const { formState: { errors} } = useFormContext();
-    const errorMessage = errors[nameId]?.message; 
-
-    return (
-        <>
-        <Typography variant="h3" className="title-margin">
+  return (
+    <>
+      <Grid container spacing={2}>
+        <Grid item>
+          <Typography variant="h3" className="title-margin">
             {title}
-        </Typography>
-        {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
-        {React.Children.map(children, child => {
-            if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                    error: !!errors[nameId],
-                    helperText: errorMessage,
-                    key: nameId
-                } as { error: boolean });
-            }
-            return child;
-        })}
-        </>
-    );
+          </Typography>
+          {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
+        </Grid>
+        <Grid item>{control}</Grid>
+      </Grid>{" "}
+    </>
+  );
 };

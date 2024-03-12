@@ -5,5 +5,6 @@ export interface IFormInput {
     minimumIncome: number;
     monthlyIncome: number;
     averageExpenses: number;
+    averageHours: number;
   }
   
