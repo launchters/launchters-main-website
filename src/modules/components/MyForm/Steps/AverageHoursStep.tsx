@@ -10,7 +10,7 @@ export const AverageHoursStep = () => {
     <FormStepLayout
       nameId="averageExpenses"
       title="¿Cuánto gasta tu negocio al mes (gastos operativos promedio)?"
-      subtitle="Gastos que se verían aumentados si recibes nuevos clientes"
+      subTitle="Gastos que se verían aumentados si recibes nuevos clientes"
     >
       <TextField
         {...register("averageExpenses", {
