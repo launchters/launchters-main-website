@@ -1,7 +1,7 @@
 import { TextField } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { IFormInput } from "../models/FormInputTypes";
 import { FormStepLayout } from "../FormStepLayout";
+import { IFormInput } from "../models/FormInputTypes";
 
 export const EmailStep = () => {
   const {
@@ -9,8 +9,6 @@ export const EmailStep = () => {
     formState: { errors },
   } = useFormContext<IFormInput>();
   const name = "email";
-
-  console.log(errors);
 
   return (
     <FormStepLayout
