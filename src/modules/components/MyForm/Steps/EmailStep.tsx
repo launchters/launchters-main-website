@@ -10,6 +10,8 @@ export const EmailStep = () => {
   } = useFormContext<IFormInput>();
   const name = "email";
 
+  console.log(errors);
+
   return (
     <FormStepLayout
       title="Email de usuario"
