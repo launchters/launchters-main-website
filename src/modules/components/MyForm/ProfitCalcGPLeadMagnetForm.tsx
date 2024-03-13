@@ -1,15 +1,15 @@
 import { Box, Button } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
-import { IFormInput } from "./models/FormInputTypes";
-import { FormStepper } from "./partials/FormStepper";
+import { AverageHoursStep } from "./Steps/AverageHoursStep";
 import { EmailStep } from "./Steps/EmailStep";
 import { InstagramStep } from "./Steps/InstagramStep";
 import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
 import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
-import { AverageHoursStep } from "./Steps/AverageHoursStep";
+import { IFormInput } from "./models/FormInputTypes";
+import { FormStepper } from "./partials/FormStepper";
 
 const steps = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -39,7 +39,8 @@ export default function ProfitCalcGPLeadMagnetForm() {
     steps
   );
 
-  const renderStep = steps[currentStep].component;
+  const CurrentStepComponent = steps[currentStep].component;
+  const renderStep = () => <CurrentStepComponent />;
 
   const handleSubmitOnValid = async (data: $TSFix) => {
     // Siempre queremos el submit por separado para poder personalizarlo a futuro.
