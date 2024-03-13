@@ -40,9 +40,7 @@ export default function ProfitCalcGPLeadMagnetForm() {
     steps
   );
 
-  const renderStep = () => {
-    return steps[currentStep].component;
-  };
+  const renderStep = steps[currentStep].component;
 
   const handleSubmitOnValid = async (data: $TSFix) => {
     // Siempre queremos el submit por separado para poder personalizarlo a futuro.
