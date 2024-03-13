@@ -10,7 +10,6 @@ import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { AverageHoursStep } from "./Steps/AverageHoursStep";
-import FormStepProps from "./models/FormStepProps";
 
 const steps = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },

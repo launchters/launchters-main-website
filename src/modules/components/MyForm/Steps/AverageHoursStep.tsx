@@ -33,7 +33,7 @@ export const AverageHoursStep = () => {
           }}
           placeholder="Gastos operativos promedio"
           error={!!errors[name]}
-          helperText={!!errors[name]?.message?.toString()}
+          helperText={errors[name]?.message?.toString()}
         />
       }
     />
