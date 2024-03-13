@@ -101,6 +101,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   - [ ] Sustituiremos ese `console.log` por checks para saber si el lead (usuario) cualifica o no para el programa, haremos también llamadas http a una API en alguno de los switch case, para que los datos sean guardados.
   - [ ] Al introducir su usuario de instagram y pasar al siguiente paso, comprobaremos si califica o no.
 
+<<<<<<< Updated upstream
 - [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
 
   1. Instagram del usuario (obligatorio)
@@ -131,6 +132,8 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 - [ ] `#feature/transactional-emails--qualified`: En caso de SÍ cualificar: Envío automático de email transaccional conteniendo calculadora de profits del lead magnet. Es necesario generar gráficos adecuados y personalizar las cifras segun datos respondidos en el formulario.
 
+=======
+>>>>>>> Stashed changes
 <!-- ! PARA LA LLAMADA -->
 <!-- 1. En este momento, ¿cuáles son los principales obstáculos, problemas o retos que enfrentáis tu negocio y tú, personalmente? -->
 <!-- 1. ¿Qué esperas de mí para considerar nuestra colaboración todo un éxito? (sé específico/a) -->
