@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { UseFormReturn } from "react-hook-form";
+import { IFormInput } from "../models/FormInputTypes";
+import FormStep from "../models/FormStep";
 
 type UseStepsHandlerReturnType = {
   currentStep: number;
@@ -7,13 +10,16 @@ type UseStepsHandlerReturnType = {
 };
 
 export const useStepsHandler = (
-  steps: number
+  methods: UseFormReturn<IFormInput>,
+  steps: FormStep[]
 ): UseStepsHandlerReturnType => {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
-  const handleNextStep = (): void => {
-    // TODO: disparar methods.trigger(name) --> con el name del step que el usuario acaba de rellenar, por lo que tendras que sustituir totalSteps por steps en useStepsHandler Hook.
-    if (currentStep < steps - 1) {
+  const handleNextStep = async (): Promise<void> => {
+    const currentFieldName = steps[currentStep].name;
+    const isValid = await methods.trigger(currentFieldName as keyof IFormInput);
+
+    if (isValid && currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };

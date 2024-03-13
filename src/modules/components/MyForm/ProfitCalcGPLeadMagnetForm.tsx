@@ -1,5 +1,4 @@
 import { Box, Button } from "@mui/material";
-import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
 import { IFormInput } from "./models/FormInputTypes";
@@ -11,34 +10,38 @@ import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { AverageHoursStep } from "./Steps/AverageHoursStep";
+import FormStepProps from "./models/FormStepProps";
 
-interface Step<P extends Partial<IFormInput>> {
-  title: string;
-  component: React.FC<P>;
-}
-
-const steps: Array<Step<Partial<IFormInput>>> = [
-  { title: "Instagram", component: InstagramStep },
-  { title: "Email", component: EmailStep },
-  { title: "Instagram Views", component: InstagramViewsStep },
-  { title: "Minimum Income", component: MinimumIncomeStep },
-  { title: "Monthly Income", component: MonthlyIncomeStep },
-  { title: "Average Hours", component: AverageHoursStep },
+const steps = [
+  { title: "Instagram", component: InstagramStep, name: "instagram" },
+  { title: "Email", component: EmailStep, name: "email" },
+  {
+    title: "Instagram Views",
+    component: InstagramViewsStep,
+    name: "instagramViews",
+  },
+  {
+    title: "Minimum Income",
+    component: MinimumIncomeStep,
+    name: "minimumIncome",
+  },
+  {
+    title: "Monthly Income",
+    component: MonthlyIncomeStep,
+    name: "monthlyIncome",
+  },
+  { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
 ];
 
 export default function ProfitCalcGPLeadMagnetForm() {
   const methods = useForm<IFormInput>();
   const { currentStep, handleNextStep, handlePreviousStep } = useStepsHandler(
-    steps.length
+    methods,
+    steps
   );
 
-  const renderStep = (): JSX.Element => {
-    const StepComponent = steps[currentStep].component;
-    const stepProps = {
-      ...methods.getValues(),
-      onNext: handleNextStep,
-    };
-    return <StepComponent {...stepProps} />;
+  const renderStep = () => {
+    return steps[currentStep].component;
   };
 
   const handleSubmitOnValid = async (data: $TSFix) => {

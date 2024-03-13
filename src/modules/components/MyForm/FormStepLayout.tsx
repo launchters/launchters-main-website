@@ -14,14 +14,18 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
 }) => {
   return (
     <>
-      <Grid direction={"column"}>
-        <Grid item>
-          <Typography variant="h3" className="title-margin">
-            {title}
-          </Typography>
-          {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
+      <Grid container spacing={2}>
+        <Grid item xs={12} flexDirection={"column"}>
+          <Grid item>
+            <Typography variant="h3" className="title-margin">
+              {title}
+            </Typography>
+            {subTitle && (
+              <Typography variant="subtitle1">{subTitle}</Typography>
+            )}
+          </Grid>
+          <Grid item>{control}</Grid>
         </Grid>
-        <Grid item>{control}</Grid>
       </Grid>
     </>
   );
