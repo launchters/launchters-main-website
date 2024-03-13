@@ -10,6 +10,7 @@ import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
 import { FormStepper } from "./partials/FormStepper";
+import FormNavigationButtons from "./partials/FormNavigationButtons";
 
 const steps = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -60,17 +61,12 @@ export default function ProfitCalcGPLeadMagnetForm() {
           <FormStepper currentStep={currentStep} totalSteps={steps.length} />
         </Box>
         {renderStep()}
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-          {currentStep > 0 && (
-            <Button onClick={handlePreviousStep}>Anterior</Button>
-          )}
-          {currentStep < steps.length - 1 && (
-            <Button onClick={handleNextStep}>Siguiente</Button>
-          )}
-          {currentStep === steps.length - 1 && (
-            <Button type="submit">Enviar</Button>
-          )}
-        </Box>
+        <FormNavigationButtons
+          currentStep={currentStep}
+          handlePreviousStep={handlePreviousStep}
+          handleNextStep={handleNextStep}
+          maxSteps={steps.length}
+        />
       </form>
     </FormProvider>
   );
