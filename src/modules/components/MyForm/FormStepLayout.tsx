@@ -1,10 +1,10 @@
-import React from "react";
 import { Grid, Typography } from "@mui/material";
+import React from "react";
 
 interface StepComponentProps {
+  control: React.ReactNode;
   title: string;
   subTitle?: string;
-  control: React.ReactNode;
 }
 
 export const FormStepLayout: React.FC<StepComponentProps> = ({
@@ -14,18 +14,14 @@ export const FormStepLayout: React.FC<StepComponentProps> = ({
 }) => {
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={12} flexDirection={"column"}>
-          <Grid item>
-            <Typography variant="h3" className="title-margin">
-              {title}
-            </Typography>
-            {subTitle && (
-              <Typography variant="subtitle1">{subTitle}</Typography>
-            )}
-          </Grid>
-          <Grid item>{control}</Grid>
+      <Grid container spacing={2} flexDirection="column">
+        <Grid item>
+          <Typography variant="h3" className="title-margin">
+            {title}
+          </Typography>
+          {subTitle && <Typography variant="subtitle1">{subTitle}</Typography>}
         </Grid>
+        <Grid item>{control}</Grid>
       </Grid>
     </>
   );

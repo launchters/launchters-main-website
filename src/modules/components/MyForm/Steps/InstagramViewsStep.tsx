@@ -16,7 +16,7 @@ export const InstagramViewsStep = () => {
       subTitle="(en días diferentes)."
       control={
         <TextField
-          {...register("instagramViews", {
+          {...register(name, {
             required: "Este Campo Es Obligatorio",
             pattern: {
               value: /^[0-9]*$/,

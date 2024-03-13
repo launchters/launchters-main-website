@@ -1,7 +1,7 @@
-import { TextField, InputAdornment } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import { useFormContext } from "react-hook-form";
-import { IFormInput } from "../models/FormInputTypes";
 import { FormStepLayout } from "../FormStepLayout";
+import { IFormInput } from "../models/FormInputTypes";
 
 export const AverageHoursStep = () => {
   const {
