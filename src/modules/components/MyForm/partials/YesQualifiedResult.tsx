@@ -10,7 +10,7 @@ const vslStorageUrl = `${appConfig.storageUrls.vslVideos}/Growth-Partner-Program
 const vslVideoVariants = {
   gppCalcSuccessBookCall: [
     {
-      src: `${vslStorageUrl}/VID_20240314_165007%5B2%5D.mp4.mp4`,
+      src: `${vslStorageUrl}/VID_20240314_165007%5B2%5D.mp4`,
       // cover: `${vslStorageUrl}/book-a-call/VID_20240314_165007%5B2%5D-Cover.jpg`,
     },
   ],
