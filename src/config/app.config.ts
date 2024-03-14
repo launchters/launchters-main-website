@@ -17,6 +17,9 @@ const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerS
 // ----
 
 const appConfig = {
+  storageUrls: {
+    vslVideos: "https://launchters-vsl-videos.s3.eu-west-3.amazonaws.com",
+  },
   enableDevCtaButton: true,
   offerLong,
   offerShort,
