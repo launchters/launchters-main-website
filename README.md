@@ -90,7 +90,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 - [ ] `#feature/thank-you-screen`: Hay que crear varias a las que dirigiremos al usuario segun si cualifica o no a lo largo del proceso:
 
   - [x] CREAR AMBAS PAGINAS CON RUTA PROPIA COMO subrutas de la del formulario en concreto.
-  - [ ] **Sí cualifica**: Página de confirmación con icono de un reloj, diciendo que los resultados serán enviados en las próximas 24-72 horas ya que son generados manualmente.
+  - [x] **Sí cualifica**: Página de confirmación con icono de un reloj, diciendo que los resultados serán enviados en las próximas 24-72 horas ya que son generados manualmente.
   - [x] **No cualifica**: Página de confirmación con icono de cara triste y mensaje diciéndole que su perfil actual no cumple con los requisitos necesarios para el programa de 'Growth Partner' todavía, pero que presionando el siguiente botón de confirmación, entrará en lista de espera para un evento online donde le enseñaré a llevar su negocio de coaching desde 0 a 3000€/mes.
   - [ ] **SALTO DINÁMICO**: Si no cualifica, le haremos saltar directamente a la "thank-you page" de los que no cualifican. Si sí cualifica continuaremos el flow sin interrumpirlo.
 

@@ -75,10 +75,7 @@ export default function ProfitCalcGPLeadMagnetForm({
         {renderStep()}
         <FormNavigationButtons
           currentStep={currentStep}
-          //TODO: Cambiar por la linea comentada
-          handlePreviousStep={handlePreviousStep}
-          handleNextStep={handleNextStep}
-          // {...{ handlePreviousStep, handleNextStep }}
+          {...{ handlePreviousStep, handleNextStep }}
           maxSteps={steps.length}
         />
       </form>
