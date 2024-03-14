@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
 import { AverageHoursStep } from "./Steps/AverageHoursStep";
@@ -9,8 +9,11 @@ import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
 import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
-import { FormStepper } from "./partials/FormStepper";
+import FormStep from "./models/FormStep";
 import FormNavigationButtons from "./partials/FormNavigationButtons";
+import { FormStepper } from "./partials/FormStepper";
+import YesQualifiedResult from "./partials/YesQualifiedResult";
+import NoQualifiedResult from "./partials/NoQualifiedResult";
 
 const steps = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -33,7 +36,11 @@ const steps = [
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
 ];
 
-export default function ProfitCalcGPLeadMagnetForm() {
+export default function ProfitCalcGPLeadMagnetForm({
+  resultQualified,
+}: {
+  resultQualified?: boolean;
+}) {
   const methods = useForm<IFormInput>();
   const { currentStep, handleNextStep, handlePreviousStep } = useStepsHandler(
     methods,
@@ -53,6 +60,11 @@ export default function ProfitCalcGPLeadMagnetForm() {
     // TODO Track conversion to 'Thank You' Page with Facebook Events --> fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit'); -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
     // Is it a qualified lead or a non-qualified?
   };
+
+  if (resultQualified != undefined) {
+    if (resultQualified) return <YesQualifiedResult />;
+    else return <NoQualifiedResult />;
+  }
 
   return (
     <FormProvider {...methods}>

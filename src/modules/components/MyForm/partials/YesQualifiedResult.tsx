@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSadTear } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 
 const YesQualifiedResult: React.FC = () => {
   const handleConfirmation = () => {
@@ -9,17 +9,10 @@ const YesQualifiedResult: React.FC = () => {
 
   return (
     <div>
-      <FaSadTear size={50} />
-      <p>
-        Your current profile does not meet the requirements for the 'Growth
-        Partner' program yet.
-      </p>
-      <p>
-        However, by clicking the confirmation button below, you will be added to
-        a waiting list for an online event where you will learn how to grow your
-        coaching business from 0 to 3000€/month.
-      </p>
-      <button onClick={handleConfirmation}>Confirm</button>
+      <FaCheckCircle size={50} />
+      <p>Si que cumple los requisitos. ¿Que hacemos ahora?</p>
+      <p>xxxxx</p>
+      <button onClick={handleConfirmation}>CTA</button>
     </div>
   );
 };

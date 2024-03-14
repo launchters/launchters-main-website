@@ -58,12 +58,35 @@ export default function AppRouter() {
           }
         />
         <Route
-          path="/lm"
+          path="lm"
           children={
-            <Route
-              path="profit-calc-gp-001"
-              element={<ProfitCalcGPLeadMagnetForm />}
-            />
+            <>
+              <Route
+                path="profit-calc-gp-001"
+                children={
+                  <>
+                    <Route path="" element={<ProfitCalcGPLeadMagnetForm />} />
+                    <Route
+                      path="testyes"
+                      element={
+                        <ProfitCalcGPLeadMagnetForm resultQualified={true} />
+                      }
+                    />
+                    <Route
+                      path="testno"
+                      element={
+                        <ProfitCalcGPLeadMagnetForm resultQualified={false} />
+                      }
+                    />
+                  </>
+                }
+              />
+
+              <Route
+                path="profit-calc-gp-001"
+                element={<ProfitCalcGPLeadMagnetForm />}
+              />
+            </>
           }
         />
       </Routes>
