@@ -11,13 +11,31 @@ export default function FormNavigationButtons({
   return (
     <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
       {currentStep > 0 && (
-        <ButtonCustom onClick={handlePreviousStep}>Anterior</ButtonCustom>
+        <ButtonCustom
+          onClick={handlePreviousStep}
+          id={`back-button__step-${currentStep}`}
+          className={`back-button step-${currentStep}`}
+        >
+          Anterior
+        </ButtonCustom>
       )}
       {currentStep < maxSteps - 1 && (
-        <ButtonCustom onClick={handleNextStep}>Siguiente</ButtonCustom>
+        <ButtonCustom
+          onClick={handleNextStep}
+          id={`next-button step-${currentStep}`}
+          className={`next-button step-${currentStep}`}
+        >
+          Siguiente
+        </ButtonCustom>
       )}
       {currentStep === maxSteps - 1 && (
-        <ButtonCustom type="submit">Enviar</ButtonCustom>
+        <ButtonCustom
+          type="submit"
+          id={`submit-btn`}
+          className={`step-${currentStep}`}
+        >
+          Enviar
+        </ButtonCustom>
       )}
     </Box>
   );
