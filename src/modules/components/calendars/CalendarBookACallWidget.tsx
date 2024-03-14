@@ -1,4 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
+import { Suspense } from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import { Helmet } from "react-helmet-async";
 
@@ -53,7 +54,7 @@ export default function CalendarBookACallWidget() {
   };
 
   return (
-    <>
+    <Stack>
       <Helmet>
         <script
           type="text/javascript"
@@ -68,18 +69,20 @@ export default function CalendarBookACallWidget() {
             Para valorar tu caso específico
           </Typography>
         </Box>
-        <div id="calendar-widget" className="calendar-widget">
-          {
-            // ! Calendar Widget
-            // <div
-            //   className="calendly-inline-widget"
-            //   data-url={calendarSrcUrl}
-            //   style={{ minWidth: "320px", height: "700px" }}
-            // ></div>
-          }
-          <InlineWidget url={calendarSrcUrl} {...widgetConfig} />
-        </div>
+        <Suspense fallback="Cargando calendario...">
+          <div id="calendar-widget" className="calendar-widget">
+            {
+              // ! Calendar Widget
+              // <div
+              //   className="calendly-inline-widget"
+              //   data-url={calendarSrcUrl}
+              //   style={{ minWidth: "320px", height: "700px" }}
+              // ></div>
+            }
+            <InlineWidget url={calendarSrcUrl} {...widgetConfig} />
+          </div>
+        </Suspense>
       </div>
-    </>
+    </Stack>
   );
 }

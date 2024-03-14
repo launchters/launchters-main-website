@@ -36,7 +36,7 @@ const rawTheme = createTheme({
       dark: green[700],
     },
     background: {
-      default: grey[300],
+      default: "white",
     },
   },
   typography: {

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { $TSFix } from "../../models/ts-fix.d";
 import { AverageHoursStep } from "./Steps/AverageHoursStep";
@@ -12,8 +12,8 @@ import { IFormInput } from "./models/FormInputTypes";
 import FormStep from "./models/FormStep";
 import FormNavigationButtons from "./partials/FormNavigationButtons";
 import { FormStepper } from "./partials/FormStepper";
-import YesQualifiedResult from "./partials/YesQualifiedResult";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
+import YesQualifiedResult from "./partials/YesQualifiedResult";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -36,11 +36,16 @@ const steps: FormStep[] = [
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
 ];
 
-export default function ProfitCalcGPLeadMagnetForm({
-  resultQualified,
-}: {
-  resultQualified?: boolean;
-}) {
+const stepperSxProps = {
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+};
+
+type Props = {
+  isQualified?: boolean;
+};
+export default function ProfitCalcGPLeadMagnetForm({ isQualified }: Props) {
   const methods = useForm<IFormInput>();
   const { currentStep, handleNextStep, handlePreviousStep } = useStepsHandler(
     methods,
@@ -61,24 +66,26 @@ export default function ProfitCalcGPLeadMagnetForm({
     // Is it a qualified lead or a non-qualified?
   };
 
-  if (resultQualified != undefined) {
-    if (resultQualified) return <YesQualifiedResult />;
+  if (isQualified != undefined) {
+    if (isQualified) return <YesQualifiedResult />;
     else return <NoQualifiedResult />;
   }
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(handleSubmitOnValid)}>
-        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-          <FormStepper currentStep={currentStep} totalSteps={steps.length} />
-        </Box>
-        {renderStep()}
-        <FormNavigationButtons
-          currentStep={currentStep}
-          {...{ handlePreviousStep, handleNextStep }}
-          maxSteps={steps.length}
-        />
-      </form>
-    </FormProvider>
+    <Stack>
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(handleSubmitOnValid)}>
+          <Box sx={stepperSxProps}>
+            <FormStepper currentStep={currentStep} totalSteps={steps.length} />
+          </Box>
+          {renderStep()}
+          <FormNavigationButtons
+            currentStep={currentStep}
+            {...{ handlePreviousStep, handleNextStep }}
+            maxSteps={steps.length}
+          />
+        </form>
+      </FormProvider>
+    </Stack>
   );
 }

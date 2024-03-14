@@ -69,22 +69,17 @@ export default function AppRouter() {
                     <Route
                       path="testyes"
                       element={
-                        <ProfitCalcGPLeadMagnetForm resultQualified={true} />
+                        <ProfitCalcGPLeadMagnetForm isQualified={true} />
                       }
                     />
                     <Route
                       path="testno"
                       element={
-                        <ProfitCalcGPLeadMagnetForm resultQualified={false} />
+                        <ProfitCalcGPLeadMagnetForm isQualified={false} />
                       }
                     />
                   </>
                 }
-              />
-
-              <Route
-                path="profit-calc-gp-001"
-                element={<ProfitCalcGPLeadMagnetForm />}
               />
             </>
           }

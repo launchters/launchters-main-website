@@ -1,8 +1,9 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import ButtonCustom from "../../ButtonCustom";
 import { Suspense, useState } from "react";
 import { GiPartyPopper } from "react-icons/gi";
 import appConfig from "../../../../config/app.config";
+import ButtonCustom from "../../ButtonCustom";
+import CalendarBookACallWidget from "../../calendars/CalendarBookACallWidget";
 
 const textSx = { mb: 2 };
 
@@ -23,9 +24,15 @@ const YesQualifiedResult: React.FC = () => {
     selectedVariant,
     // setSelectedVariant
   ] = useState(vslVariants[0]);
+  const [showBookingCalendar, setShowBookingCalendar] = useState(false);
 
-  const handleConfirmation = () => {};
-  // TODOS: Implementar lógica para redirigir a la página de confirmación
+  const handleConfirmation = () => {
+    setShowBookingCalendar(true);
+  };
+
+  if (showBookingCalendar) {
+    return <CalendarBookACallWidget />;
+  }
 
   return (
     <Box sx={{ width: "min(50rem,90%)", margin: "0 auto" }}>
