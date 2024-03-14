@@ -1,11 +1,12 @@
-import { Button, ButtonOwnProps, Typography } from "@mui/material";
+import { ButtonOwnProps, Typography } from "@mui/material";
+import ButtonCustom from "../ButtonCustom";
 
 type Props = {
   sx?: ButtonOwnProps["sx"];
 };
 export default function CtaForDevsOnly({ sx }: Props) {
   return (
-    <Button
+    <ButtonCustom
       size="small"
       component="a"
       href={"/#/lm/profit-calc-gp-001"}
@@ -20,6 +21,6 @@ export default function CtaForDevsOnly({ sx }: Props) {
       >
         Ver WIP
       </Typography>
-    </Button>
+    </ButtonCustom>
   );
 }

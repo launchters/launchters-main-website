@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '../../../components/Typography';
 import TextField from '../../../components/TextField';
 import Snackbar from '../../../components/Snackbar';
-import Button from '../../../components/Button';
+import ButtonCustom from '../../../components/ButtonCustom';
 
 function ProductCTA() {
   const [open, setOpen] = React.useState(false);
@@ -45,14 +45,14 @@ function ProductCTA() {
                 variant="standard"
                 sx={{ width: '100%', mt: 3, mb: 2 }}
               />
-              <Button
+              <ButtonCustom
                 type="submit"
                 color="primary"
                 variant="contained"
                 sx={{ width: '100%' }}
               >
                 Keep me updated
-              </Button>
+              </ButtonCustom>
             </Box>
           </Box>
         </Grid>

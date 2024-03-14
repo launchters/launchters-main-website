@@ -1,5 +1,6 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import ButtonCustom from "../../components/ButtonCustom";
 
 export default function Error() {
   return (
@@ -18,7 +19,7 @@ export default function Error() {
             <Typography variant="h6">
               The page you’re looking for doesn’t exist.
             </Typography>
-            <Button variant="contained">Back Home</Button>
+            <ButtonCustom variant="contained">Back Home</ButtonCustom>
           </Grid>
           <Grid xs={6}>
             <img

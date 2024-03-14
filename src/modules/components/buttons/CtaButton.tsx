@@ -1,5 +1,5 @@
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import ButtonCustom from "../ButtonCustom";
 import Typography from "../Typography";
 
 const ctaTargetUrl = "https://gozenforms.com/YihRDrd7JjJm1DPKb1v4";
@@ -16,7 +16,7 @@ const ctaTargetUrl = "https://gozenforms.com/YihRDrd7JjJm1DPKb1v4";
 export default function CtaButton() {
   return (
     <Stack flexDirection="column">
-      <Button
+      <ButtonCustom
         color="secondary"
         variant="contained"
         size="small"
@@ -33,7 +33,7 @@ export default function CtaButton() {
             Calcular cuánto puedo ganar
           </Typography>
         </Stack>
-      </Button>
+      </ButtonCustom>
       <Typography
         variant="caption"
         sx={{ my: 0.5, textTransform: "uppercase" }}

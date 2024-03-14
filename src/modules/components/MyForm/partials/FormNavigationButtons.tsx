@@ -1,4 +1,5 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
+import ButtonCustom from "../../ButtonCustom";
 import { FormNavigationButtonProps } from "../models/FormNavigationButtonProps";
 
 export default function FormNavigationButtons({
@@ -10,12 +11,14 @@ export default function FormNavigationButtons({
   return (
     <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
       {currentStep > 0 && (
-        <Button onClick={handlePreviousStep}>Anterior</Button>
+        <ButtonCustom onClick={handlePreviousStep}>Anterior</ButtonCustom>
       )}
       {currentStep < maxSteps - 1 && (
-        <Button onClick={handleNextStep}>Siguiente</Button>
+        <ButtonCustom onClick={handleNextStep}>Siguiente</ButtonCustom>
       )}
-      {currentStep === maxSteps - 1 && <Button type="submit">Enviar</Button>}
+      {currentStep === maxSteps - 1 && (
+        <ButtonCustom type="submit">Enviar</ButtonCustom>
+      )}
     </Box>
   );
 }

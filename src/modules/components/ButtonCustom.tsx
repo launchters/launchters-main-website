@@ -23,10 +23,10 @@ const ButtonRoot = styled(MuiButton)(({ theme, size }) => ({
 }));
 
 // See https://mui.com/guides/typescript/#usage-of-component-prop for why the types uses `C`.
-function Button<C extends React.ElementType>(
+function ButtonCustom<C extends React.ElementType>(
   props: ButtonProps<C, { component?: C }>,
 ) {
   return <ButtonRoot {...props} />;
 }
 
-export default Button;
+export default ButtonCustom;
