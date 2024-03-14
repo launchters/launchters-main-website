@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { FaSadTear } from "react-icons/fa";
-import DownSizedOffer from "./LowerTicketOfferGPP";
+import DownSizedOffer from "./DownSizedOffer";
 
 const NoQualifiedResult: React.FC = () => {
   return (
