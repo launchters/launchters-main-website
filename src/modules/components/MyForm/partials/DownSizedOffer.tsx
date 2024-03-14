@@ -1,8 +1,8 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { Suspense, useState } from "react";
+import { FaSadTear } from "react-icons/fa";
 import appConfig from "../../../../config/app.config";
 import ButtonCustom from "../../ButtonCustom";
-import { FaSadTear } from "react-icons/fa";
 
 const vslStorageUrl = `${appConfig.storageUrls.vslVideos}/Growth-Partner-Program/down-size-offer`;
 const vslVideoVariants = {
@@ -52,13 +52,13 @@ function GrowthPartnerWorkshopWaitlist() {
       </Typography>
 
       <Typography sx={{ my: 2 }} variant="h3">
-        ⬇️Pero vas a poder crecer con este regalazo 🎁
+        ⬇️ Pero vas a poder crecer con este regalazo 🎁
       </Typography>
       <Stack sx={{ margin: "1rem auto" }}>
         <Suspense fallback={`Cargando vídeo...`}>
           <video
             controls
-            autoPlay={false}
+            autoPlay 
             poster={selectedVariant.cover}
             width={500}
             style={{ margin: "0 auto" }}

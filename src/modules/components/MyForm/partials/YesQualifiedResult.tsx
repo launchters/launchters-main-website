@@ -1,79 +1,87 @@
-import { Typography, Grid, Box } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import ButtonCustom from "../../ButtonCustom";
-
+import { Suspense, useState } from "react";
 import { GiPartyPopper } from "react-icons/gi";
-import { FcClock } from "react-icons/fc";
-import { GrValidate } from "react-icons/gr";
-import { FaRegFaceSmileBeam } from "react-icons/fa6";
+import appConfig from "../../../../config/app.config";
 
-const paragraphStyle = {
-  textAlign: "center" as const,
-  marginBottom: "16px",
-  maxWidth: "600px",
-};
+const textSx = { mb: 2 };
 
-const iconStyle = {
-  verticalAlign: "middle",
-  marginLeft: "4px",
+const vslStorageUrl = `${appConfig.storageUrls.vslVideos}/Growth-Partner-Program/book-a-call`;
+const vslVideoVariants = {
+  gppCalcSuccessBookCall: [
+    {
+      src: `${vslStorageUrl}/VID_20240314_165007%5B2%5D.mp4.mp4`,
+      // cover: `${vslStorageUrl}/book-a-call/VID_20240314_165007%5B2%5D-Cover.jpg`,
+    },
+  ],
 };
 
 const YesQualifiedResult: React.FC = () => {
+  const vslVariants = vslVideoVariants.gppCalcSuccessBookCall;
+
+  const [
+    selectedVariant,
+    // setSelectedVariant
+  ] = useState(vslVariants[0]);
+
   const handleConfirmation = () => {};
   // TODOS: Implementar lógica para redirigir a la página de confirmación
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      style={{ minHeight: "100vh" }}
-    >
-      <GiPartyPopper size={50} />
-      <Typography
-        variant="h3"
-        className="title-margin"
-        style={{
-          marginTop: "20px",
-          lineHeight: "1.5",
-          textAlign: "center",
-        }}
+    <Box sx={{ width: "min(50rem,90%)", margin: "0 auto" }}>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        style={{ minHeight: "100vh" }}
       >
-        ¡Felicidades! <br /> Has superado con éxito nuestro test de validación
-      </Typography>
-      <Typography variant="body1" style={paragraphStyle}>
-        Tu esfuerzo y dedicación son dignos de reconocimiento, y estamos
-        encantados de informarte que{" "}
-        <Box component="span" fontWeight="bold">
-          has calificado para avanzar en el proceso
-        </Box>
-        .
-      </Typography>
-      <Typography variant="body1" style={paragraphStyle}>
-        Queremos asegurarnos de brindarte los resultados con la máxima precisión
-        y cuidado. Por esta razón, ten en cuenta que nuestro equipo se tomará el
-        tiempo necesario para revisar detenidamente tus respuestas. Los
-        resultados serán procesados manualmente para garantizar la exactitud y
-        la calidad que mereces. <GrValidate size={18} style={iconStyle} />
-      </Typography>
-      <Typography variant="body1" style={paragraphStyle}>
-        Por favor, ten paciencia mientras completamos este proceso. Esperamos
-        enviarte los resultados dentro de las próximas 24-72 horas.{" "}
-        <FcClock size={18} style={iconStyle} />
-      </Typography>
-      <Typography variant="body1" style={paragraphStyle}>
-        Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en
-        contactarnos. Estamos aquí para ayudarte.
-      </Typography>
-      <Typography variant="body1" style={paragraphStyle}>
-        ¡Que tengas un bonito día!{" "}
-        <FaRegFaceSmileBeam size={18} style={iconStyle} />
-      </Typography>
+        <GiPartyPopper size={50} />
+        <Typography
+          variant="h3"
+          className="title-margin"
+          sx={{ mb: 2, mt: 2, textAlign: "center" }}
+        >
+          Aunque todo parece correcto...
+        </Typography>
+        <Typography variant="subtitle1" sx={textSx}>
+          Un humano revisará tus resultados antes de enviártelos...
+          <br />
+          ¡Y ese humano soy yo: Alex!
+        </Typography>
+        <Stack sx={{ margin: "1rem auto" }}>
+          <Suspense fallback={`Cargando vídeo...`}>
+            <video
+              controls
+              autoPlay
+              // poster={selectedVariant.cover}
+              width={500}
+              style={{ margin: "0 auto" }}
+            >
+              <source src={selectedVariant.src} type="video/mp4" />
+              Tu navegador no soporta el vídeo.
+            </video>
+          </Suspense>
+        </Stack>
+        <Typography variant="body1" sx={textSx}>
+          Puede que tarde un poco... pero te los{" "}
+          <b>enviaré tan pronto como sea posible</b>.
+          <br />
+          Te sugiero que{" "}
+          <strong>
+            reserves una llamada conmigo para estudiar tu caso en detalle.
+          </strong>{" "}
+          y saber en qué partes de tu negocio puedo ayudarte a crecer.
+        </Typography>
+        <Typography variant="body1" sx={textSx}>
+          ¡Es el momento de actuar hoy para cambiar el mañana!
+        </Typography>
 
-      <ButtonCustom onClick={handleConfirmation}>
-        Aquí podría ir un botón... o no :D
-      </ButtonCustom>
-    </Grid>
+        <ButtonCustom variant="contained" onClick={handleConfirmation}>
+          Agendar llamada para estudiar mi caso concreto
+        </ButtonCustom>
+      </Grid>
+    </Box>
   );
 };
 
