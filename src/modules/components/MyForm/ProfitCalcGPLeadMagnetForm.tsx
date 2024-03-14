@@ -15,7 +15,7 @@ import { FormStepper } from "./partials/FormStepper";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 
-const steps = [
+const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
   { title: "Email", component: EmailStep, name: "email" },
   {

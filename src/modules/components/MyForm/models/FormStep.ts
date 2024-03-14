@@ -1,9 +1,7 @@
-import { IFormInput } from "./FormInputTypes";
-
-type FormStep = { 
-    title: string; 
-    component: React.ComponentType<IFormInput>; 
-    name: string;
-  };
+type FormStep = {
+  name: string;
+  title: string;
+  component: () => React.ReactNode;
+};
 
 export default FormStep;
