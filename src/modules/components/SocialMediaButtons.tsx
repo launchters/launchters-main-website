@@ -1,5 +1,5 @@
+import Youtube from "@mui/icons-material/YouTube";
 import Instagram from "@mui/icons-material/Instagram";
-import Youtube from "@mui/icons-material/Youtube";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import appConfig from "../../config/app.config";
