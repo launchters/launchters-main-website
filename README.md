@@ -9,7 +9,6 @@
 #### Hacer cambios que afecten a las ramas:
 
 - `main`
-- `gh-pages`
 
 #### Ejecutar comandos:
 
