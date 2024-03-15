@@ -14,6 +14,7 @@ import FormNavigationButtons from "./partials/FormNavigationButtons";
 import { FormStepper } from "./partials/FormStepper";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
+import FormBox from "./ui/FormBox";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -119,15 +120,17 @@ export default function ProfitCalcGPLeadMagnetForm() {
         onSubmit={methods.handleSubmit(handleSubmitOnValid)}
         onKeyDown={handleKeyDown}
       >
-        <Box sx={stepperSxProps}>
-          <FormStepper currentStep={currentStep} totalSteps={steps.length} />
-        </Box>
-        {renderStep()}
-        <FormNavigationButtons
-          currentStep={currentStep}
-          {...{ handlePreviousStep, handleNextStep }}
-          maxSteps={steps.length}
-        />
+        <FormBox>
+          <Box sx={stepperSxProps}>
+            <FormStepper currentStep={currentStep} totalSteps={steps.length} />
+          </Box>
+          {renderStep()}
+          <FormNavigationButtons
+            currentStep={currentStep}
+            {...{ handlePreviousStep, handleNextStep }}
+            maxSteps={steps.length}
+          />
+        </FormBox>
       </form>
     </FormProvider>
   );

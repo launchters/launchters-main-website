@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import ButtonCustom from "../../ButtonCustom";
 import { FormNavigationButtonProps } from "../models/FormNavigationButtonProps";
+import StyledButton from "../ui/StyledButton";
 
 export default function FormNavigationButtons({
   currentStep,
@@ -11,22 +12,22 @@ export default function FormNavigationButtons({
   return (
     <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
       {currentStep > 0 && (
-        <ButtonCustom
+        <StyledButton
           onClick={handlePreviousStep}
           id={`back-button__step-${currentStep}`}
           className={`back-button step-${currentStep}`}
         >
           Anterior
-        </ButtonCustom>
+        </StyledButton>
       )}
       {currentStep < maxSteps - 1 && (
-        <ButtonCustom
+        <StyledButton
           onClick={handleNextStep}
           id={`next-button step-${currentStep}`}
           className={`next-button step-${currentStep}`}
         >
           Siguiente
-        </ButtonCustom>
+        </StyledButton>
       )}
       {currentStep === maxSteps - 1 && (
         <ButtonCustom
