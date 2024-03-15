@@ -1,11 +1,11 @@
 {
-  "name": "launchters.github.io",
+  "name": "launchters-website",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://launchters.com",
+  "homepage": "https://launchters.netlify.app",
   "repository": {
-    "url": "https://github.com/launchters/launchters.github.io.git"
+    "url": "https://github.com/launchters/launchters-website.git"
   },
   "scripts": {
     "start": "npx vite",
