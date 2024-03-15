@@ -36,7 +36,7 @@ const rawTheme = createTheme({
       dark: green[700],
     },
     background: {
-      default: "white",
+      default: "white", // Si lo cambiamos, debemos revisar el componente que carga Calendly para que sea blanco
     },
   },
   typography: {
