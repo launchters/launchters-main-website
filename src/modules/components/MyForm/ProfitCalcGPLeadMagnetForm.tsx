@@ -1,20 +1,26 @@
+import {
+  AverageHoursStep,
+  EmailStep,
+  InstagramStep,
+  InstagramViewsStep,
+  MinimumIncomeStep,
+  MonthlyIncomeStep,
+} from "./Steps";
+
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { AverageHoursStep } from "./Steps/AverageHoursStep";
-import { EmailStep } from "./Steps/EmailStep";
-import { InstagramStep } from "./Steps/InstagramStep";
-import { InstagramViewsStep } from "./Steps/InstagramViewsStep";
-import { MinimumIncomeStep } from "./Steps/MinimumIncomeStep";
-import { MonthlyIncomeStep } from "./Steps/MonthlyIncomeStep";
+
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
+import { StyledProgressBar } from "./ui/StyledProgressBar";
+
 import FormStep from "./models/FormStep";
 import FormNavigationButtons from "./partials/FormNavigationButtons";
-import { FormStepper } from "./partials/FormStepper";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
 import FormBox from "./ui/FormBox";
+import theme from "../../../config/theme";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -122,7 +128,12 @@ export default function ProfitCalcGPLeadMagnetForm() {
       >
         <FormBox>
           <Box sx={stepperSxProps}>
-            <FormStepper currentStep={currentStep} totalSteps={steps.length} />
+            <StyledProgressBar
+              currentStep={currentStep}
+              totalSteps={steps.length}
+              color={theme.palette.secondary.dark}
+              backgroundColor={theme.palette.secondary.light}
+            />
           </Box>
           {renderStep()}
           <FormNavigationButtons

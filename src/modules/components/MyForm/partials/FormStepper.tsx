@@ -20,6 +20,7 @@ export const FormStepper: React.FC<FormStepperProps> = ({
         flexGrow: 1,
         margin: "0 auto",
         marginBottom: "20px",
+        justifyContent: "center",
       }}
       backButton={<></>} //? Esto es para que no se muestre el botón de retroceso
       nextButton={<></>} //? Esto es para que no se muestre el botón de avance
