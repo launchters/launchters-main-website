@@ -1,4 +1,4 @@
-import { ArrowDownward } from "@mui/icons-material";
+import ArrowDownward from "@mui/icons-material/ArrowDownward";
 import { Link as LinkScroll } from "react-scroll";
 
 type Props = {

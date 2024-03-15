@@ -1,4 +1,4 @@
-import { ArrowDownward } from "@mui/icons-material";
+import ArrowDownward from "@mui/icons-material/ArrowDownward";
 import Container from "@mui/material/Container";
 import CtaButton from "../../../components/buttons/CtaButton";
 

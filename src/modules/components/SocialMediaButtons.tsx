@@ -1,6 +1,5 @@
-/// <reference types="@mui/icons-material" />
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YoutubeIcon from "@mui/icons-material/Youtube";
+import Instagram from "@mui/icons-material/Instagram";
+import Youtube from "@mui/icons-material/Youtube";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import appConfig from "../../config/app.config";
@@ -16,7 +15,7 @@ export default function SocialMediaButtons() {
           href="https://instagram.com/launchters"
           {...footerLinksSxProps}
         >
-          <InstagramIcon fontSize="large" />
+          <Instagram fontSize="large" />
         </Link>
       </Grid>
       <Grid item>
@@ -25,7 +24,7 @@ export default function SocialMediaButtons() {
           href="https://youtube.com/launchters"
           {...footerLinksSxProps}
         >
-          <YoutubeIcon fontSize="large" />
+          <Youtube fontSize="large" />
         </Link>
       </Grid>
     </Grid>
