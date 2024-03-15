@@ -1,5 +1,5 @@
-import * as React from 'react';
-import MobileStepper from '@mui/material/MobileStepper';
+import * as React from "react";
+import MobileStepper from "@mui/material/MobileStepper";
 
 interface FormStepperProps {
   currentStep: number;
@@ -17,16 +17,12 @@ export const FormStepper: React.FC<FormStepperProps> = ({
       position="static"
       activeStep={currentStep}
       sx={{
-        maxWidth: '50%',
         flexGrow: 1,
-        margin: '0 auto', 
-        marginBottom: '20px', 
+        margin: "0 auto",
+        marginBottom: "20px",
       }}
       backButton={<></>} //? Esto es para que no se muestre el botón de retroceso
       nextButton={<></>} //? Esto es para que no se muestre el botón de avance
     />
   );
 };
-
-
-
