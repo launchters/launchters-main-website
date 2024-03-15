@@ -52,6 +52,13 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const CurrentStepComponent = steps[currentStep].component;
   const renderStep = () => <CurrentStepComponent />;
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter" && currentStep < steps.length - 1) {
+      e.preventDefault();
+      handleNextStep();
+    }
+    // Else: submit form
+  };
 
   const handleSubmitOnValid = async (formData: IFormInput) => {
     const sName = steps[currentStep].name;
@@ -108,7 +115,10 @@ export default function ProfitCalcGPLeadMagnetForm() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(handleSubmitOnValid)}>
+      <form
+        onSubmit={methods.handleSubmit(handleSubmitOnValid)}
+        onKeyDown={handleKeyDown}
+      >
         <Box sx={stepperSxProps}>
           <FormStepper currentStep={currentStep} totalSteps={steps.length} />
         </Box>
