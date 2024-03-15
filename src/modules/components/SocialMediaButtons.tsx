@@ -1,3 +1,4 @@
+/// <reference types="@mui/icons-material" />
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YoutubeIcon from "@mui/icons-material/Youtube";
 import Grid from "@mui/material/Grid";
