@@ -70,16 +70,17 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 
 - [x] `#feature/form-steps`: Crear un componente `ProfitCalcGPLeadMagnetForm`, que contiene un formulario básico de ejemplo que incluye 3 campos y basárse en el otro proyecto de referencia (`form-by-steps`) consiguiendo hacer que tenga navegación por etapas/pasos. Para ello:
 
-- [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
+- [x] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
 
-  1. Instagram del usuario (obligatorio) ✅
-  1. Email de usuario (obligatorio) ✅
-  1. ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (en días diferentes)? ✅
-  1. ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar VIVIR DE TU COACHING? (deseo) ✅
-  1. ¿Cuánto ingresa tu negocio al mes (promedio)? ✅
-  1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)? ✅
-  1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes). ✅
-  1. (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
+  1. [x] Instagram del usuario (obligatorio)
+  1. [x] Email de usuario (obligatorio)
+  1. [x] ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (en días diferentes)?
+  1. [x] ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para alcanzar VIVIR DE TU COACHING? (deseo)
+  1. [x] ¿Cuánto ingresa tu negocio al mes (promedio)?
+  1. [x] ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
+  1. [x] ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
+  1. [ ] ¿Cuál es tu nivel de inglés escrito y hablado? ¿Estarías dispuesto/a a tratar directamente con clientes en Inglés?
+  1. [ ] (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
      - Embudo de ventas efectivo con Lead Magnet
      - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
      - Edición persuasiva de mi contenido en Redes Sociales
@@ -87,53 +88,32 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
      - Comunidad Online de pago premium recurrente
      - Secuencias de nutrición por email
 
-- [ ] `#feature/thank-you-screen`: Hay que crear varias a las que dirigiremos al usuario segun si cualifica o no a lo largo del proceso:
+- [x] Aplicar validacion a los campos de formulario para evitar que se introduzcan datos no deseados y si se hace informar con un error al usuario.
+
+- [x] `#feature/thank-you-screen`: Hay que crear varias a las que dirigiremos al usuario segun si cualifica o no a lo largo del proceso:
 
   - [x] CREAR AMBAS PAGINAS CON RUTA PROPIA COMO subrutas de la del formulario en concreto.
   - [x] **Sí cualifica**: Página de confirmación con icono de un reloj, diciendo que los resultados serán enviados en las próximas 24-72 horas ya que son generados manualmente.
   - [x] **No cualifica**: Página de confirmación con icono de cara triste y mensaje diciéndole que su perfil actual no cumple con los requisitos necesarios para el programa de 'Growth Partner' todavía, pero que presionando el siguiente botón de confirmación, entrará en lista de espera para un evento online donde le enseñaré a llevar su negocio de coaching desde 0 a 3000€/mes.
-  - [ ] **SALTO DINÁMICO**: Si no cualifica, le haremos saltar directamente a la "thank-you page" de los que no cualifican. Si sí cualifica continuaremos el flow sin interrumpirlo.
 
-- [ ] Diseño y validación. Inspirarse en el projecto `form-by-steps` como referencia, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
-- [ ] `#feature/next-step-handler`: Queremos que al pasar al siguiente paso, se llame a una función `handleNextStep`. Esta función puede estar definida de manera independiente para cada paso del formulario (dentro de la configuración de los pasos), o bien, de manera única con una estructura de tipo switch dentro que detecte en qué paso está el usuario cuando la función es llamada.
+- [ ] Diseño. Inspirarse en la imagen de la carpeta `PARA DAVID` o en el formulario del projecto `form-by-steps` como referencia para ver el diseño y el código, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
 
-  - [ ] Desarrolaremos la lógica de negocio interna de `handleNextStep`. Inicialmente haremos un console.log para cada "case" (que correspondera con cada form step posible). Tras ello, Alex deberá proveer más detalles.
-  - [ ] Sustituiremos ese `console.log` por checks para saber si el lead (usuario) cualifica o no para el programa, haremos también llamadas http a una API en alguno de los switch case, para que los datos sean guardados.
-  - [ ] Al introducir su usuario de instagram y pasar al siguiente paso, comprobaremos si califica o no.
+- [x] `#feature/next-step-handler`: Queremos que al pasar al siguiente paso, se llame a una función `handleNextStep`. Esta función puede estar definida de manera independiente para cada paso del formulario (dentro de la configuración de los pasos), o bien, de manera única con una estructura de tipo switch dentro que detecte en qué paso está el usuario cuando la función es llamada.
 
-<<<<<<< Updated upstream
-- [ ] `#feature/form-fields`: Crearemos campos de formulario básicos y títulos de pregunta grandes de tipo h3 o h4, que serán similares a los que se muestran en el formulario de la web oficial que puedes visitar al hacer click en el boton naranja de abajo. Ignorar imágenes de fondo. Estos campos se mostrarán uno por cada "etapa/paso" de formulario que se haya avanzado. Los campos del formulario serían:
+  - [x] Desarrolaremos la lógica de negocio interna de `handleNextStep`.
+  - [x] Haremos checks para saber si el lead (usuario) cualifica o no para el programa: Aplicaremos **SALTO DINÁMICO**: Si no cualifica, le haremos saltar directamente a la "thank-you page" de los que no cualifican. Si sí que cualifica continuaremos el flow sin interrumpirlo.
+  - [ ] Haremos también llamadas http a una API en alguno de los switch case, para que los datos sean guardados.
 
-  1. Instagram del usuario (obligatorio)
-  1. Email de usuario (obligatorio)
-  1. ¿Cuántas visualizaciones tienes de media en tus últimas 6 Stories de Instagram (en días diferentes)?
-  1. ¿Cuántos ingresos mensuales MÍNIMOS, necesitarías para VIVIR DE TU COACHING? (deseo)
-  1. ¿Cuánto ingresa tu negocio al mes (promedio)?
-  1. ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
-  1. ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
-  1. ¿Qué nivel de inglés tienes? ¿Estarías dispuesto/a a tratar con clientes en Inglés?
+- [ ] `#feature/improvements`: Aplicar algunas mejoras, incluyendo:
+  - [ ] Asegurarse de que el formulario es responsive en tamaños grandes, medianos y pequeños de pantalla. Los tamaños de letra y demás se leen con facilidad sin romperse el diseño en diferentes tamaños de pantalla.
+  - [ ] Hacer comprobaciones de **edge cases** y solucionar defectos que vayan surgiendo. Revisar todos los comentarios que inician con `// TODO`.
 
-## NO CONTINUAR LEYENDO POR AHORA A PARTIR DE AQUI.
+#### Para Alex
 
-> ¿Qué te he dicho? jajajja tira para arriba! ⬆️
-
-- [ ] Agregar campo de formulario con lista de checkboxes:
-      ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?:
-
-  - Embudo de ventas efectivo con Lead Magnet
-  - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
-  - Edición persuasiva de mi contenido en Redes Sociales
-  - Anuncios de pago eficientes con ROAS positivo
-  - Comunidad Online de pago premium recurrente
-  - Secuencias de nutrición por email
-
-- [ ] Introducir lógica de descualificación en los cases de `onNextStep`. (Alex). haremos una comprobación de las visualizaciones (min, max y promedio) de sus últimos 6 Reels, via Instagram API.
+- [ ] Automatizar checkeo del numero de reels o story views en IG via oAuth ?
 - [ ] `#feature/transactional-emails--unqualified`: En caso de NO cualificar en cualquier momento: Disparar email transaccional con lower-ticker offer.
-
 - [ ] `#feature/transactional-emails--qualified`: En caso de SÍ cualificar: Envío automático de email transaccional conteniendo calculadora de profits del lead magnet. Es necesario generar gráficos adecuados y personalizar las cifras segun datos respondidos en el formulario.
 
-=======
->>>>>>> Stashed changes
 <!-- ! PARA LA LLAMADA -->
 <!-- 1. En este momento, ¿cuáles son los principales obstáculos, problemas o retos que enfrentáis tu negocio y tú, personalmente? -->
 <!-- 1. ¿Qué esperas de mí para considerar nuestra colaboración todo un éxito? (sé específico/a) -->
@@ -150,13 +130,6 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
 - [ ] `#feature/lead-magnet-profit-calculator-logic`: Agregaremos los cálculos necesarios para calcular el aumento de ingresos a lo largo del año en base a este excel:
       y generar gráficos de manera acorde que luzcan atractivos y simbolicen el rango de ingresos medio que obtendría hipotéticamente el cliente al trabajar con nosotros. La linea de ingresos estimados será naranja o verde fuerte. También mostraremos el rango entre el mínimo y el máximo con un color verde con opacidad 0.15. Algunos calculos a considerar, además de los del Excel:
 -->
-
-- [ ] `#feature/improvements`: Aplicar algunas mejoras, incluyendo:
-  - Que el fondo de los campos de formulario sean blanco puro mientras que el box del formulario sea un whitesmoke.
-  - Asegurarse de que la validación de cada campo solo permite introducir el tipo de dato que se espera. (Solo números entre cierto rango o solo texto, solo una cadena de caracteres de tipo email, etc...)
-  - Asegurarse de que el formulario es responsive en tamaños grandes, medianos y pequeños de pantalla.
-  - Hacer comprobaciones de **edge cases** y solucionar defectos que vayan surgiendo. Revisar todos los comentarios que inician con `// TODO`.
-  - [ ] ¿Alguna mejora extra que quieras realizar? ¿Tal vez organizar mejor el código, encapsular o abstraer algunos componentes...?
 
 #### Mejoras extra:
 
