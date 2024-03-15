@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { $TSFix } from "../../models/ts-fix.d";
 import { AverageHoursStep } from "./Steps/AverageHoursStep";
 import { EmailStep } from "./Steps/EmailStep";
 import { InstagramStep } from "./Steps/InstagramStep";
@@ -53,15 +52,53 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const CurrentStepComponent = steps[currentStep].component;
   const renderStep = () => <CurrentStepComponent />;
 
-  const handleSubmitOnValid = async (data: $TSFix) => {
-    setIsQualifiedLead(true);
-    console.log(data);
 
-    // ! NOTAS PARA ALEX para mas adelante cuando hagamos las "Thank You" pages.
-    // Podemos hacer el tracking desde los eventos de facebook?:
-    // TODO Track conversion to 'Mail Extracted' with Facebook Events --> fbq('track', 'Lead Magnet Calc. Form: Mail extracted.');
-    // TODO Track conversion to 'Thank You' Page with Facebook Events --> fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit'); -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
-    // Is it a qualified lead or a non-qualified?
+  const handleSubmitOnValid = async (formData: IFormInput) => {
+    const sName = steps[currentStep].name;
+    setIsQualifiedLead(undefined);
+
+    if (["instagram", "email"].includes(sName)) {
+      // Dato de contacto introducido.
+      // TODO ALEX: Track conversion to 'Mail/IG Extracted' with Facebook Events and GAnalytics.
+    }
+
+    // APPLY QUALIFICATION CRITERIAS:
+    // ------------------------------
+    switch (sName) {
+      case "instagramViews":
+        if (formData.instagramViews < 500) {
+          // Pocas Views? No cualifica.
+          setIsQualifiedLead(false);
+        }
+        break;
+      case "monthlyIncome":
+        if (formData.monthlyIncome * 5 < formData.minimumIncome) {
+          // monthly Income actual demasiado alejado del deseado minimo
+          setIsQualifiedLead(false);
+        }
+        break;
+      case "averageHours":
+        if (formData.averageHours < 8) {
+          // monthly Income actual demasiado alejado del deseado minimo
+          setIsQualifiedLead(false);
+        }
+        break;
+      case "averageExpenses":
+        if (formData.averageExpenses > 10000) {
+          // monthly Income actual demasiado alejado del deseado minimo
+          setIsQualifiedLead(false);
+        }
+        break;
+    }
+
+    if (currentStep === steps.length - 1 && isQualifiedLead !== false) {
+      // Is last step and has not been disqualified? then is qualified.
+      setIsQualifiedLead(true);
+    }
+
+    // TODO ALEX: Track conversion to 'Thank You' Page with Facebook Events -->
+    // fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit');
+    // -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
   };
 
   if (isQualifiedLead != undefined) {
