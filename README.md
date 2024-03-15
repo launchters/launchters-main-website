@@ -10,10 +10,6 @@
 
 - `main`
 
-#### Ejecutar comandos:
-
-- `deploy` (npm run deploy o yarn deploy)
-
 ## Objetivo
 
 Que desarrolles una pequeña tarea de desarrollo front-end de manera profesional y en un entorno real, que involucre no solo desarrollo de código sobre una base de código ya existente si no también ciertos componentes de trabajo en equipo. No te desanimes cuando no sepas cómo hacerlo, se trata de aprender y mejorar y solidificar ciertos conocimientos que reduzcan las dudas de potenciales empleadores para contratarte al reducir sus riesgos.
