@@ -8,6 +8,20 @@ import UseStepsHandlerReturnType from "../models/useHandlerReturnType";
 import FormNavigationButtons from "../partials/FormNavigationButtons";
 import { StyledProgressBar } from "./StyledProgressBar";
 
+const StyledBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  margin: "auto",
+  gap: theme.spacing(2),
+  padding: theme.spacing(2),
+  backdropFilter: "blur(10px)",
+  backgroundColor: theme.palette.common.white,
+  borderRadius: theme.shape.borderRadius,
+  boxShadow: `0px 15px 15px rgba(4, 75, 217, 0.3)`,
+  width: "50%",
+  border: `1px solid ${theme.palette.divider}`,
+}));
+
 interface Props extends UseStepsHandlerReturnType {
   methods: UseFormReturn<IFormInput>;
   children: React.ReactNode | React.ReactNode[];
@@ -16,7 +30,7 @@ interface Props extends UseStepsHandlerReturnType {
   handleSubmitOnValid: (formData: IFormInput) => Promise<void>;
 }
 
-function StyledFormBoxComponent({
+function StyledFormBox({
   methods,
   children,
   currentStep,
@@ -34,18 +48,19 @@ function StyledFormBoxComponent({
   };
 
   return (
-    <FormProvider {...methods}>
-      <form
-        onSubmit={methods.handleSubmit(handleSubmitOnValid)}
-        onKeyDown={handleKeyDown}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-          }}
+    <StyledBox>
+      <FormProvider {...methods}>
+        <form
+          onSubmit={methods.handleSubmit(handleSubmitOnValid)}
+          onKeyDown={handleKeyDown}
         >
+          {/* <Box
+          sx={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          }}
+          > */}
           <StyledProgressBar
             currentStep={currentStep}
             totalSteps={steps.length}
@@ -53,29 +68,17 @@ function StyledFormBoxComponent({
             color={theme.palette.secondary.dark}
             backgroundColor={theme.palette.secondary.light}
           />
-        </Box>
-        {children}
-        <FormNavigationButtons
-          currentStep={currentStep}
-          {...{ handlePreviousStep, handleNextStep }}
-          maxSteps={steps.length}
-        />
-      </form>
-    </FormProvider>
+          {/* </Box> */}
+          {children}
+          <FormNavigationButtons
+            currentStep={currentStep}
+            {...{ handlePreviousStep, handleNextStep }}
+            maxSteps={steps.length}
+          />
+        </form>
+      </FormProvider>
+    </StyledBox>
   );
 }
-
-const StyledFormBox = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  gap: theme.spacing(2),
-  padding: theme.spacing(2),
-  backdropFilter: "blur(10px)",
-  backgroundColor: theme.palette.common.white,
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: `0px 15px 30px rgba(4, 75, 217, 0.3)`,
-  width: "50%",
-  margin: "0 auto",
-})).withComponent(StyledFormBoxComponent);
 
 export default StyledFormBox;

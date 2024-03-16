@@ -14,6 +14,7 @@ import FormStep from "./models/FormStep";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
 import StyledFormBox from "./styled-components/StyledFormBox";
+import StyledFormPageLayout from "./styled-components/StyledFormPageLayout";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -41,7 +42,6 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const stepHookResult = useStepsHandler(methods, steps);
   const [isQualifiedLead, setIsQualifiedLead] = useState<undefined | boolean>();
   const currentStep = stepHookResult.currentStep; // Alias only
-
 
   const handleSubmitOnValid = async (formData: IFormInput) => {
     const sName = steps[currentStep].name;
@@ -94,20 +94,25 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const CurrentStepComponent = steps[currentStep].component;
 
   if (isQualifiedLead != undefined) {
-    if (isQualifiedLead) return <YesQualifiedResult />;
-    else return <NoQualifiedResult />;
+    if (isQualifiedLead) {
+      return <StyledFormPageLayout children={<YesQualifiedResult />} />;
+    } else {
+      return <StyledFormPageLayout children={<NoQualifiedResult />} />;
+    }
   } else {
-    const styledFormBoxProps = {
-      ...stepHookResult,
-      methods,
-      steps,
-      handleSubmitOnValid,
-    };
-
     return (
-      <StyledFormBox {...styledFormBoxProps}>
-        <CurrentStepComponent />
-      </StyledFormBox>
+      <StyledFormPageLayout>
+        <StyledFormBox
+          {...stepHookResult}
+          {...{
+            methods,
+            steps,
+            handleSubmitOnValid,
+          }}
+        >
+          <CurrentStepComponent />
+        </StyledFormBox>
+      </StyledFormPageLayout>
     );
   }
 }
