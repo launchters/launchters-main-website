@@ -4,7 +4,7 @@ import {
   InstagramStep,
   InstagramViewsStep,
   MinimumIncomeStep,
-  MonthlyIncomeStep,
+  CurrentMonthlyIncomeStep,
 } from "./Steps";
 
 import { Box } from "@mui/material";
@@ -13,13 +13,13 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
-import { StyledProgressBar } from "./ui/StyledProgressBar";
+import { StyledProgressBar } from "./styled-components/StyledProgressBar";
 
 import FormStep from "./models/FormStep";
 import FormNavigationButtons from "./partials/FormNavigationButtons";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
-import FormBox from "./ui/FormBox";
+import StyledFormBox from "./styled-components/StyledFormBox";
 import theme from "../../../config/theme";
 
 const steps: FormStep[] = [
@@ -37,7 +37,7 @@ const steps: FormStep[] = [
   },
   {
     title: "Monthly Income",
-    component: MonthlyIncomeStep,
+    component: CurrentMonthlyIncomeStep,
     name: "monthlyIncome",
   },
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
@@ -126,11 +126,12 @@ export default function ProfitCalcGPLeadMagnetForm() {
         onSubmit={methods.handleSubmit(handleSubmitOnValid)}
         onKeyDown={handleKeyDown}
       >
-        <FormBox>
+        <StyledFormBox>
           <Box sx={stepperSxProps}>
             <StyledProgressBar
               currentStep={currentStep}
               totalSteps={steps.length}
+              // TODO Remove next two lines to make the color of the bar the PRIMARY (not the accent/secondary) and also make the background to match the color of the container
               color={theme.palette.secondary.dark}
               backgroundColor={theme.palette.secondary.light}
             />
@@ -141,7 +142,7 @@ export default function ProfitCalcGPLeadMagnetForm() {
             {...{ handlePreviousStep, handleNextStep }}
             maxSteps={steps.length}
           />
-        </FormBox>
+        </StyledFormBox>
       </form>
     </FormProvider>
   );

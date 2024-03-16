@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import ButtonCustom from "../../ButtonCustom";
 import { FormNavigationButtonProps } from "../models/FormNavigationButtonProps";
-import StyledButton from "../ui/StyledButton";
+import StyledButton from "../styled-components/StyledButton";
 
 export default function FormNavigationButtons({
   currentStep,

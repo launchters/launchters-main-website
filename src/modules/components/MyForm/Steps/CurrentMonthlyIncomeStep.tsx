@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormStepLayout } from "../FormStepLayout";
 import { IFormInput } from "../models/FormInputTypes";
 
-export const MonthlyIncomeStep = () => {
+export const CurrentMonthlyIncomeStep = () => {
   const {
     register,
     formState: { errors },
