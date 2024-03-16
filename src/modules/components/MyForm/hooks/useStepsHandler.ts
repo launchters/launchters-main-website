@@ -2,12 +2,7 @@ import { useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { IFormInput } from "../models/FormInputTypes";
 import FormStep from "../models/FormStep";
-
-type UseStepsHandlerReturnType = {
-  currentStep: number;
-  handleNextStep: () => void;
-  handlePreviousStep: () => void;
-};
+import UseStepsHandlerReturnType from "../models/useHandlerReturnType";
 
 export const useStepsHandler = (
   methods: UseFormReturn<IFormInput>,
