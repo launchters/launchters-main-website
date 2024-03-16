@@ -1,5 +1,5 @@
 import { Route, HashRouter as Router, Routes } from "react-router-dom"; // Cuando quitemos el hashed route, hay que modificar las URLs de los eventos de Facebook/Meta pixel
-import ProfitCalcGPLeadMagnetForm from "../modules/components/MyForm/ProfitCalcGPLeadMagnetForm";
+import ProgressiveForm from "../modules/components/MyForm/ProgressiveForm";
 import HomeIndex from "../modules/views/pages/HomeIndex";
 import LegalDoc from "../modules/views/pages/legal/LegalDoc";
 // import privacyDoc from "../config/legal/privacy.md";
@@ -63,11 +63,7 @@ export default function AppRouter() {
             <>
               <Route
                 path="profit-calc-gp-001"
-                children={
-                  <>
-                    <Route path="" element={<ProfitCalcGPLeadMagnetForm />} />
-                  </>
-                }
+                element={<ProgressiveForm variant="profitCalc" />}
               />
             </>
           }
