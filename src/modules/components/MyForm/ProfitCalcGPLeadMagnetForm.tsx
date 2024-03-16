@@ -1,26 +1,19 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import {
   AverageHoursStep,
+  CurrentMonthlyIncomeStep,
   EmailStep,
   InstagramStep,
   InstagramViewsStep,
   MinimumIncomeStep,
-  CurrentMonthlyIncomeStep,
 } from "./Steps";
-
-import { Box } from "@mui/material";
-import { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
-import { StyledProgressBar } from "./styled-components/StyledProgressBar";
-
 import FormStep from "./models/FormStep";
-import FormNavigationButtons from "./partials/FormNavigationButtons";
 import NoQualifiedResult from "./partials/NoQualifiedResult";
 import YesQualifiedResult from "./partials/YesQualifiedResult";
 import StyledFormBox from "./styled-components/StyledFormBox";
-import theme from "../../../config/theme";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -43,29 +36,12 @@ const steps: FormStep[] = [
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
 ];
 
-const stepperSxProps = {
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-};
-
 export default function ProfitCalcGPLeadMagnetForm() {
   const methods = useForm<IFormInput>();
+  const stepHookResult = useStepsHandler(methods, steps);
   const [isQualifiedLead, setIsQualifiedLead] = useState<undefined | boolean>();
-  const { currentStep, handleNextStep, handlePreviousStep } = useStepsHandler(
-    methods,
-    steps
-  );
-  const CurrentStepComponent = steps[currentStep].component;
-  const renderStep = () => <CurrentStepComponent />;
+  const currentStep = stepHookResult.currentStep; // Alias only
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === "Enter" && currentStep < steps.length - 1) {
-      e.preventDefault();
-      handleNextStep();
-    }
-    // Else: submit form
-  };
 
   const handleSubmitOnValid = async (formData: IFormInput) => {
     const sName = steps[currentStep].name;
@@ -115,35 +91,23 @@ export default function ProfitCalcGPLeadMagnetForm() {
     // -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
   };
 
+  const CurrentStepComponent = steps[currentStep].component;
+
   if (isQualifiedLead != undefined) {
     if (isQualifiedLead) return <YesQualifiedResult />;
     else return <NoQualifiedResult />;
-  }
+  } else {
+    const styledFormBoxProps = {
+      ...stepHookResult,
+      methods,
+      steps,
+      handleSubmitOnValid,
+    };
 
-  return (
-    <FormProvider {...methods}>
-      <form
-        onSubmit={methods.handleSubmit(handleSubmitOnValid)}
-        onKeyDown={handleKeyDown}
-      >
-        <StyledFormBox>
-          <Box sx={stepperSxProps}>
-            <StyledProgressBar
-              currentStep={currentStep}
-              totalSteps={steps.length}
-              // TODO Remove next two lines to make the color of the bar the PRIMARY (not the accent/secondary) and also make the background to match the color of the container
-              color={theme.palette.secondary.dark}
-              backgroundColor={theme.palette.secondary.light}
-            />
-          </Box>
-          {renderStep()}
-          <FormNavigationButtons
-            currentStep={currentStep}
-            {...{ handlePreviousStep, handleNextStep }}
-            maxSteps={steps.length}
-          />
-        </StyledFormBox>
-      </form>
-    </FormProvider>
-  );
+    return (
+      <StyledFormBox {...styledFormBoxProps}>
+        <CurrentStepComponent />
+      </StyledFormBox>
+    );
+  }
 }
