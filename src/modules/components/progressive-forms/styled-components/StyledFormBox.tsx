@@ -15,9 +15,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
   padding: theme.spacing(2),
   backdropFilter: "blur(10px)",
-  backgroundColor: theme.palette.common.white,
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: `0px 15px 15px rgba(4, 75, 217, 0.3)`,
+  backgroundImage: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);",
+  borderRadius: "15px",
+  boxShadow: `0px 5px 15px rgba(4, 75, 217, 0.3)`,
   width: "50%",
   border: `1px solid ${theme.palette.divider}`,
 }));
@@ -54,27 +54,19 @@ function StyledFormBox({
           onSubmit={methods.handleSubmit(handleSubmitOnValid)}
           onKeyDown={handleKeyDown}
         >
-          {/* <Box
-          sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          }}
-          > */}
-          <StyledProgressBar
-            currentStep={currentStep}
-            totalSteps={steps.length}
-            // TODO Remove next two lines to make the color of the bar the PRIMARY (not the accent/secondary) and also make the background to match the color of the container
-            color={theme.palette.secondary.dark}
-            backgroundColor={theme.palette.secondary.light}
-          />
-          {/* </Box> */}
           {children}
           <FormNavigationButtons
             currentStep={currentStep}
             {...{ handlePreviousStep, handleNextStep }}
             maxSteps={steps.length}
           />
+          <Box style={{ marginTop: "20px" }}>
+            <StyledProgressBar
+              currentStep={currentStep}
+              totalSteps={steps.length}
+              color={theme.palette.secondary.dark}
+            />
+          </Box>
         </form>
       </FormProvider>
     </StyledBox>
