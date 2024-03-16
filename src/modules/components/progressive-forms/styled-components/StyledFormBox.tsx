@@ -15,7 +15,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   gap: theme.spacing(2),
   padding: theme.spacing(2),
   backdropFilter: "blur(10px)",
-  backgroundImage: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);",
+  backgroundColor: theme.palette.common.white,
   borderRadius: "15px",
   boxShadow: `0px 5px 15px rgba(4, 75, 217, 0.3)`,
   width: "50%",
