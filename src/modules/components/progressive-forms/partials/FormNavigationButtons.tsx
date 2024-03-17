@@ -12,6 +12,7 @@ export default function FormNavigationButtons({
     <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
       {currentStep > 0 && (
         <StyledButton
+          variant="outlined"
           onClick={handlePreviousStep}
           id={`back-button__step-${currentStep}`}
           className={`back-button step-${currentStep}`}
