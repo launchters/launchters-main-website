@@ -1,8 +1,15 @@
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import ButtonCustom from "../../components/ButtonCustom";
+import { useNavigate } from "react-router-dom";
+import StyledButton from "../../components/StyledButton";
 
 export default function Error() {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate("/");
+  };
+
   return (
     <Box
       sx={{
@@ -19,7 +26,7 @@ export default function Error() {
             <Typography variant="h6">
               The page you’re looking for doesn’t exist.
             </Typography>
-            <ButtonCustom variant="contained">Back Home</ButtonCustom>
+            <StyledButton onClick={handleGoBack}>Back Home</StyledButton>
           </Grid>
           <Grid xs={6}>
             <img

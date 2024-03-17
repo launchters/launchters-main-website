@@ -1,26 +1,15 @@
-import { ButtonOwnProps, Typography } from "@mui/material";
-import ButtonCustom from "../ButtonCustom";
+import { ButtonOwnProps } from "@mui/material";
+import StyledButton from "../StyledButton";
 
-type Props = {
-  sx?: ButtonOwnProps["sx"];
-};
-export default function CtaForDevsOnly({ sx }: Props) {
+export default function CtaForDevsOnly({ ...props }: ButtonOwnProps) {
   return (
-    <ButtonCustom
-      size="small"
+    <StyledButton
+      {...props}
       component="a"
       href={"/#/lm/profit-calc-gp-001"}
-      variant="contained"
-      color={"secondary" as ButtonOwnProps["color"]}
-      sx={{ my: 2, py: 1.25, ...sx }}
+      color="secondary"
     >
-      <Typography
-        variant="h2"
-        component="span"
-        sx={{ fontSize: { xs: "1.2rem", md: "2em" } }}
-      >
-        Ver WIP
-      </Typography>
-    </ButtonCustom>
+      Ver WIP
+    </StyledButton>
   );
 }

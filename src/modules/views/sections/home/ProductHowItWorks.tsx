@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
-import ButtonCustom from "../../../components/ButtonCustom";
+import StyledButton from "../../../components/StyledButton";
 import Typography from "../../../components/Typography";
 
 const item: SxProps<Theme> = {
@@ -103,7 +103,7 @@ function ProductHowItWorks() {
             </Grid>
           </Grid>
         </div>
-        <ButtonCustom
+        <StyledButton
           color="secondary"
           size="large"
           variant="contained"
@@ -112,7 +112,7 @@ function ProductHowItWorks() {
           sx={{ mt: 8 }}
         >
           Get started
-        </ButtonCustom>
+        </StyledButton>
       </Container>
     </Box>
   );

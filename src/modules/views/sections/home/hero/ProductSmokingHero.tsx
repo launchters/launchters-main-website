@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import ButtonCustom from "../../../../components/ButtonCustom";
+import StyledButton from "../../../../components/StyledButton";
 import Typography from "../../../../components/Typography";
 
 function ProductSmokingHero() {
@@ -14,7 +14,7 @@ function ProductSmokingHero() {
         my: 9,
       }}
     >
-      <ButtonCustom
+      <StyledButton
         sx={{
           border: "4px solid currentColor",
           borderRadius: 0,
@@ -26,7 +26,7 @@ function ProductSmokingHero() {
         <Typography variant="h4" component="span">
           Got any questions? Need help?
         </Typography>
-      </ButtonCustom>
+      </StyledButton>
       <Typography variant="subtitle1" sx={{ my: 3 }}>
         We are here to help. Get in touch!
       </Typography>

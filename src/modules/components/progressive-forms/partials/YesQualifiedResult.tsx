@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import { Suspense, useState } from "react";
 import { GiPartyPopper } from "react-icons/gi";
 import appConfig from "../../../../config/app.config";
-import ButtonCustom from "../../ButtonCustom";
+import StyledButton from "../../StyledButton";
 import CalendarBookACallWidget from "../../calendars/CalendarBookACallWidget";
 
 const textSx = { mb: 2 };
@@ -84,9 +84,9 @@ const YesQualifiedResult: React.FC = () => {
           ¡Es el momento de actuar hoy para cambiar el mañana!
         </Typography>
 
-        <ButtonCustom variant="contained" onClick={handleConfirmation}>
+        <StyledButton onClick={handleConfirmation}>
           Agendar llamada para estudiar mi caso concreto
-        </ButtonCustom>
+        </StyledButton>
       </Grid>
     </Box>
   );

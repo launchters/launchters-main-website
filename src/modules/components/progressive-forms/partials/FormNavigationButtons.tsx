@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import ButtonCustom from "../../ButtonCustom";
+import StyledButton from "../../StyledButton";
 import { FormNavigationButtonProps } from "../models/FormNavigationButtonProps";
-import StyledButton from "../styled-components/StyledButton";
 
 export default function FormNavigationButtons({
   currentStep,
@@ -30,13 +29,13 @@ export default function FormNavigationButtons({
         </StyledButton>
       )}
       {currentStep === maxSteps - 1 && (
-        <ButtonCustom
+        <StyledButton
           type="submit"
           id={`submit-btn`}
           className={`step-${currentStep}`}
         >
           Enviar
-        </ButtonCustom>
+        </StyledButton>
       )}
     </Box>
   );

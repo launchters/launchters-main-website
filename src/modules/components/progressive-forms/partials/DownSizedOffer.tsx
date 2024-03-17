@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { Suspense, useState } from "react";
 import { FaSadTear } from "react-icons/fa";
 import appConfig from "../../../../config/app.config";
-import ButtonCustom from "../../ButtonCustom";
+import StyledButton from "../../StyledButton";
 
 const vslStorageUrl = `${appConfig.storageUrls.vslVideos}/Growth-Partner-Program/down-size-offer`;
 const vslVideoVariants = {
@@ -58,7 +58,7 @@ function GrowthPartnerWorkshopWaitlist() {
         <Suspense fallback={`Cargando vídeo...`}>
           <video
             controls
-            autoPlay 
+            autoPlay
             poster={selectedVariant.cover}
             width={500}
             style={{ margin: "0 auto" }}
@@ -82,9 +82,9 @@ function GrowthPartnerWorkshopWaitlist() {
         resolviendo los problemas iniciales. Se acabó el vivir una vida que no
         quieres.
       </Typography>
-      <ButtonCustom variant="contained" onClick={handleConfirmation}>
+      <StyledButton onClick={handleConfirmation}>
         ¡Yo quiero, apúntame a esa lista ya!
-      </ButtonCustom>
+      </StyledButton>
     </Box>
   );
 }

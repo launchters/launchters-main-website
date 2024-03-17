@@ -1,4 +1,5 @@
 import { MobileStepper, MobileStepperProps } from "@mui/material";
+import theme from "../../../../config/theme";
 
 interface Props {
   currentStep: number;
@@ -39,7 +40,7 @@ export const StyledProgressBar = ({
         backgroundColor,
         paddingBottom: 0,
         "& .MuiLinearProgress-root": {
-          borderRadius: "4px", // Añade esto
+          borderRadius: theme.shape.borderRadius,
         },
         "& .MuiLinearProgress-barColorPrimary": {
           backgroundColor: color,
