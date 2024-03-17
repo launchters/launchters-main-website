@@ -8,6 +8,8 @@ import {
 } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
+const fontFamily = "'Roboto', Arial, sans-serif";
+
 const rawTheme = createTheme({
   palette: {
     primary: {
@@ -40,20 +42,19 @@ const rawTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Roboto', sans-serif",
-    fontSize: 11,
+    fontFamily,
+    fontSize: 10,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 700,
+    fontWeightBold: 900,
   },
 });
 
-export const colorPalette = rawTheme.palette;
-
 const fontHeader = {
   color: rawTheme.palette.text.primary,
-  fontWeight: rawTheme.typography.fontWeightMedium,
-  fontFamily: "'Roboto Condensed', sans-serif",
+  fontWeight: rawTheme.typography.fontWeightBold,
+  fontFamily,
   textTransform: "uppercase",
 };
 
@@ -117,6 +118,10 @@ const theme = {
       ...rawTheme.typography.body1,
       fontSize: 10,
     },
+  },
+  shape: {
+    ...rawTheme.shape,
+    borderRadius: "1em",
   },
 };
 
