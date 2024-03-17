@@ -24,6 +24,10 @@ export const InstagramViewsStep = () => {
             },
           })}
           placeholder="Ejemplo: 10"
+          type="number"
+          InputProps={{
+            inputProps: { min: 0, step: 1 },
+          }}
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
         />

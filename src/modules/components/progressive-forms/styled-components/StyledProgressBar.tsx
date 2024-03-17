@@ -12,7 +12,7 @@ interface Props {
 export const StyledProgressBar = ({
   currentStep,
   totalSteps,
-  color = "primary",
+  color = theme.palette.primary.main,
   backgroundColor = "transparent",
 }: Props) => {
   const hideSliderButtons: Pick<
@@ -23,22 +23,21 @@ export const StyledProgressBar = ({
     nextButton: <></>,
   };
 
+  // TODO: No consigo anular totalmente es epacio entre la parte inferior barra de progreso y el borde interno de la caja de formulario
+
   return (
-    // TODO: Ajustar a que aparezca pegada al borde superior o inferior de la StyledFormBox.
-    // TODO: Una vez ajustada, redondear los bordes para que encajen con los aplicados a la caja del formulario StyledFormBox.
-    // TODO: Cambiar el color al color principal de la app y no al de acento
     <MobileStepper
       variant="progress"
       steps={totalSteps}
       position="static"
       activeStep={currentStep}
       sx={{
+        border: "none",
         flexGrow: 1,
         margin: "0 auto",
-        marging: 0,
         justifyContent: "center",
         backgroundColor,
-        paddingBottom: 0,
+        paddingBottom: theme.spacing(0),
         "& .MuiLinearProgress-root": {
           borderRadius: theme.shape.borderRadius,
         },

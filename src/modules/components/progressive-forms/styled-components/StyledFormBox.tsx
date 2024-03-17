@@ -11,9 +11,11 @@ import { StyledProgressBar } from "./StyledProgressBar";
 const StyledBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  justifyContent: "flex-start",
   margin: "auto",
   gap: theme.spacing(2),
   padding: theme.spacing(2),
+  paddingBottom: theme.spacing(0),
   backdropFilter: "blur(10px)",
   backgroundColor: theme.palette.common.white,
   borderRadius: theme.shape.borderRadius,
