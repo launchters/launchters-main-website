@@ -4,6 +4,7 @@ import {
   AverageHoursStep,
   CurrentMonthlyIncomeStep,
   EmailStep,
+  EnglishLevelStep,
   InstagramStep,
   InstagramViewsStep,
   MinimumIncomeStep,
@@ -32,9 +33,16 @@ const steps: FormStep[] = [
   {
     title: "Monthly Income",
     component: CurrentMonthlyIncomeStep,
-    name: "monthlyIncome",
+    name: "currentMonthlyIncome",
   },
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
+  {
+    title: "Average Expenses",
+    // TODO: Componente incorrecto, debe ser el de AverageExpensesStep
+    component: EnglishLevelStep,
+    name: "averageExpenses",
+  },
+  // TODO: Agregar a continuacion el de English Level
 ];
 
 export default function ProfitCalcGPLeadMagnetForm() {
@@ -62,7 +70,7 @@ export default function ProfitCalcGPLeadMagnetForm() {
         }
         break;
       case "monthlyIncome":
-        if (formData.monthlyIncome * 5 < formData.minimumIncome) {
+        if (formData.currentMonthlyIncome * 5 < formData.minimumIncome) {
           // monthly Income actual demasiado alejado del deseado minimo
           setIsQualifiedLead(false);
         }

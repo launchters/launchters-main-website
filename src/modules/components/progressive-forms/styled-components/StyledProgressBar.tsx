@@ -32,7 +32,5 @@ export const StyledProgressBar = ({
     maxPercent
   );
 
-  return (
-    <LinearProgress variant="determinate" value={progress} {...{ sx }} />
-  );
+  return <LinearProgress variant="determinate" value={progress} {...{ sx }} />;
 };

@@ -3,7 +3,8 @@ export interface IFormInput {
   instagram: string;
   instagramViews: number;
   minimumIncome: number;
-  monthlyIncome: number;
+  currentMonthlyIncome: number;
   averageExpenses: number;
   averageHours: number;
+  englishLevel: number;
 }
