@@ -6,4 +6,5 @@ export interface IFormInput {
   monthlyIncome: number;
   averageExpenses: number;
   averageHours: number;
+  englishLevel: number;
 }

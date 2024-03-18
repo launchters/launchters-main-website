@@ -7,6 +7,7 @@ import {
   InstagramStep,
   InstagramViewsStep,
   MinimumIncomeStep,
+  EnglishLevelStep,
 } from "./Steps";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
@@ -35,6 +36,11 @@ const steps: FormStep[] = [
     name: "monthlyIncome",
   },
   { title: "Average Hours", component: AverageHoursStep, name: "averageHours" },
+  {
+    title: "Average Expenses",
+    component: EnglishLevelStep,
+    name: "averageExpenses",
+  },
 ];
 
 export default function ProfitCalcGPLeadMagnetForm() {

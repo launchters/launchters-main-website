@@ -34,9 +34,9 @@ export const StyledProgressBar = ({
       sx={{
         border: "none",
         flexGrow: 1,
-        margin: "0 auto",
         justifyContent: "center",
         backgroundColor,
+        width: "100%",
         paddingBottom: theme.spacing(0),
         "& .MuiLinearProgress-root": {
           borderRadius: theme.shape.borderRadius,
