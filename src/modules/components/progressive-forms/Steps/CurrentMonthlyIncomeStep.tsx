@@ -8,7 +8,7 @@ export const CurrentMonthlyIncomeStep = () => {
     register,
     formState: { errors },
   } = useFormContext<IFormInput>();
-  const name = "monthlyIncome";
+  const name = "currentMonthlyIncome";
 
   return (
     <FormStepLayout
@@ -26,12 +26,12 @@ export const CurrentMonthlyIncomeStep = () => {
               message: "Por favor ingresa un número válido",
             },
           })}
-          placeholder="Ingreso mensual actual"
-          type="number"
           InputProps={{
             inputProps: { min: 0, step: 1 },
             startAdornment: <InputAdornment position="start">€</InputAdornment>,
           }}
+          placeholder="Ingreso mensual actual"
+          type="number"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
         />

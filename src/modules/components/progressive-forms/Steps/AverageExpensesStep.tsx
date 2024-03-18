@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { FormStepLayout } from "../FormStepLayout";
 import { IFormInput } from "../models/FormInputTypes";
 
-export const AverageHoursStep = () => {
+export const AverageExpensesStep = () => {
   const {
     register,
     formState: { errors },
@@ -12,15 +12,15 @@ export const AverageHoursStep = () => {
 
   return (
     <FormStepLayout
-      title="¿Cuántas horas promedio dedicas al día a tu negocio?"
-      subTitle="Estrategia y Ejecución"
+      title="¿Cuánto gasta tu negocio al mes (gastos operativos promedio)?"
+      subTitle="Gastos que se verían aumentados si recibes nuevos clientes"
       control={
         <TextField
           {...register(name, {
-            required: "Este campo es obligatorio",
+            required: "Este campo es Obligatorio",
             maxLength: {
-              value: 2,
-              message: "El número no puede ser mayor a 2 dígitos",
+              value: 7,
+              message: "El número no puede ser mayor a 7 dígitos",
             },
             pattern: {
               value: /^[0-9]*$/,
@@ -28,14 +28,12 @@ export const AverageHoursStep = () => {
             },
           })}
           InputProps={{
-            inputProps: { min: 0, max: 24, step: 1 },
-            startAdornment: <InputAdornment position="start">h</InputAdornment>,
+            inputProps: { min: 0, step: 1 },
+            startAdornment: <InputAdornment position="start">€</InputAdornment>,
           }}
-          placeholder="Horas promedio al día"
-          type="number"
+          placeholder="Gastos operativos promedio"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
-          sx={{ width: "170px" }}
         />
       }
     />

@@ -78,7 +78,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   1. [x] ¿Cuánto ingresa tu negocio al mes (promedio)?
   1. [x] ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
   1. [x] ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
-  1. [ ] ¿Cuál es tu nivel de inglés escrito y hablado? ¿Estarías dispuesto/a a tratar directamente con clientes en Inglés?
+  1. [x] ¿Cuál es tu nivel de inglés escrito y hablado? ¿Estarías dispuesto/a a tratar directamente con clientes en Inglés?
   1. [ ] (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
      - Embudo de ventas efectivo con Lead Magnet
      - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
