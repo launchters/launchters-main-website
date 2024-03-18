@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { FormProvider, UseFormReturn } from "react-hook-form";
-import theme from "../../../../config/theme";
 import { IFormInput } from "../models/FormInputTypes";
 import FormStep from "../models/FormStep";
 import UseStepsHandlerReturnType from "../models/useHandlerReturnType";
@@ -9,19 +8,20 @@ import FormNavigationButtons from "../partials/FormNavigationButtons";
 import { StyledProgressBar } from "./StyledProgressBar";
 
 const StyledBox = styled(Box)(({ theme }) => ({
+  position: "relative",
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
   margin: "auto",
-  gap: theme.spacing(2),
-  padding: theme.spacing(2),
-  paddingBottom: theme.spacing(0),
-  backdropFilter: "blur(10px)",
-  backgroundColor: theme.palette.common.white,
+  gap: theme.spacing(0),
+  padding: theme.spacing(0),
+  // backdropFilter: "blur(10px)",
+  background: theme.palette.common.white,
   borderRadius: theme.shape.borderRadius,
   boxShadow: `0px 5px 15px rgba(4, 75, 217, 0.3)`,
-  width: "50%",
-  border: `1px solid ${theme.palette.divider}`,
+  width: "min(61.8vw, 95%)",
+  border: "none",
+  overflow: "hidden",
 }));
 
 interface Props extends UseStepsHandlerReturnType {
@@ -55,6 +55,7 @@ function StyledFormBox({
         <form
           onSubmit={methods.handleSubmit(handleSubmitOnValid)}
           onKeyDown={handleKeyDown}
+          style={{ padding: "2rem" }}
         >
           {children}
           <FormNavigationButtons
@@ -62,15 +63,9 @@ function StyledFormBox({
             {...{ handlePreviousStep, handleNextStep }}
             maxSteps={steps.length}
           />
-          <Box style={{ marginTop: "20px" }}>
-            <StyledProgressBar
-              currentStep={currentStep}
-              totalSteps={steps.length}
-              color={theme.palette.secondary.dark}
-            />
-          </Box>
         </form>
       </FormProvider>
+      <StyledProgressBar currentStep={currentStep} totalSteps={steps.length} />
     </StyledBox>
   );
 }

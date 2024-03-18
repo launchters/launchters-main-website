@@ -1,51 +1,38 @@
-import { MobileStepper, MobileStepperProps } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import theme from "../../../../config/theme";
+// import theme from "../../../../config/theme";
 
 interface Props {
   currentStep: number;
   totalSteps: number;
-  color?: string;
-  trackColor?: string;
-  backgroundColor?: string;
+  filledColor?: string;
+  unfilledColor?: string;
 }
 
 export const StyledProgressBar = ({
   currentStep,
   totalSteps,
-  color = theme.palette.primary.main,
-  backgroundColor = "transparent",
+  filledColor = theme.palette.primary.main,
+  unfilledColor = theme.palette.primary.light,
 }: Props) => {
-  const hideSliderButtons: Pick<
-    MobileStepperProps,
-    "backButton" | "nextButton"
-  > = {
-    backButton: <></>,
-    nextButton: <></>,
+  const sx = {
+    borderRadius: theme.shape.borderRadius,
+    "& .MuiLinearProgress-bar": {
+      background: filledColor,
+      borderRadius: theme.shape.borderRadius,
+    },
+    background: unfilledColor,
   };
 
-  // TODO: No consigo anular totalmente es epacio entre la parte inferior barra de progreso y el borde interno de la caja de formulario
+  const maxPercent = 95;
+  const minPercent = 0;
+
+  const progress = Math.min(
+    Math.max(minPercent, ((currentStep + 1) / totalSteps) * 100),
+    maxPercent
+  );
 
   return (
-    <MobileStepper
-      variant="progress"
-      steps={totalSteps}
-      position="static"
-      activeStep={currentStep}
-      sx={{
-        border: "none",
-        flexGrow: 1,
-        margin: "0 auto",
-        justifyContent: "center",
-        backgroundColor,
-        paddingBottom: theme.spacing(0),
-        "& .MuiLinearProgress-root": {
-          borderRadius: theme.shape.borderRadius,
-        },
-        "& .MuiLinearProgress-barColorPrimary": {
-          backgroundColor: color,
-        },
-      }}
-      {...hideSliderButtons}
-    />
+    <LinearProgress variant="determinate" value={progress} {...{ sx }} />
   );
 };
