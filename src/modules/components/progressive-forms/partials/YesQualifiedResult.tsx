@@ -39,8 +39,8 @@ const YesQualifiedResult: React.FC = () => {
       <Grid
         container
         direction="column"
-        justifyContent="center"
-        alignItems="center"
+        justifyContent="space-around"
+        alignItems="stretch"
         style={{ minHeight: "100vh" }}
       >
         <GiPartyPopper size={50} />
@@ -62,7 +62,7 @@ const YesQualifiedResult: React.FC = () => {
               controls
               autoPlay
               // poster={selectedVariant.cover}
-              width={500}
+              width="90%"
               style={{ margin: "0 auto" }}
             >
               <source src={selectedVariant.src} type="video/mp4" />
