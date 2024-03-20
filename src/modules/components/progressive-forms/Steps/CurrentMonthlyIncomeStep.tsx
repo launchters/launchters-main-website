@@ -17,21 +17,14 @@ export const CurrentMonthlyIncomeStep = () => {
         <TextField
           {...register(name, {
             required: "Este campo es obligatorio",
-            maxLength: {
-              value: 7,
-              message: "El número no puede ser mayor a 7 dígitos",
-            },
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Por favor ingresa un número válido",
-            },
+            valueAsNumber: true,
           })}
+          type="number"
           InputProps={{
-            inputProps: { min: 0, step: 1 },
+            inputProps: { min: 0, step: 100 },
             startAdornment: <InputAdornment position="start">€</InputAdornment>,
           }}
           placeholder="Ingreso mensual actual"
-          type="number"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
         />

@@ -17,19 +17,12 @@ export const MinimumIncomeStep = () => {
         <TextField
           {...register(name, {
             required: "Este campo es obligatorio",
-            maxLength: {
-              value: 7,
-              message: "El número no puede ser mayor a 7 dígitos",
-            },
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Por favor ingresa un número válido",
-            },
+            valueAsNumber: true,
           })}
-          placeholder="Ingresos mínimos"
           type="number"
+          placeholder="Ingresos mínimos"
           InputProps={{
-            inputProps: { min: 0, step: 1 },
+            inputProps: { min: 1000, step: 100 },
             startAdornment: <InputAdornment position="start">€</InputAdornment>,
           }}
           error={!!errors[name]}

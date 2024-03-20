@@ -16,7 +16,7 @@ export const EnglishLevelStep = () => {
             Nivel de inglés
           </Typography>
           <Slider
-            {...register(name)}
+            {...register(name, { valueAsNumber: true })}
             aria-labelledby="english-level-slider"
             valueLabelDisplay="auto"
             step={1}

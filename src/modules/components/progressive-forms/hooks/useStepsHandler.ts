@@ -30,25 +30,27 @@ export const useStepsHandler = (
         break;
       case "monthlyIncome":
         if (formData.currentMonthlyIncome * 5 < formData.minimumIncome) {
-          // monthly Income actual demasiado alejado del deseado minimo
+          // ingresos actuales actual demasiado alejados del minimo deseado
           setIsQualified(false);
         }
         break;
       case "averageHours":
-        if (formData.averageHours < 8) {
-          // monthly Income actual demasiado alejado del deseado minimo
+        if (formData.averageHours < 2) {
+          // Dedica muy pocas horas
           setIsQualified(false);
         }
         break;
       case "averageExpenses":
-        if (formData.averageExpenses > 10000) {
-          // monthly Income actual demasiado alejado del deseado minimo
+        if (formData.averageExpenses > formData.currentMonthlyIncome * 0.5) {
+          // gastos del negocio demasiado altos!
           setIsQualified(false);
         }
         break;
       case "englishLevel":
         if (formData.englishLevel < 5) {
-          setIsQualified(false);
+          // Nivel de inglés demasiado bajo
+          // ! De momento no aplica
+          //     setIsQualified(false);
         }
         break;
     }

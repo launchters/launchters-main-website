@@ -18,15 +18,12 @@ export const InstagramViewCountStep = () => {
         <TextField
           {...register(name, {
             required: "Este Campo Es Obligatorio",
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Por favor ingresa un número válido",
-            },
+            valueAsNumber: true,
           })}
-          placeholder="Ejemplo: 10"
           type="number"
+          placeholder={"50"}
           InputProps={{
-            inputProps: { min: 0, step: 1 },
+            inputProps: { min: 0, step: 50 },
           }}
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}

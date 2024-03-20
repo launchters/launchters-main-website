@@ -18,14 +18,7 @@ export const AverageExpensesStep = () => {
         <TextField
           {...register(name, {
             required: "Este campo es Obligatorio",
-            maxLength: {
-              value: 7,
-              message: "El número no puede ser mayor a 7 dígitos",
-            },
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Por favor ingresa un número válido",
-            },
+            valueAsNumber: true,
           })}
           InputProps={{
             inputProps: { min: 0, step: 1 },
