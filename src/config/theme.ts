@@ -123,6 +123,15 @@ const theme = {
     ...rawTheme.shape,
     borderRadius: 10,
   },
+  components: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.2rem',
+        },
+      },
+    },
+  },
 };
 
 export default theme;
