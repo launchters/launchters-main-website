@@ -1,5 +1,6 @@
 type UseStepsHandlerReturnType = {
   currentStep: number;
+  isQualified?: boolean;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
 };

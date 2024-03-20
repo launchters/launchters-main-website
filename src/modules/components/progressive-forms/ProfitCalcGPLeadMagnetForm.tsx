@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
+  AverageExpensesStep,
   AverageHoursStep,
   CurrentMonthlyIncomeStep,
   EmailStep,
@@ -8,7 +8,6 @@ import {
   InstagramStep,
   InstagramViewCountStep,
   MinimumIncomeStep,
-  AverageExpensesStep,
 } from "./Steps";
 import { useStepsHandler } from "./hooks/useStepsHandler";
 import { IFormInput } from "./models/FormInputTypes";
@@ -52,58 +51,10 @@ const steps: FormStep[] = [
 export default function ProfitCalcGPLeadMagnetForm() {
   const methods = useForm<IFormInput>();
   const stepHookResult = useStepsHandler(methods, steps);
-  const [isQualifiedLead, setIsQualifiedLead] = useState<undefined | boolean>();
   const currentStep = stepHookResult.currentStep; // Alias only
 
-  const resetQualificationStatus = () => {
-    setIsQualifiedLead(undefined);
-  };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmitOnValid = async (formData: IFormInput) => {
-    const sName = steps[currentStep].name;
-    resetQualificationStatus();
-
-    if (["instagram", "email"].includes(sName)) {
-      // Dato de contacto introducido.
-      // TODO ALEX: Track conversion to 'Mail/IG Extracted' with Facebook Events and GAnalytics.
-    }
-
-    // APPLY QUALIFICATION CRITERIAS:
-    // ------------------------------
-    switch (sName) {
-      case "instagramViewCount":
-        if (formData.instagramViewCount < 500) {
-          // Pocas Views? No cualifica.
-          setIsQualifiedLead(false);
-        }
-        break;
-      case "monthlyIncome":
-        if (formData.currentMonthlyIncome * 5 < formData.minimumIncome) {
-          // monthly Income actual demasiado alejado del deseado minimo
-          setIsQualifiedLead(false);
-        }
-        break;
-      case "averageHours":
-        if (formData.averageHours < 8) {
-          // monthly Income actual demasiado alejado del deseado minimo
-          setIsQualifiedLead(false);
-        }
-        break;
-      case "averageExpenses":
-        if (formData.averageExpenses > 10000) {
-          // monthly Income actual demasiado alejado del deseado minimo
-          setIsQualifiedLead(false);
-        }
-        break;
-      default:
-        setIsQualifiedLead(undefined);
-        break;
-    }
-
-    if (currentStep === steps.length - 1 && isQualifiedLead !== false) {
-      // Is last step and has not been disqualified? then is qualified.
-      setIsQualifiedLead(true);
-    }
-
     // TODO ALEX: Track conversion to 'Thank You' Page with Facebook Events -->
     // fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit');
     // -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
@@ -111,17 +62,17 @@ export default function ProfitCalcGPLeadMagnetForm() {
 
   const CurrentStepComponent = steps[currentStep].component;
 
-  console.log({ isQualifiedLead });
+  const isQualified = stepHookResult.isQualified;
 
-  if (isQualifiedLead == undefined) {
+  if (isQualified == undefined) {
     return (
       <StyledFormPageLayout>
         <StyledFormBox
+          onSubmit={handleSubmitOnValid}
           {...stepHookResult}
           {...{
             methods,
             steps,
-            handleSubmitOnValid,
           }}
         >
           <CurrentStepComponent />
@@ -131,9 +82,7 @@ export default function ProfitCalcGPLeadMagnetForm() {
   } else {
     return (
       <StyledFormPageLayout
-        children={
-          isQualifiedLead ? <YesQualifiedResult /> : <NoQualifiedResult />
-        }
+        children={isQualified ? <YesQualifiedResult /> : <NoQualifiedResult />}
       />
     );
   }

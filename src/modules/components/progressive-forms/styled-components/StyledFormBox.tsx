@@ -29,7 +29,7 @@ interface Props extends UseStepsHandlerReturnType {
   children: React.ReactNode | React.ReactNode[];
   currentStep: number;
   steps: FormStep[];
-  handleSubmitOnValid: (formData: IFormInput) => Promise<void>;
+  onSubmit: (formData: IFormInput) => Promise<void>;
 }
 
 function StyledFormBox({
@@ -37,7 +37,7 @@ function StyledFormBox({
   children,
   currentStep,
   steps,
-  handleSubmitOnValid,
+  onSubmit,
   handleNextStep,
   handlePreviousStep,
 }: Props) {
@@ -53,7 +53,7 @@ function StyledFormBox({
     <StyledBox>
       <FormProvider {...methods}>
         <form
-          onSubmit={methods.handleSubmit(handleSubmitOnValid)}
+          onSubmit={methods.handleSubmit(onSubmit)}
           onKeyDown={handleKeyDown}
           style={{ padding: "2rem" }}
         >
