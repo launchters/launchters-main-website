@@ -29,7 +29,7 @@ export const AverageHoursStep = () => {
           })}
           InputProps={{
             inputProps: { min: 0, max: 24, step: 1 },
-            startAdornment: <InputAdornment position="start">h</InputAdornment>,
+            endAdornment: <InputAdornment position="end">h</InputAdornment>,
           }}
           placeholder="Horas promedio al día"
           type="number"

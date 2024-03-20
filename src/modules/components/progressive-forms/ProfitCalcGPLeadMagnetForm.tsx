@@ -49,7 +49,11 @@ const steps: FormStep[] = [
 ];
 
 export default function ProfitCalcGPLeadMagnetForm() {
-  const methods = useForm<IFormInput>();
+  const methods = useForm<IFormInput>({
+    defaultValues: {
+      averageHours: 0,
+    },
+  });
   const stepHookResult = useStepsHandler(methods, steps);
   const currentStep = stepHookResult.currentStep; // Alias only
 

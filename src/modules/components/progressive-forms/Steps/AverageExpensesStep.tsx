@@ -8,7 +8,7 @@ export const AverageExpensesStep = () => {
     register,
     formState: { errors },
   } = useFormContext<IFormInput>();
-  const name = "averageHours";
+  const name = "averageExpenses";
 
   return (
     <FormStepLayout
