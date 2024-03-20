@@ -121,7 +121,7 @@ const theme = {
   },
   shape: {
     ...rawTheme.shape,
-    borderRadius: "1em",
+    borderRadius: 10,
   },
 };
 
