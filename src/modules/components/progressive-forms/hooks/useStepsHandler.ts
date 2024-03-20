@@ -11,10 +11,16 @@ export const useStepsHandler = (
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [isQualified, setIsQualified] = useState<undefined | boolean>();
 
-  const formData: IFormInput = { ...methods.getValues() };
-
   const checkQualificationStatus = () => {
     const sName = steps[currentStep].name;
+    const {
+      instagramViewCount,
+      currentMonthlyIncome,
+      minimumIncome,
+      averageHours,
+      averageExpenses,
+      englishLevel,
+    }: IFormInput = methods.getValues();
 
     if (["instagram", "email"].includes(sName)) {
       // Dato de contacto introducido.
@@ -23,39 +29,38 @@ export const useStepsHandler = (
 
     switch (sName) {
       case "instagramViewCount":
-        if (formData.instagramViewCount < 500) {
+        if (instagramViewCount < 500) {
           // Pocas Views? No cualifica.
           setIsQualified(false);
         }
         break;
       case "monthlyIncome":
-        if (formData.currentMonthlyIncome * 5 < formData.minimumIncome) {
+        if (currentMonthlyIncome * 5 < minimumIncome) {
           // ingresos actuales actual demasiado alejados del minimo deseado
           setIsQualified(false);
         }
         break;
       case "averageHours":
-        if (formData.averageHours < 2) {
+        if (averageHours < 4 || averageHours > 90) {
           // Dedica muy pocas horas
           setIsQualified(false);
         }
         break;
       case "averageExpenses":
-        if (formData.averageExpenses > formData.currentMonthlyIncome * 0.5) {
+        if (averageExpenses > currentMonthlyIncome * 0.5) {
           // gastos del negocio demasiado altos!
           setIsQualified(false);
         }
         break;
       case "englishLevel":
-        if (formData.englishLevel < 5) {
+        if (englishLevel < 5) {
           // Nivel de inglés demasiado bajo
           // ! De momento no aplica
-          //     setIsQualified(false);
+          // setIsQualified(false);
         }
         break;
     }
 
-    console.log({ formData, sName, isQualified });
     // Last step, if at this point is not disqualified, then is qualified
     if (currentStep === steps.length - 1 && isQualified !== false) {
       setIsQualified(true);

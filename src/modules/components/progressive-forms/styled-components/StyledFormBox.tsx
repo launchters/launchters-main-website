@@ -42,18 +42,28 @@ function StyledFormBox({
   handlePreviousStep,
 }: Props) {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === "Enter" && currentStep < steps.length - 1) {
+    if (
+      e.key === "Enter" &&
+      /* Do not prevent default behavior in the last step */
+      currentStep < steps.length - 1
+    ) {
       e.preventDefault();
       handleNextStep();
     }
     // Else: submit form
   };
 
+  const handleSubmit = () => {
+    // Call the handleNextStep + the on-submit-only behavior + wrap it up inside the RHF Submit method.
+    handleNextStep();
+    return methods.handleSubmit(onSubmit);
+  };
+
   return (
     <StyledBox>
       <FormProvider {...methods}>
         <form
-          onSubmit={methods.handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           onKeyDown={handleKeyDown}
           style={{ padding: "2rem" }}
         >

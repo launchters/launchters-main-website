@@ -12,7 +12,7 @@ export const AverageHoursStep = () => {
 
   return (
     <FormStepLayout
-      title="¿Cuántas horas promedio dedicas al día a tu negocio?"
+      title="¿Cuántas horas promedio dedicas a la semana a tu negocio?"
       subTitle="Estrategia y Ejecución"
       control={
         <TextField
@@ -25,7 +25,7 @@ export const AverageHoursStep = () => {
             inputProps: { min: 0, max: 24, step: 1 },
             endAdornment: <InputAdornment position="end">h</InputAdornment>,
           }}
-          placeholder="Horas promedio al día"
+          placeholder="Horas promedio semanales"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
           sx={{ width: "170px" }}

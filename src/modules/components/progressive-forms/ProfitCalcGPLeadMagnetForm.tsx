@@ -62,6 +62,8 @@ export default function ProfitCalcGPLeadMagnetForm() {
     // TODO ALEX: Track conversion to 'Thank You' Page with Facebook Events -->
     // fbq('track', 'Lead Magnet Calc. Form: Qualified/Non-qualified Form Submit');
     // -- Deberan ser dos eventos, solo ejecutarse uno segun si el lead ha qualificado o no.
+
+    console.log("Form Submitted:", formData);
   };
 
   const CurrentStepComponent = steps[currentStep].component;
