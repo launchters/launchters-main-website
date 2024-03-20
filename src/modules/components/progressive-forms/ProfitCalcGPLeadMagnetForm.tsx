@@ -55,9 +55,12 @@ export default function ProfitCalcGPLeadMagnetForm() {
   const [isQualifiedLead, setIsQualifiedLead] = useState<undefined | boolean>();
   const currentStep = stepHookResult.currentStep; // Alias only
 
+  const resetQualificationStatus = () => {
+    setIsQualifiedLead(undefined);
+  };
   const handleSubmitOnValid = async (formData: IFormInput) => {
     const sName = steps[currentStep].name;
-    setIsQualifiedLead(undefined);
+    resetQualificationStatus();
 
     if (["instagram", "email"].includes(sName)) {
       // Dato de contacto introducido.
@@ -91,6 +94,9 @@ export default function ProfitCalcGPLeadMagnetForm() {
           setIsQualifiedLead(false);
         }
         break;
+      default:
+        setIsQualifiedLead(undefined);
+        break;
     }
 
     if (currentStep === steps.length - 1 && isQualifiedLead !== false) {
@@ -105,13 +111,9 @@ export default function ProfitCalcGPLeadMagnetForm() {
 
   const CurrentStepComponent = steps[currentStep].component;
 
-  if (isQualifiedLead != undefined) {
-    if (isQualifiedLead) {
-      return <StyledFormPageLayout children={<YesQualifiedResult />} />;
-    } else {
-      return <StyledFormPageLayout children={<NoQualifiedResult />} />;
-    }
-  } else {
+  console.log({ isQualifiedLead });
+
+  if (isQualifiedLead == undefined) {
     return (
       <StyledFormPageLayout>
         <StyledFormBox
@@ -125,6 +127,14 @@ export default function ProfitCalcGPLeadMagnetForm() {
           <CurrentStepComponent />
         </StyledFormBox>
       </StyledFormPageLayout>
+    );
+  } else {
+    return (
+      <StyledFormPageLayout
+        children={
+          isQualifiedLead ? <YesQualifiedResult /> : <NoQualifiedResult />
+        }
+      />
     );
   }
 }
