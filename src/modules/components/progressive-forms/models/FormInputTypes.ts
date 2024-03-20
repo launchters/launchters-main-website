@@ -1,7 +1,7 @@
 export interface IFormInput {
   email: string;
   instagram: string;
-  instagramViews: number;
+  instagramViewCount: number;
   minimumIncome: number;
   currentMonthlyIncome: number;
   averageExpenses: number;

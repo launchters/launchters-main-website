@@ -24,7 +24,7 @@ const steps: FormStep[] = [
   {
     title: "Instagram Views",
     component: InstagramViewCountStep,
-    name: "instagramViews",
+    name: "instagramViewCount",
   },
   {
     title: "Minimum Income",
@@ -70,8 +70,8 @@ export default function ProfitCalcGPLeadMagnetForm() {
     // APPLY QUALIFICATION CRITERIAS:
     // ------------------------------
     switch (sName) {
-      case "instagramViews":
-        if (formData.instagramViews < 500) {
+      case "instagramViewCount":
+        if (formData.instagramViewCount < 500) {
           // Pocas Views? No cualifica.
           setIsQualifiedLead(false);
         }

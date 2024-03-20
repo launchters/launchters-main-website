@@ -8,7 +8,7 @@ export const InstagramViewCountStep = () => {
     register,
     formState: { errors },
   } = useFormContext<IFormInput>();
-  const name = "instagramViews";
+  const name = "instagramViewCount";
 
   return (
     <FormStepLayout
