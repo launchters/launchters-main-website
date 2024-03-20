@@ -6,7 +6,7 @@ import {
   EmailStep,
   EnglishLevelStep,
   InstagramStep,
-  InstagramViewsStep,
+  InstagramViewCountStep,
   MinimumIncomeStep,
   AverageExpensesStep,
 } from "./Steps";
@@ -23,7 +23,7 @@ const steps: FormStep[] = [
   { title: "Email", component: EmailStep, name: "email" },
   {
     title: "Instagram Views",
-    component: InstagramViewsStep,
+    component: InstagramViewCountStep,
     name: "instagramViews",
   },
   {

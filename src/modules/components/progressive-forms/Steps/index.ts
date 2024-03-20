@@ -1,8 +1,8 @@
-export { InstagramStep } from "./InstagramStep";
 export { AverageExpensesStep } from "./AverageExpensesStep";
-export { EmailStep } from "./EmailStep";
-export { InstagramViewsStep } from "./InstagramViewsStep";
-export { MinimumIncomeStep } from "./MinimumIncomeStep";
-export { CurrentMonthlyIncomeStep } from "./CurrentMonthlyIncomeStep";
-export { EnglishLevelStep } from "./EnglishLevelStep";
 export { AverageHoursStep } from "./AverageHoursStep";
+export { CurrentMonthlyIncomeStep } from "./CurrentMonthlyIncomeStep";
+export { EmailStep } from "./EmailStep";
+export { EnglishLevelStep } from "./EnglishLevelStep";
+export { InstagramStep } from "./InstagramStep";
+export { InstagramViewCountStep } from "./InstagramViewCountStep";
+export { MinimumIncomeStep } from "./MinimumIncomeStep";

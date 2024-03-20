@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { IFormInput } from "../models/FormInputTypes";
 import { FormStepLayout } from "../FormStepLayout";
 
-export const InstagramViewsStep = () => {
+export const InstagramViewCountStep = () => {
   const {
     register,
     formState: { errors },
