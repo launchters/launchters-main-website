@@ -1,8 +1,9 @@
-import { Box, Stack, Typography } from "@mui/material";
-import { Suspense, useState } from "react";
+import { Typography } from "@mui/material";
+import { useState } from "react";
 import { FaSadTear } from "react-icons/fa";
 import appConfig from "../../../../config/app.config";
 import StyledButton from "../../StyledButton";
+import ResultStep from "../Steps/ResultStep";
 
 const vslStorageUrl = `${appConfig.storageUrls.vslVideos}/Growth-Partner-Program/down-size-offer`;
 const vslVideoVariants = {
@@ -41,33 +42,28 @@ function GrowthPartnerWorkshopWaitlist() {
     console.warn(
       "Debemos apuntar al lead a la waiting list para la masterclass o comunidad gratuita o workshop."
     );
+    // TODO Update query to set the waitlist subscribed to yes.
   };
 
   return (
-    <Box sx={{ width: "min(50rem,90%)", margin: "0 auto" }}>
-      <FaSadTear size={50} />
-      <Typography variant="h6">
-        Tu perfil no reune los requisitos para el programa <i>Growth Partner</i>{" "}
-        <u>todavía</u>,
-      </Typography>
-
+    <ResultStep
+      icon={<FaSadTear size={50} style={{ marginRight: "1rem" }} />}
+      title={
+        <span>
+          Tu perfil no reune los requisitos para el programa{" "}
+          <i>Growth Partner</i> <u>todavía</u>
+        </span>
+      }
+      videoSrc={selectedVariant.src}
+      cta={
+        <StyledButton onClick={handleConfirmation}>
+          ¡Yo quiero, apúntame a esa lista ya!
+        </StyledButton>
+      }
+    >
       <Typography sx={{ my: 2 }} variant="h3">
         ⬇️ Pero vas a poder crecer con este regalazo 🎁
       </Typography>
-      <Stack sx={{ margin: "1rem auto" }}>
-        <Suspense fallback={`Cargando vídeo...`}>
-          <video
-            controls
-            autoPlay
-            poster={selectedVariant.cover}
-            width={500}
-            style={{ margin: "0 auto" }}
-          >
-            <source src={selectedVariant.src} type="video/mp4" />
-            Tu navegador no soporta el vídeo.
-          </video>
-        </Suspense>
-      </Stack>
 
       <Typography sx={{ my: 2 }} variant="h6">
         te ayudaré a pasar de 0€/mes a vivir de tu pasión como coach y llegar a
@@ -82,9 +78,6 @@ function GrowthPartnerWorkshopWaitlist() {
         resolviendo los problemas iniciales. Se acabó el vivir una vida que no
         quieres.
       </Typography>
-      <StyledButton onClick={handleConfirmation}>
-        ¡Yo quiero, apúntame a esa lista ya!
-      </StyledButton>
-    </Box>
+    </ResultStep>
   );
 }
