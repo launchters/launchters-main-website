@@ -4,6 +4,9 @@ import { styled } from "@mui/material/styles";
 const StyledFormPageLayout = styled(Box)(() => ({
   display: "flex",
   flex: 1,
+  width: "100%",
+  justifyContent: "center",
+  alignItems: "flex-start",
   backgroundPosition: "50% 50",
   backgroundClip: "border-box",
   backgroundRepeat: "no-repeat",
