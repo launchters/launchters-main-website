@@ -4,26 +4,32 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import * as React from "react";
 import theme from "../../config/theme";
 
-const StyledButtonRoot = styled(MuiButton)(({ theme, size }) => ({
-  fontWeight: theme.typography.fontWeightMedium,
-  fontFamily: theme.typography.h1.fontFamily,
-  padding: theme.spacing(2, 4),
-  margin: theme.spacing(0, 1),
-  fontSize: theme.typography.pxToRem(9),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: "none",
-  "&:active, &:focus": {
+const StyledButtonRoot = styled(MuiButton)(
+  ({
+    theme,
+    // size
+  }) => ({
+    fontWeight: theme.typography.fontWeightMedium,
+    fontFamily: theme.typography.h1.fontFamily,
+    padding: theme.spacing(2, 4),
+    margin: theme.spacing(0, 1),
+    fontSize: theme.typography.pxToRem(9),
+    borderRadius: theme.shape.borderRadius,
     boxShadow: "none",
-  },
-  // ...(size === "small" && {
-  //   padding: theme.spacing(1, 3),
-  //   fontSize: theme.typography.pxToRem(10),
-  // }),
-  // ...(size === "large" && {
-  //   padding: theme.spacing(2, 5),
-  //   fontSize: theme.typography.pxToRem(12),
-  // }),
-}));
+    "&:active, &:focus": {
+      boxShadow: "none",
+    },
+
+    // ...(size === "small" && {
+    //   padding: theme.spacing(1, 3),
+    //   fontSize: theme.typography.pxToRem(10),
+    // }),
+    // ...(size === "large" && {
+    //   padding: theme.spacing(2, 5),
+    //   fontSize: theme.typography.pxToRem(12),
+    // }),
+  })
+);
 
 // See https://mui.com/guides/typescript/#usage-of-component-prop for why the types uses `C`.
 function StyledButton<C extends React.ElementType>(

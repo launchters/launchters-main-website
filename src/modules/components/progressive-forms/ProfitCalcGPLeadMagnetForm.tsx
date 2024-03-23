@@ -54,7 +54,69 @@ export default function ProfitCalcGPLeadMagnetForm() {
       averageHours: 0,
     },
   });
-  const stepHookResult = useStepsHandler(methods, steps);
+
+  const applyQualificationCriteria = (stepName: string) => {
+    const {
+      instagramViewCount,
+      currentMonthlyIncome,
+      minimumIncome,
+      averageHours,
+      // englishLevel,
+      averageExpenses,
+    }: IFormInput = methods.getValues();
+
+    switch (stepName) {
+      case "email":
+        // TODO Enviar una http request para comprobar si el email está ya en nuestra base de datos. y si no lo está guardarlo inmediatamente.
+        // TODO If is already in the database, setAlreadySubmitState to true
+        // TODO ALEX: Track conversion to 'Contact Extracted - Email' with Facebook Events and GAnalytics.
+        break;
+      case "instagram":
+        // TODO Enviar una http request para comprobar si el usuario de instagram está ya en nuestra base de datos y si no lo está guardarlo inmediatamente.
+        // TODO If is already in the database, setAlreadySubmitState to true
+        // TODO ALEX: Track conversion to 'Contact Extracted - Instagram' with Facebook Events and GAnalytics.
+        break;
+      case "instagramViewCount":
+        if (instagramViewCount < 500) {
+          // Pocas Views? No cualifica.
+          return false;
+        }
+        break;
+      case "monthlyIncome":
+        if (currentMonthlyIncome * 5 < minimumIncome) {
+          // ingresos actuales actual demasiado alejados del minimo deseado
+          return false;
+        }
+        break;
+      case "averageHours":
+        if (averageHours < 4 || averageHours > 90) {
+          // Dedica muy pocas horas
+          return false;
+        }
+        break;
+      case "averageExpenses":
+        if (averageExpenses > currentMonthlyIncome * 0.5) {
+          // gastos del negocio demasiado altos!
+          return false;
+        }
+        break;
+      // ! De momento no aplica
+      // case "englishLevel":
+      //   if (englishLevel < 5) {
+      //     // Nivel de inglés demasiado bajo
+      //     // return false;
+      //   }
+      //   break;
+    }
+
+    return true;
+  };
+
+  const stepHookResult = useStepsHandler(
+    methods,
+    steps,
+    applyQualificationCriteria
+  );
   const currentStep = stepHookResult.currentStep; // Alias only
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
