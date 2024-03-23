@@ -1,4 +1,4 @@
-import { InputAdornment, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { FormStepLayout } from "../FormStepLayout";
 import { IFormInput } from "../models/FormInputTypes";
@@ -20,11 +20,11 @@ export const AverageExpensesStep = () => {
             required: "Este campo es Obligatorio",
             valueAsNumber: true,
           })}
+          type="number"
+          placeholder="120"
           InputProps={{
-            inputProps: { min: 0, step: 1 },
-            startAdornment: <InputAdornment position="start">€</InputAdornment>,
+            inputProps: { min: 0, step: 50 },
           }}
-          placeholder="Gastos operativos promedio"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
         />

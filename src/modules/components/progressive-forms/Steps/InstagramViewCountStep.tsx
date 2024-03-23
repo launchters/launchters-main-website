@@ -21,7 +21,7 @@ export const InstagramViewCountStep = () => {
             valueAsNumber: true,
           })}
           type="number"
-          placeholder={"50"}
+          placeholder="50"
           InputProps={{
             inputProps: { min: 0, step: 50 },
           }}

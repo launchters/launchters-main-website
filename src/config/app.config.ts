@@ -51,6 +51,9 @@ const appConfig = {
     variant: "standard" as "standard" | "filled" | "outlined" | undefined,
   },
   cookies: {
+    types: {
+      submittedForms: "submittedForms",
+    },
     theme: "dark" as Theme | undefined,
     customHash: "my-custom-hash", // optional, e.g. when changing the options based on language
     hideSettings: true,

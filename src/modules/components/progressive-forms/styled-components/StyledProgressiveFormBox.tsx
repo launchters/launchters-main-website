@@ -26,13 +26,14 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 interface Props extends UseStepsHandlerReturnType {
   methods: UseFormReturn<IFormInput>;
-  children: React.ReactNode | React.ReactNode[];
   currentStep: number;
   steps: FormStep[];
   onSubmit: (formData: IFormInput) => Promise<void>;
+  submittedAlreadyState: boolean;
+  children: React.ReactNode | React.ReactNode[];
 }
 
-function StyledFormBox({
+function StyledProgressiveFormBox({
   methods,
   children,
   currentStep,
@@ -80,4 +81,4 @@ function StyledFormBox({
   );
 }
 
-export default StyledFormBox;
+export default StyledProgressiveFormBox;

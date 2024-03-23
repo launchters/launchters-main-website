@@ -7,21 +7,23 @@ import UseStepsHandlerReturnType from "../models/useHandlerReturnType";
 export const useStepsHandler = (
   methods: UseFormReturn<IFormInput>,
   steps: FormStep[],
-  applyQualificationCriteria: (stepName: string) => boolean
-  // checkQualificationStatus: (setQualifiedStatus) => void
+  applyQualificationCriteria: (stepName: string) => boolean,
+  setSubmittedCookie: () => void
 ): UseStepsHandlerReturnType => {
   const [currentStep, setCurrentStep] = useState<number>(0);
-  const [qualificationCriteria, setQualificationState] = useState<
-    undefined | boolean
-  >();
+  const [isQualified, setIsQualified] = useState<undefined | boolean>();
 
   const checkQualificationState = () => {
     const qualifies = applyQualificationCriteria(steps[currentStep].name);
 
-    if (!qualifies) setQualificationState(false);
+    if (!qualifies) {
+      setIsQualified(false);
+      setSubmittedCookie();
+    }
     // Last step, if at this point is not disqualified, then is qualified.
     else if (currentStep === steps.length - 1) {
-      setQualificationState(true);
+      setIsQualified(true);
+      setSubmittedCookie();
     }
   };
 
@@ -44,7 +46,7 @@ export const useStepsHandler = (
 
   return {
     currentStep,
-    isQualified: qualificationCriteria,
+    isQualified,
     handleNextStep,
     handlePreviousStep,
   };
