@@ -20,6 +20,7 @@ import SubmittedAlreadyResult from "../partials/SubmittedAlreadyResult";
 import YesQualifiedResult from "../partials/YesQualifiedResult";
 import StyledFormPageLayout from "../styled-components/StyledFormPageLayout";
 import StyledProgressiveFormBox from "../styled-components/StyledProgressiveFormBox";
+import applyQualificationCriteria from "../helpers/apply-qualification-criteria.fn";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -117,57 +118,9 @@ export default function ProfitCalculatorGppForm() {
       .catch(handleApiError);
   };
 
-  const applyQualificationCriteria = (stepName: string) => {
-    const {
-      instagramViewCount,
-      currentMonthlyIncome,
-      minimumIncome,
-      // englishLevel,
-      // averageExpenses,
-      averageHours,
-    }: IFormInput = methods.getValues();
-
-    switch (stepName) {
-      case "instagramViewCount":
-        if (instagramViewCount < 800) {
-          // Pocas Views? No cualifica.
-          return false;
-        }
-        break;
-      case "monthlyIncome":
-        if (minimumIncome > 7 * currentMonthlyIncome) {
-          // Mínimo nivel de ingresos deseado demasiado alto para el nivel de ingresos actuales = EXPECTATIVAS IRREALISTAS.
-          return false;
-        }
-        break;
-      case "averageHours":
-        if (averageHours < 2 || averageHours > 60) {
-          // Dedica muy pocas horas o es muy poco productivo diciendo que dedica muchas.
-          return false;
-        }
-        break;
-      // ! ----- QUALIFICATION STEP IGNORADA temporalmente.
-      // case "averageExpenses":
-      // //   if (averageExpenses > currentMonthlyIncome * 0.7) {
-      // //     // Gastos del negocio demasiado altos!
-      // //     return false;
-      // //   }
-      // //   break;
-      // ! ----- QUALIFICATION STEP IGNORADA temporalmente.
-      // // case "englishLevel":
-      // //   if (englishLevel < 5) {
-      // //     // Nivel de inglés demasiado bajo
-      // //     // return false;
-      // //   }
-      //   break;
-    }
-
-    return true;
-  };
-
   const handleFormStepChange = (stepName: string) => {
     saveFormInfoOnChange(); // async. Non-blocking
-    return applyQualificationCriteria(stepName);
+    return applyQualificationCriteria(stepName, methods.getValues());
   };
 
   const stepHookResult = useStepsHandler(

@@ -17,6 +17,16 @@ const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerS
 // ----
 
 const appConfig = {
+  services: {
+    qualificationCriteria: {
+      gpp: {
+        minInstagramViewsCount: 700,
+        maxCurrentToDesiredIncomeMultiplier: 7,
+        minHoursPerWeek: 5,
+        maxHoursPerWeek: 70,
+      },
+    },
+  },
   storageUrls: {
     vslVideos: "https://launchters-vsl-videos.s3.eu-west-3.amazonaws.com",
   },
