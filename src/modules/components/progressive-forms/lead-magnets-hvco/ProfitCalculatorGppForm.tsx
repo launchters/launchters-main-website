@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import appConfig from "../../../config/app.config";
+import appConfig from "../../../../config/app.config";
+import { $TSFix } from "../../../models/ts-fix.d";
 import {
   AverageExpensesStep,
   AverageHoursStep,
@@ -10,15 +11,15 @@ import {
   InstagramStep,
   InstagramViewCountStep,
   MinimumIncomeStep,
-} from "./Steps";
-import { useStepsHandler } from "./hooks/useStepsHandler";
-import { IFormInput } from "./models/FormInputTypes";
-import FormStep from "./models/FormStep";
-import NoQualifiedResult from "./partials/NoQualifiedResult";
-import SubmittedAlreadyResult from "./partials/SubmittedAlreadyResult";
-import YesQualifiedResult from "./partials/YesQualifiedResult";
-import StyledFormPageLayout from "./styled-components/StyledFormPageLayout";
-import StyledProgressiveFormBox from "./styled-components/StyledProgressiveFormBox";
+} from "../Steps";
+import { useStepsHandler } from "../hooks/useStepsHandler";
+import { IFormInput } from "../models/FormInputTypes";
+import FormStep from "../models/FormStep";
+import NoQualifiedResult from "../partials/NoQualifiedResult";
+import SubmittedAlreadyResult from "../partials/SubmittedAlreadyResult";
+import YesQualifiedResult from "../partials/YesQualifiedResult";
+import StyledFormPageLayout from "../styled-components/StyledFormPageLayout";
+import StyledProgressiveFormBox from "../styled-components/StyledProgressiveFormBox";
 
 const steps: FormStep[] = [
   { title: "Instagram", component: InstagramStep, name: "instagram" },
@@ -51,7 +52,7 @@ const steps: FormStep[] = [
   },
 ];
 
-export default function ProfitCalcGPLeadMagnetForm() {
+export default function ProfitCalculatorGppForm() {
   const formName: string = "gpp-profit-calc";
   const [submittedAlreadyState, setSubmittedAlreadyState] =
     useState<boolean>(false);
@@ -83,78 +84,96 @@ export default function ProfitCalcGPLeadMagnetForm() {
     }
   };
 
+  const handleLeadContactResponse = (data: $TSFix) => {
+    console.log("API Response:", data);
+    // TODO ALEX: Track conversion events with Facebook Events and GAnalytics.
+    // -- -- to 'Contact Extracted - Email'.
+    // -- -- to 'Contact Extracted - Instagram'.
+
+    // Comprobar si el usuario ya estaba registrado en la BBDD. Si no lo está, registrarlo,
+    // si sí lo está, enviarlo a página de "formulario ya enviado anteriormente.".
+    const yaEstabaEnLaBBDD = true;
+    if (yaEstabaEnLaBBDD) {
+      setSubmittedAlreadyState(true);
+      setSubmittedCookie();
+    }
+  };
+
+  const handleApiError = (err: $TSFix) => {
+    console.log(err.message);
+  };
+
+  const saveFormInfoOnChange = () => {
+    // TODO ALEX: Modificar esta request cuando el webhook esté listo, por ahora la url es fake
+    const formData = methods.getValues();
+    const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+    fetch(apiUrl, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      .then(handleLeadContactResponse)
+      .catch(handleApiError);
+  };
+
   const applyQualificationCriteria = (stepName: string) => {
     const {
       instagramViewCount,
       currentMonthlyIncome,
       minimumIncome,
-      averageHours,
       // englishLevel,
-      averageExpenses,
+      // averageExpenses,
+      averageHours,
     }: IFormInput = methods.getValues();
 
-    // eslint-disable-next-line prefer-const
-    let resultadoDeComprobarSiYaHaSidoRegistradoElUsuario = false;
-
     switch (stepName) {
-      case "email":
-        // TODO Enviar una http request para comprobar si el email está ya en nuestra base de datos. y si no lo está guardarlo inmediatamente.
-        // TODO If is already in the database, setAlreadySubmitState to true
-        // TODO ALEX: Track conversion to 'Contact Extracted - Email' with Facebook Events and GAnalytics.
-        if (resultadoDeComprobarSiYaHaSidoRegistradoElUsuario) {
-          setSubmittedAlreadyState(true);
-          setSubmittedCookie();
-        }
-        break;
-      case "instagram":
-        // TODO Enviar una http request para comprobar si el usuario de instagram está ya en nuestra base de datos y si no lo está guardarlo inmediatamente.
-        // TODO If is already in the database, setAlreadySubmitState to true
-        // TODO ALEX: Track conversion to 'Contact Extracted - Instagram' with Facebook Events and GAnalytics.
-        if (resultadoDeComprobarSiYaHaSidoRegistradoElUsuario) {
-          setSubmittedAlreadyState(true);
-          setSubmittedCookie();
-        }
-        break;
       case "instagramViewCount":
-        if (instagramViewCount < 500) {
+        if (instagramViewCount < 800) {
           // Pocas Views? No cualifica.
           return false;
         }
         break;
       case "monthlyIncome":
-        if (currentMonthlyIncome * 5 < minimumIncome) {
-          // ingresos actuales actual demasiado alejados del minimo deseado
+        if (minimumIncome > 7 * currentMonthlyIncome) {
+          // Mínimo nivel de ingresos deseado demasiado alto para el nivel de ingresos actuales = EXPECTATIVAS IRREALISTAS.
           return false;
         }
         break;
       case "averageHours":
-        if (averageHours < 4 || averageHours > 90) {
-          // Dedica muy pocas horas
+        if (averageHours < 2 || averageHours > 60) {
+          // Dedica muy pocas horas o es muy poco productivo diciendo que dedica muchas.
           return false;
         }
         break;
-      case "averageExpenses":
-        if (averageExpenses > currentMonthlyIncome * 0.5) {
-          // gastos del negocio demasiado altos!
-          return false;
-        }
-        break;
-      // ! De momento no aplica
-      // case "englishLevel":
-      //   if (englishLevel < 5) {
-      //     // Nivel de inglés demasiado bajo
-      //     // return false;
-      //   }
+      // ! ----- QUALIFICATION STEP IGNORADA temporalmente.
+      // case "averageExpenses":
+      // //   if (averageExpenses > currentMonthlyIncome * 0.7) {
+      // //     // Gastos del negocio demasiado altos!
+      // //     return false;
+      // //   }
+      // //   break;
+      // ! ----- QUALIFICATION STEP IGNORADA temporalmente.
+      // // case "englishLevel":
+      // //   if (englishLevel < 5) {
+      // //     // Nivel de inglés demasiado bajo
+      // //     // return false;
+      // //   }
       //   break;
     }
 
     return true;
   };
 
+  const handleFormStepChange = (stepName: string) => {
+    saveFormInfoOnChange(); // async. Non-blocking
+    return applyQualificationCriteria(stepName);
+  };
+
   const stepHookResult = useStepsHandler(
     methods,
     steps,
-    applyQualificationCriteria,
+    handleFormStepChange,
     setSubmittedCookie
   );
   const currentStep = stepHookResult.currentStep; // Alias only

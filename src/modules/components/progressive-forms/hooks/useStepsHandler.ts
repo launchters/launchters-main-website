@@ -13,7 +13,14 @@ export const useStepsHandler = (
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [isQualified, setIsQualified] = useState<undefined | boolean>();
 
-  const checkQualificationState = () => {
+  const handleNextStep = async (): Promise<void> => {
+    const currentFieldName = steps[currentStep].name;
+    const isValid = await methods.trigger(currentFieldName as keyof IFormInput);
+
+    if (isValid && currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+
     const qualifies = applyQualificationCriteria(steps[currentStep].name);
 
     if (!qualifies) {
@@ -25,17 +32,6 @@ export const useStepsHandler = (
       setIsQualified(true);
       setSubmittedCookie();
     }
-  };
-
-  const handleNextStep = async (): Promise<void> => {
-    const currentFieldName = steps[currentStep].name;
-    const isValid = await methods.trigger(currentFieldName as keyof IFormInput);
-
-    if (isValid && currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
-
-    checkQualificationState();
   };
 
   const handlePreviousStep = (): void => {

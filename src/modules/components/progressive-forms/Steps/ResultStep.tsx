@@ -3,7 +3,7 @@ import { ReactNode, Suspense } from "react";
 
 type Props = {
   icon: ReactNode;
-  title: string;
+  title: ReactNode;
   videoSrc?: string;
   children: ReactNode | ReactNode[];
   cta: ReactNode;
