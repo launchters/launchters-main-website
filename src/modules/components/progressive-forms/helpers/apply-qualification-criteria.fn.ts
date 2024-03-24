@@ -5,7 +5,7 @@ const applyQualificationCriteria = (
   stepName: string,
   formValues: IFormInput
 ) => {
-  const qualificationCriteria = appConfig.services.qualificationCriteria.gpp;
+  const qualificationCriteria = appConfig.services.gpp.qualificationCriteria;
 
   const {
     instagramViewCount,

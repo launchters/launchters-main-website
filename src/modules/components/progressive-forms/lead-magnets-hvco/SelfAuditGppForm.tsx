@@ -16,17 +16,14 @@ import StyledProgressiveFormBox from "../styled-components/StyledProgressiveForm
 
 type IFormName = keyof typeof appConfig.services.gpp.formSteps;
 
-export default function ProfitCalculatorGppForm() {
-  const formName: IFormName = "gpp-profit-calc";
+export default function SelfAuditGppForm() {
+  const formName: IFormName = "gpp-self-audit";
   const steps: FormStep[] = appConfig.services.gpp.formSteps[formName];
 
   const [submittedAlreadyState, setSubmittedAlreadyState] =
     useState<boolean>(false);
   const methods = useForm<IFormInput>({
-    defaultValues: {
-      averageHours: 0,
-      averageExpenses: 0,
-    },
+    defaultValues: {},
   });
 
   const handleLeadContactResponse = (data: $TSFix) => {
@@ -114,7 +111,7 @@ export default function ProfitCalculatorGppForm() {
         {...{
           submittedAlreadyState,
           methods,
-          steps: steps,
+          steps,
         }}
       >
         <CurrentStepComponent />
