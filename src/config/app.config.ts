@@ -1,4 +1,14 @@
 import { Theme } from "react-hook-consent";
+import {
+  AverageExpensesStep,
+  AverageHoursStep,
+  CurrentMonthlyIncomeStep,
+  EmailStep,
+  EnglishLevelStep,
+  InstagramStep,
+  InstagramViewCountStep,
+  MinimumIncomeStep,
+} from "../modules/components/progressive-forms/Steps";
 import { $TSFix } from "../modules/models/ts-fix.d";
 import theme from "./theme";
 
@@ -17,10 +27,59 @@ const fullOfferSummary = `${offerShort.qty} tus ${offerLong.keyword} en ${offerS
 // ----
 
 const appConfig = {
+  services: {
+    gpp: {
+      qualificationCriteria: {
+        minInstagramViewsCount: 700,
+        maxCurrentToDesiredIncomeMultiplier: 7,
+        minHoursPerWeek: 5,
+        maxHoursPerWeek: 70,
+      },
+      formSteps: {
+        "gpp-self-audit": [
+          { title: "Instagram", component: InstagramStep, name: "instagram" },
+          // TODO: Create the questions to make the self audit
+        ],
+        "gpp-profit-calc": [
+          { title: "Instagram", component: InstagramStep, name: "instagram" },
+          { title: "Email", component: EmailStep, name: "email" },
+          {
+            title: "Instagram Views",
+            component: InstagramViewCountStep,
+            name: "instagramViewCount",
+          },
+          {
+            title: "Minimum Income",
+            component: MinimumIncomeStep,
+            name: "minimumIncome",
+          },
+          {
+            title: "Monthly Income",
+            component: CurrentMonthlyIncomeStep,
+            name: "currentMonthlyIncome",
+          },
+          {
+            title: "Average Hours",
+            component: AverageHoursStep,
+            name: "averageHours",
+          },
+          {
+            title: "Average Expenses",
+            component: AverageExpensesStep,
+            name: "averageExpenses",
+          },
+          {
+            title: "English Level",
+            component: EnglishLevelStep,
+            name: "englishLevel",
+          },
+        ],
+      },
+    },
+  },
   storageUrls: {
     vslVideos: "https://launchters-vsl-videos.s3.eu-west-3.amazonaws.com",
   },
-  enableDevCtaButton: true,
   offerLong,
   offerShort,
   header: { textAlign: "left" as $TSFix },
@@ -52,6 +111,9 @@ const appConfig = {
     variant: "standard" as "standard" | "filled" | "outlined" | undefined,
   },
   cookies: {
+    types: {
+      submittedForms: "submittedForms",
+    },
     theme: "dark" as Theme | undefined,
     customHash: "my-custom-hash", // optional, e.g. when changing the options based on language
     hideSettings: true,

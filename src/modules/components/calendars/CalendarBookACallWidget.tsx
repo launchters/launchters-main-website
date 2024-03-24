@@ -54,7 +54,7 @@ export default function CalendarBookACallWidget() {
   };
 
   return (
-    <Stack>
+    <Stack sx={{ m: "auto" }}>
       <Helmet>
         <script
           type="text/javascript"

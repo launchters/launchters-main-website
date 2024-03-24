@@ -2,18 +2,16 @@ import { useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { IFormInput } from "../models/FormInputTypes";
 import FormStep from "../models/FormStep";
-
-type UseStepsHandlerReturnType = {
-  currentStep: number;
-  handleNextStep: () => void;
-  handlePreviousStep: () => void;
-};
+import UseStepsHandlerReturnType from "../models/useHandlerReturnType";
 
 export const useStepsHandler = (
   methods: UseFormReturn<IFormInput>,
-  steps: FormStep[]
+  steps: FormStep[],
+  applyQualificationCriteria: (stepName: string) => boolean,
+  setSubmittedCookie: () => void
 ): UseStepsHandlerReturnType => {
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [isQualified, setIsQualified] = useState<undefined | boolean>();
 
   const handleNextStep = async (): Promise<void> => {
     const currentFieldName = steps[currentStep].name;
@@ -21,6 +19,18 @@ export const useStepsHandler = (
 
     if (isValid && currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
+    }
+
+    const qualifies = applyQualificationCriteria(steps[currentStep].name);
+
+    if (!qualifies) {
+      setIsQualified(false);
+      setSubmittedCookie();
+    }
+    // Last step, if at this point is not disqualified, then is qualified.
+    else if (currentStep === steps.length - 1) {
+      setIsQualified(true);
+      setSubmittedCookie();
     }
   };
 
@@ -32,6 +42,7 @@ export const useStepsHandler = (
 
   return {
     currentStep,
+    isQualified,
     handleNextStep,
     handlePreviousStep,
   };

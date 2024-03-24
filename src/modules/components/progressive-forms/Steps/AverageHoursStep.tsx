@@ -3,37 +3,32 @@ import { useFormContext } from "react-hook-form";
 import { FormStepLayout } from "../FormStepLayout";
 import { IFormInput } from "../models/FormInputTypes";
 
-export const CurrentMonthlyIncomeStep = () => {
+export const AverageHoursStep = () => {
   const {
     register,
     formState: { errors },
   } = useFormContext<IFormInput>();
-  const name = "monthlyIncome";
+  const name = "averageHours";
 
   return (
     <FormStepLayout
-      title="¿Cuál es tu ingreso mensual actual?"
+      title="¿Cuántas horas promedio dedicas a la semana a tu negocio?"
+      subTitle="Estrategia y Ejecución"
       control={
         <TextField
           {...register(name, {
             required: "Este campo es obligatorio",
-            maxLength: {
-              value: 7,
-              message: "El número no puede ser mayor a 7 dígitos",
-            },
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "Por favor ingresa un número válido",
-            },
+            valueAsNumber: true,
           })}
-          placeholder="Ingreso mensual actual"
           type="number"
           InputProps={{
-            inputProps: { min: 0, step: 1 },
-            startAdornment: <InputAdornment position="start">€</InputAdornment>,
+            inputProps: { min: 0, max: 24, step: 1 },
+            endAdornment: <InputAdornment position="end">h</InputAdornment>,
           }}
+          placeholder="Horas promedio semanales"
           error={!!errors[name]}
           helperText={errors[name]?.message?.toString()}
+          sx={{ width: "170px" }}
         />
       }
     />

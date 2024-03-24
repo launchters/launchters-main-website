@@ -10,8 +10,9 @@ const boxShadow = "0px 2px 3px rgba(0, 0, 0, 0.3)";
 const StyledButton = styled(Button)({
   color: textColor,
   backgroundColor: backgroundColor,
-  margin: "0 5px",
+  margin: "20px 10px 0px 10px",
   boxShadow: boxShadow,
+  padding: "10px 20px",
 
   "&:hover": {
     color: hoverColor,

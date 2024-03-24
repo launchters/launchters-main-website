@@ -6,7 +6,6 @@ import * as React from "react";
 import appConfig from "../../../../../config/app.config";
 import ArrowNextSection from "../../../../components/ArrowNextSection";
 import BackgroundImageWithOverlay from "../../../../components/BackgroundImageWithOverlay";
-import CtaForDevsOnly from "../../../../components/buttons/CtaForDevsOnly";
 
 const ProductHeroLayoutRoot = styled("section")(({ theme }) => ({
   color: theme.palette.common.white,
@@ -42,11 +41,7 @@ export default function ProductHeroLayout({
         alignItems: "center",
       }}
     >
-      {appConfig.enableDevCtaButton ? (
-        <CtaForDevsOnly sx={{ mb: 4 }} />
-      ) : (
-        <ArrowNextSection toId={appConfig.sectionIds.highlights} offset={0} />
-      )}
+      <ArrowNextSection toId={appConfig.sectionIds.highlights} offset={0} />
     </Stack>
   );
 

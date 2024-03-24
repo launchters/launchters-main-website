@@ -78,7 +78,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   1. [x] ¿Cuánto ingresa tu negocio al mes (promedio)?
   1. [x] ¿Cuántas horas promedio dedicas al día a tu negocio (estrategia y ejecución)?
   1. [x] ¿Cuánto gasta tu negocio al mes (gastos operativos promedio)? (gastos que se verían aumentados si recibes nuevos clientes).
-  1. [ ] ¿Cuál es tu nivel de inglés escrito y hablado? ¿Estarías dispuesto/a a tratar directamente con clientes en Inglés?
+  1. [x] ¿Cuál es tu nivel de inglés escrito y hablado? ¿Estarías dispuesto/a a tratar directamente con clientes en Inglés?
   1. [ ] (Checkboxes) ¿Cuáles de los siguientes aspectos has implementado de manera efectiva y estás contento con los resultados actuales?
      - Embudo de ventas efectivo con Lead Magnet
      - Plan de contenidos estratégico y estrategias guionizadas con un objetivo
@@ -95,7 +95,7 @@ Ejecuta las siguientes tareas y márcalas como completadas con [x] cuando vayas 
   - [x] **Sí cualifica**: Página de confirmación con icono de un reloj, diciendo que los resultados serán enviados en las próximas 24-72 horas ya que son generados manualmente.
   - [x] **No cualifica**: Página de confirmación con icono de cara triste y mensaje diciéndole que su perfil actual no cumple con los requisitos necesarios para el programa de 'Growth Partner' todavía, pero que presionando el siguiente botón de confirmación, entrará en lista de espera para un evento online donde le enseñaré a llevar su negocio de coaching desde 0 a 3000€/mes.
 
-- [ ] Diseño. Inspirarse en la imagen de la carpeta `PARA DAVID` o en el formulario del projecto `form-by-steps` como referencia para ver el diseño y el código, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
+- [x] Diseño. Inspirarse en la imagen de la carpeta `PARA DAVID` o en el formulario del projecto `form-by-steps` como referencia para ver el diseño y el código, concretamente la **ruta** que carga el formulario de **AGREGAR STAFF** en `routes.tsx`, el `FormLayout` y el formulario que carga. Nótese como va incrustado como parámetro dentro de un componente algo más genérico llamado `FormLayout` que carga el mismo layout para todos los formularios que se le pasen como un hijo. Aplicar el mismo enfoque a nuestro caso de uso, ya que formularios para lead magnets habrá de distintos tipos en el futuro.
 
 - [x] `#feature/next-step-handler`: Queremos que al pasar al siguiente paso, se llame a una función `handleNextStep`. Esta función puede estar definida de manera independiente para cada paso del formulario (dentro de la configuración de los pasos), o bien, de manera única con una estructura de tipo switch dentro que detecte en qué paso está el usuario cuando la función es llamada.
 
